@@ -1,0 +1,29 @@
+#!/bin/bash
+
+################################
+######Austin Hammond############
+################################
+
+export PATH=$PATH:/gsc/btl/linuxbrew/bin
+
+infile=$1
+
+lib=/projects/spruceup/scratch/interior_spruce/PG29/annotation/repeat-elements/PG29-combined-repeatLib-plusRepBase22.08.fa
+
+nam=$(echo $infile | awk 'BEGIN{FS="/"};{print $NF}')
+
+mkdir -p ${nam}-rm-out
+
+/usr/bin/time -p -o ${nam}-rm-out/${nam}.rm.time RepeatMasker -lib $lib \
+	-dir ${nam}-rm-out \
+	-pa 23 \
+	-engine ncbi \
+	-noisy \
+	-frag 10000000 \
+	-lcambig \
+	-gccalc \
+	-xsmall \
+	-poly \
+	-gff \
+	-excln \
+	$infile

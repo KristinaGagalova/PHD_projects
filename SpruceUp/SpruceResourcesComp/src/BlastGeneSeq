@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+########################################
+#########Kristina Gagalova##############
+############Apr 13 2017#################
+########################################
+
+# Description: given a fasta file with gene sequences, blast Reference transcriptome against
+# BLAST documentation: https://www.ncbi.nlm.nih.gov/books/NBK279675/
+
+#############################################################
+#------------------------------------------------------------
+#blast program version
+BLAST=/home/shammond/src/ncbi-blast-2.2.31+/bin
+
+#seq and seed file that need to be blasted
+SEQ=/projects/spruceup/pglauca/WS77111/assemblies/kollector/target-sequences/evaluation/alignments/usr/kgagalova/SameSeq/cdhit-output-4kristina/cdhit-output-4.fa
+SEED=/projects/btl/kgagalova/PHD_projects/SpruceUp/SpruceResourcesComp/data/SpruceGenesFasta/P450.fa
+
+#out names
+BASE_OUT=/projects/spruceup/pglauca/WS77111/assemblies/kollector/BlastKnownGenes/P450
+OUT_DB=P450
+BLAST_OUT=$OUT_DB.allvsseed.tsv
+
+##############################################################
+#     Program here
+##############################################################
+
+#-------------------------------------------------------------
+#create DB: SEED
+#-------------------------------------------------------------
+mkdir -p $BASE_OUT
+cd $BASE_OUT
+$BLAST/makeblastdb -in $SEED -dbtype nucl -out $OUT_DB
+
+#-------------------------------------------------------------
+#blast SEQ sequences with BLASTN
+#-------------------------------------------------------------
+
+$BLAST/blastn -db $OUT_DB -query $SEQ -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovs qcovhsp' -out seq.${BLAST_OUT} -num_threads 4
+awk '$3 > 90 && $13 > 90' seq.${BLAST_OUT} > out.seq.${BLAST_OUT}
+
+rm *.nhr *.nin *.nsq

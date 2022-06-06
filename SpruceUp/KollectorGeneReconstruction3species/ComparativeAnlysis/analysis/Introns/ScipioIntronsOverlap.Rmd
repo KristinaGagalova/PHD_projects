@@ -1,0 +1,95 @@
+---
+title: "Scipio - introns number"
+output: github_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load data
+
+```{r load_introns}
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+library( reshape2 )
+
+allFiles <- c("/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/WS77111/Scipio/IntronsWSGCAT.out","/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/WS77111/Scipio/IntronsWSHCG.out","/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/PG29/Scipio/IntronsPG29HCG.out","/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/PG29/Scipio/IntronsPG29GCAT.out","/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/Q903/Scipio/IntronsQ903GCAT.out","/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/Q903/Scipio/IntronsQ903HCG.out")
+
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = F );
+  d$fileName <- fn;
+  d
+  } );
+
+d <- bind_rows( l );
+dim(d)
+d$species = sapply(strsplit(d$fileName,"/"),"[[",7)
+d$bin = gsub(".out|IntronsWS|IntronsPG29|IntronsQ903", "", sapply(strsplit(d$fileName,"/"),"[[",9))
+colnames(d)[1:2] = c("target","n_introns")
+
+#remove duplicated alignments
+d1 = d[!grepl('\\(1\\)',d$target),]
+#808 total removed
+
+d1_Nintrons = dcast(d1[,c("target","n_introns","species")],target ~ species,  value.var="n_introns")
+d1_NintronsComplete = d1_Nintrons[complete.cases(d1_Nintrons), ]
+```
+
+## Plots - different number of introns
+
+```{r n_introns}
+#density plot number of introns
+d1_NintronsComplete_m = melt(d1_NintronsComplete,id="target")
+colnames(d1_NintronsComplete_m) = c("target","species","n_introns")
+ggplot(data=d1_NintronsComplete_m, aes(x=n_introns, fill=species)) +
+  geom_bar(position=position_dodge())
+#zoomed region
+ggplot(data=d1_NintronsComplete_m, aes(x=n_introns, fill=species)) +
+  geom_bar(position=position_dodge()) + 
+  coord_cartesian(xlim = c(10, 40),ylim = c(0, 100))
+
+
+#get different number of introns
+d1_diffIntr = d1_NintronsComplete[apply(d1_NintronsComplete[,c("PG29","WS77111","Q903")],1,function(vector) length(unique(vector)) > 1),]
+#--------------------------------------------------------------------
+#test similarity targets
+sum(d1_diffIntr$PG29 == d1_diffIntr$WS77111)
+sum(d1_diffIntr$PG29 == d1_diffIntr$Q903)
+sum(d1_diffIntr$WS77111 == d1_diffIntr$Q903)
+#test more or less introns (just see how many have more or less, do not cosider the degree of difference)
+diffPG29_WS = d1_diffIntr$PG29 - d1_diffIntr$WS77111
+length(diffPG29_WS[ diffPG29_WS != 0 ])
+sum(ifelse(diffPG29_WS[ diffPG29_WS != 0 ] < 0, -1, 1))
+
+diffPG29_Q903 = d1_diffIntr$PG29 - d1_diffIntr$Q903
+length(diffPG29_WS[ diffPG29_Q903 != 0 ])
+sum(ifelse(diffPG29_Q903[ diffPG29_Q903 != 0 ] < 0, -1, 1))
+
+diffWS_Q903 = d1_diffIntr$WS77111 - d1_diffIntr$Q903
+length(diffWS_Q903[ diffWS_Q903 != 0 ])
+sum(ifelse(diffWS_Q903[ diffWS_Q903 != 0 ] < 0, -1, 1))
+
+#---------------------------------------------------------------------
+d1_diffIntr_m =melt(d1_diffIntr,id="target")
+colnames(d1_diffIntr_m) = c("target","species","n_introns")
+#plot differece between intron numbers
+ggplot(d1_diffIntr_m, aes(x=target, y=n_introns, group=species)) +
+  geom_line(aes(color=species), size=2, alpha=0.4)+
+  geom_point(aes(color=species))
+
+#this is the case with extreme values
+subset(d1_diffIntr,d1_diffIntr$WS77111 > 30)
+```
+
+## Summary
+
+- The number of interesting cases with different number of introns with at least 2 species is 1285
+- This is how similar the 3 species look like: WS is more similar to Q903, followed by PG29 to WS and the least similar are PG29 to Q903
+- PG29 has a higher number of introns when compared to Q903, same for WS when compared to Q903. PG29 has however a lower number of introns than WS77111
+
+

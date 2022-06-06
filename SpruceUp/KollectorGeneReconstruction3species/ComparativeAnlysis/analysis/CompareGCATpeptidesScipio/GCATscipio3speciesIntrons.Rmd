@@ -1,0 +1,123 @@
+---
+title: "Comparative analysis for introns GCAT"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the dataset
+
+For all the species together
+
+```{r load_data}
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+library(plyr)
+
+
+dataPath=c("/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/PG29/Scipio2/PeptidesGCAT/ParsedYaml", "/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/Q903/Scipio2/PeptidesGCAT/ParsedYaml","/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/WS77111/Scipio2/PeptidesGCAT/ParsedYaml")
+
+allFiles <- list.files( path = dataPath, pattern = ".out", full.names = TRUE )
+
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = T, sep="\t" )
+  d
+  } );
+
+allGCAT <- bind_rows( l );
+
+dim(allGCAT)
+
+allGCAT$species = sapply(strsplit(allGCAT$bin,"_"), "[[", 2)
+table(sapply(strsplit(allGCAT$bin,"_"), "[[", 2))
+```
+
+## Plots
+
+Significant scores
+
+```{r get_intron_numb}
+#allGCATgen = allGCAT[,c(1:12,27)]
+#allGCATgen = allGCATgen[!duplicated(allGCATgen), ]
+allGCATScore = subset(allGCAT, allGCAT$score >= 0.9)
+allGCATScoreStatusOK = subset(allGCATScore, allGCATScore$status == "auto" | allGCATScore$reason == "mismatches")
+#drop the unused elements
+allGCATScoreStatusOK$type = droplevels(allGCATScoreStatusOK)$type
+```
+
+## Get the number of reconstructed targets in the 3 species
+```{r plots_scipio_introns}
+overlap =reshape(as.data.frame(table(allGCATScoreStatusOK[,c("target","species")])),idvar = "target", timevar="species" , direction = "wide" )
+head(overlap)
+overlap1 = overlap[,c(2:4)]
+dim(overlap)
+length(which(apply(overlap1 == 0, 1, sum) == 0))
+
+#see how many have gaps in the seq sequences
+#allGCATScoreNoGaps = allGCATScoreStatusOK[!grepl("n",allGCATScoreStatusOK$seq),]
+overlapStatusOK = reshape(as.data.frame(table(allGCATScoreStatusOK[,c("target","species")])),idvar = "target", timevar="species" , direction = "wide" )
+head(overlapStatusOK)
+overlapStatusOK1 = overlapStatusOK[,c(2:4)]
+dim(overlapStatusOK1)
+#lost 2 targets removed because gaps
+length(which(apply(overlapStatusOK1 == 0, 1, sum) == 0))
+commonTargets = as.character(overlapStatusOK[which(apply(overlapStatusOK1 == 0, 1, sum) == 0),]$target)
+
+#count introns per spices
+exons = subset(allGCATScoreStatusOK,allGCATScoreStatusOK$type=="exon" & allGCATScoreStatusOK$target %in% commonTargets)
+
+#check the id per target
+exons1 = exons[,c("id","target","species")]
+exons1 = exons1[!duplicated(exons1),]
+#exons1$id = as.character(exons1$id)
+freq_targets = as.data.frame(table(exons1[,c("target","species")]))
+length(which(freq_targets$Freq > 1))
+
+#since some targets are reconstructed in several bins and most of them have identical score, select the ones that are assembled earlier
+exons$iter = sapply(strsplit(as.character(exons$bin),"\\."),"[[",2)
+exons$extra = grepl("xtra",exons$bin) 
+exons[which(exons$iter == "1" & exons$extra == T), "iter"] = "6" 
+exons[which(exons$iter == "2" & exons$extra == T), "iter"] = "7"
+exons$iter = as.numeric(exons$iter)
+tmp = as.data.frame(exons %>% group_by(species, target) %>% slice(which.min(iter)))
+
+idsToKeep = as.character(paste(tmp$id,tmp$species,sep="_"))
+exons$combIds = as.character(paste(exons$id,exons$species,sep="_"))
+exonsPol = exons[exons$combId %in% idsToKeep,]
+
+#tested with frequency, no duplicates anymore
+test = as.data.frame(table(exonsPol[,c("target","species")]))
+test = test[!duplicated(test),]
+which(as.data.frame(table(test[,c("target","species")]))$Freq > 1)
+```
+
+## Count the number of exons per target in each species
+
+```{r count_exons}
+countExons = reshape(count(exonsPol, c('id','bin','species','target')),idvar = c("target"), timevar="species" , direction = "wide" )
+colnames(countExons) = gsub("freq.","",colnames(countExons))
+colnames(countExons)
+row.names(countExons) = NULL
+countExons = countExons[,c("target","WS", "PG29", "Q903", "id.WS","id.PG29","id.Q903","bin.WS","bin.PG29","bin.Q903")]
+#get the difeerent
+countExonsDiff = countExons[apply(countExons[,c(2,3,4)],1,function(x) length(unique(x)) >1),]
+
+#plot the diferences
+countExonsDiffMelt = melt(countExonsDiff[,c(1:4)],id.var="target")
+ggplot(countExonsDiffMelt, aes(x = variable, y = value, colour=target)) +
+  #geom_jitter(aes(variable,value),
+   #position=position_jitter(width=0.4,height=0),
+   #alpha=0.4,
+   #size=3) +
+  geom_point(aes(fill=target), 
+       colour="black",pch=21, size=5) + 
+  geom_point(size=4, alpha=0.1) +
+  geom_line(aes(group = target,colour=target, size=2, alpha=0.1)) + 
+  theme(legend.position="none")
+```
+

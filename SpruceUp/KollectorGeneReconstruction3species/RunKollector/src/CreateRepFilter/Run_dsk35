@@ -1,0 +1,22 @@
+#!/bin/bash
+set -eu -o pipefail
+
+##################################
+######Hamid Mohamadi##############
+##################################
+
+#Run DSK on a list of files
+
+k=35
+input=/projects/spruceup/pglauca/WS77111/assemblies/kollector/trial_kristina/RepeatFilter/DSK/HiseqWS77111/All_pe.in
+temp_dir=dsk_tmp
+
+echo "start time: "
+date;
+mkdir -p res-k$k
+cd res-k$k
+mkdir -p $temp_dir
+/usr/bin/time -v dsk -nb-cores 12 -kmer-size $k -abundance-min 2 -max-memory 10000 -file $input -out output35 -out-tmp $temp_dir
+dsk2ascii -file output35.h5 -out dsk_$k.txt
+echo "End time: "
+date;

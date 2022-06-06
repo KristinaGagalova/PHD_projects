@@ -1,0 +1,121 @@
+---
+title: "Repeats in WS77111 - genome annotation"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the data
+
+```{r data_load}
+rep_ws <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/GenomeAnnotation/WS77111/data/RepeatMasking/WS77111-v2_all.masked", header=FALSE)
+nams = c("contig","len","reps","gaps")
+colnames(rep_ws) = nams
+```
+
+## Plot repeats and gaps
+
+```{r repeats_gaps_general}
+library(ggplot2)
+p <- ggplot(rep_ws, aes(len, reps))
+p + geom_point(aes(color = gaps))
+
+#zoomed region
+p <- ggplot(rep_ws, aes(len, reps))
+p + geom_point(aes(color = gaps)) + scale_x_continuous(limits = c(0, 1000000)) + scale_y_continuous(limits = c(0, 500000))
+```
+
+## Ratio repeats or Ns
+
+```{r repeats_gaps_ratio }
+rep_ws$ratio_reps = round(rep_ws$reps / rep_ws$len, 3)
+rep_ws$ratio_gaps = round(rep_ws$gaps / rep_ws$len, 3)
+
+summary(rep_ws$ratio_reps)
+
+# Box plot with dot plot
+ggplot(rep_ws, aes(x=1,y=ratio_reps)) + 
+  geom_violin() + 
+  xlab(" ") +
+  ylab("Repeats ratio (n_rep/len)") +
+  theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(), 
+          axis.text.x = element_blank(), axis.ticks=element_blank(),
+          axis.text.y = element_text(face='bold',size=10,color='black'))
+
+################################################################################################
+#check how many targets have 100% ratio 
+total_repeats = subset(rep_ws,rep_ws$ratio_reps == 1)[c("contig","len")]
+nrow(total_repeats)
+
+summary(total_repeats$len)
+ggplot(total_repeats, aes(1,y=len)) + 
+  geom_violin() + 
+  xlab(" ") +
+  ylab("Repeats ratio (n_rep/len)") +
+  theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(), 
+          axis.text.x = element_blank(), axis.ticks=element_blank(),
+          axis.text.y = element_text(face='bold',size=10,color='black'))
+
+################################################################################################
+#check how many targets have 95% ratio 
+total_repeats095 = subset(rep_ws,rep_ws$ratio_reps >= 0.95)[c("contig","len")]
+nrow(total_repeats095)
+
+summary(total_repeats095$len)
+
+ggplot(total_repeats095, aes(1,y=len)) + 
+  geom_violin() + 
+  xlab(" ") +
+  ylab("Repeats ratio (n_rep/len)") +
+  theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(), 
+          axis.text.x = element_blank(), axis.ticks=element_blank(),
+          axis.text.y = element_text(face='bold',size=10,color='black'))
+
+################################################################################################
+#check how many targets have 90% ratio 
+total_repeats09 = subset(rep_ws,rep_ws$ratio_reps >= 0.9)[c("contig","len")]
+nrow(total_repeats09)
+
+summary(total_repeats09$len)
+ggplot(total_repeats09, aes(1,y=len)) + 
+  geom_violin() + 
+  xlab(" ") +
+  ylab("Repeats ratio (n_rep/len)") +
+  theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(), 
+          axis.text.x = element_blank(), axis.ticks=element_blank(),
+          axis.text.y = element_text(face='bold',size=10,color='black'))
+```
+
+```{r final_data_set}
+toKeep090 = subset(rep_ws,rep_ws$ratio_reps < 0.90 & rep_ws$len >= 70000)
+nrow(toKeep090)
+toKeep090_2 = subset(rep_ws,rep_ws$ratio_reps < 0.90 & rep_ws$len >= 35000)
+nrow(toKeep090_2)
+#----------------------------------------------------------------------------
+toKeep095 = subset(rep_ws,rep_ws$ratio_reps < 0.95 & rep_ws$len >= 140000)
+nrow(toKeep095)
+toKeep095_1 = subset(rep_ws,rep_ws$ratio_reps < 0.95 & rep_ws$len >= 70000)
+nrow(toKeep095_1)
+toKeep095_3 = subset(rep_ws,rep_ws$ratio_reps < 0.95 & rep_ws$len >= 60000)
+nrow(toKeep095_3)
+toKeep095_4 = subset(rep_ws,rep_ws$ratio_reps < 0.95 & rep_ws$len >= 50000)
+nrow(toKeep095_4)
+toKeep095_5 = subset(rep_ws,rep_ws$ratio_reps < 0.95 & rep_ws$len >= 40000)
+nrow(toKeep095_5)
+toKeep095_6 = subset(rep_ws,rep_ws$ratio_reps < 0.95 & rep_ws$len >= 30000)
+nrow(toKeep095_6)
+toKeep095_7 = subset(rep_ws,rep_ws$ratio_reps < 0.95 & rep_ws$len >= 20000)
+nrow(toKeep095_7)
+```
+```{r write_data}
+setwd("/projects/btl/kgagalova/PHD_projects2/SpruceUp/GenomeAnnotation/WS77111/data/RepeatMasking")
+write.table(rep_ws,"WS77111-v2_all.stats",quote=F,row.names=F,col.names=T)
+```
+

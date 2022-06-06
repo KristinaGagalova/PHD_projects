@@ -1,0 +1,49 @@
+---
+title: "Five - three prime regions GCAT vs Maker, selected polished targets"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Data sets
+
+Polished and validated targets from GCAT and Maker. This has been done using ORFfinder and removing the targets with nested ORFs.
+
+## Upload data
+
+```{r utr_regions_load}
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+library(plyr)
+library(splitstackshape)
+
+dataPath=c("/projects/btl/kgagalova/PHD_projects2/SpruceUp/KollectorGeneReconstruction3species/ComparativeAnlysis/data/FiveThreePrimeRegions")
+
+allFiles <- list.files( path = dataPath, pattern = ".txt", full.names = TRUE )
+
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = F)
+  d$fileName <- fn;
+  d
+  } );
+
+all_utr <- bind_rows( l );
+colnames(all_utr) = c("target","peptide","start","stop","strand","tot_len","fileNam")
+
+all_utr$type = sapply(strsplit(allGMAPm$fileName,"/"),"[[",11)
+```
+
+## Add the length of the 5 and 3 prime UTR
+
+```{r all_utrLen}
+
+all_utr$right = all_utr$tot_len - all_utr$stop 
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

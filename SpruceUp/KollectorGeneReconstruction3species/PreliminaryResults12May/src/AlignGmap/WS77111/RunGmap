@@ -1,0 +1,20 @@
+#!/bin/bash
+
+################################
+######Kristina Gagalova#########
+################################
+##########8 May#################
+################################
+
+#Description: for a given list of seed and reconstructed genes, output GMAP alignment in gff format
+
+
+CONTIGS=list_contigs.in
+PATH_SEEDS=/extscratch/btl/kgagalova/EasterRun/seed_1000nospaces
+
+while read contig
+do
+bin=$(echo $contig | cut -d/ -f6)
+iteration=$(echo $contig | cut -d/ -f7)
+qsub AlignGmap.sh $PATH_SEEDS/$bin.fasta $contig $bin.$iteration
+done < $CONTIGS

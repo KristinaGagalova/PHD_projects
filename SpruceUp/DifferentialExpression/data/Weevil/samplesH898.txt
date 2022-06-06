@@ -1,0 +1,8 @@
+H898C1	Control
+H898C2	Control
+H898C3	Control
+H898C4	Control
+H898G1	Gallery
+H898G2	Gallery
+H898G3	Gallery
+H898G4	Gallery

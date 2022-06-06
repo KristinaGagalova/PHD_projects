@@ -1,0 +1,10 @@
+#!/bin/bash
+
+fastq_list=/extscratch/spruceup/interior_spruce/PG29/data/reads/TrimmesFastq/trimmedReads_all.in
+
+while read fastq
+do
+fq1=$(cat $fastq | cut -d" " -f1)
+fq2=$(cat $fastq | cut -d" " -f2)
+qsub ./RunPolish.sh $fq1 $fq2 
+done < $fastq_list

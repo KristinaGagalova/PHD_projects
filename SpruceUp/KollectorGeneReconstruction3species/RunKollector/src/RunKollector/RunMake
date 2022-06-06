@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#$ -S /bin/bash
+#$ -N KollectorWS77111
+#$ -q all.q,mpi.q
+#$ -pe ncpus 12
+#$ -l mem_token=3.8G,mem_free=3.8G,h_vmem=3.8G,excl=true
+#$ -R y
+#$ -j y
+
+#add here the path to software
+PATH+=:/home/kgagalova/bin/biobloom_develop2/bin
+PATH+=:/home/kgagalova/src/kollector_develop
+PATH+=:/home/shammond/src/abyss-2.0.1-build/k256/bin
+PATH+=:/usr/mpi/gcc/openmpi-1.4.1/bin
+PATH+=:~/.linuxbrew/bin
+
+make

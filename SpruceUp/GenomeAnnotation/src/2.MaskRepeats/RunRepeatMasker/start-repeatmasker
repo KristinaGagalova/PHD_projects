@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# file of files
+infile=/projects/spruceup_scratch/interior_spruce/PG29/annotation/genome-annotation/PG29v5/Maker/Step0annoatation/PreRepeatsMasking/Batches2/list_fasta1.in
+
+#while read line; do
+#    ./run-repeatmasker $line &
+#    sleep 1
+#done < $infile
+
+while read line; do
+    echo "sbatch sbatch-repeatmasker $line"
+    nohup bash ./nohup-repeatmasker $line&
+    sleep 1
+done < $infile

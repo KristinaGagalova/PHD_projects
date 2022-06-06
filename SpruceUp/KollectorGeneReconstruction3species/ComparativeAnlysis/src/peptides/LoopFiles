@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+#create batches to run the orffinder
+
+list_nams=/projects/btl_scratch/kgagalova/TargetSetKollector/cdhit-4/Peptides/PeptidesMaker/Makercdhit_nams
+split -l 1000  $list_nams
+
+find `pwd` -name "xa*" > list_files.in
+
+for fasta in `cat list_files.in`
+do
+	nam=$(echo $fasta | rev | cut -d/ -f1 | rev )
+	mkdir -p ${nam}_dir && cd ${nam}_dir
+	cp -p ../RunORFfinderTEMPLATE RunORFfinder${nam} && cp -p ../${nam} ./
+	sed -i -e "s#_RePlAcE_#${fasta}#g" RunORFfinder${nam}
+	nohup bash ./RunORFfinder${nam}&
+	cd ..
+done

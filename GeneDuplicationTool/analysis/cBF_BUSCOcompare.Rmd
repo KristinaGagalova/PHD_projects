@@ -1,0 +1,156 @@
+---
+title: "CountingBF slideBUSCO"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the datasets
+The datasets refer to WS, switching between unmasked and repeats masked genome.
+
+```{r loading}
+library(reshape2)
+
+WS_b_maskedAll <- read.table("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/miBF/BUSCOsGeneFamilies/WS77111/TestRunBUSCOsAll_masked.out", quote="\"", comment.char="")
+
+#WS_b_maskedUniq <- read.table("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/miBF/BUSCOsGeneFamilies/WS77111/TestRunBUSCOsUnique_masked.out", quote="\"", comment.char="")
+
+colnames(WS_b_maskedAll) = c("index","min","q1","med","q3","max","mean","sd","fdr")
+#colnames(WS_b_maskedUniq) = c("index","min","q1","med","q3","max","mean","sd")
+
+WS_b_maskedAllMelt = melt(WS_b_maskedAll[,c("index","med","mean")])
+#WS_b_maskedUniqMelt = melt(WS_b_maskedUniq[,c("index","med","mean")])
+```
+
+* Compare unique and all kmers
+* Compare median and mean
+
+```{r check_uniqMedMean}
+library(ggplot2)
+
+####All kmers
+ggplot(WS_b_maskedAllMelt, aes(x=variable, y=value)) + 
+  geom_violin(colour="red") + labs(title = "All kmers") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(WS_b_maskedAllMelt, aes(x=variable, y=value)) + 
+  geom_violin(colour="red") + 
+  coord_cartesian(ylim=c(0,10)) + labs(title = "All kmers") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+####Unique kmers
+#ggplot(WS_b_maskedUniqMelt, aes(x=variable, y=value)) + 
+#  geom_violin(colour="blue") + labs(title = "Uniq kmers") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+#ggplot(WS_b_maskedUniqMelt, aes(x=variable, y=value)) + 
+#  geom_violin(colour="blue") + 
+#  coord_cartesian(ylim=c(0,10)) + labs(title = "Uniq kmers") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+
+#summary comparison
+summary(WS_b_maskedAll$med)
+#summary(WS_b_maskedUniq$med)
+
+summary(WS_b_maskedAll$mean)
+#summary(WS_b_maskedUniq$mean)
+
+#see deviance, masked vs raw
+#plot(WS_b_maskedAll$med,WS_b_maskedUniq$med)
+#WS_b_maskedAll[WS_b_maskedAll$med != WS_b_maskedUniq$med,]
+#WS_b_maskedUniq[WS_b_maskedAll$med != WS_b_maskedUniq$med,]
+
+#see deviance, masked vs raw
+plot(WS_b_maskedAll$med,WS_b_maskedAll$mean)
+```
+
+## Compare masked vs unmasked gene sequences, in uniq kmers only
+
+```{r check_MaskedUnmasked}
+
+#WS_b_rawUniq <- read.table("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/miBF/BUSCOsGeneFamilies/WS77111/TestRunBUSCOs2Uniq_unmasked.out", quote="\"", comment.char="")
+
+WS_b_rawAll <- read.table("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/miBF/BUSCOsGeneFamilies/WS77111/TestRunBUSCOsAll_unmasked.out", quote="\"", comment.char="")
+
+#colnames(WS_b_rawUniq) = c("index","min","q1","med","q3","max","mean","sd")
+#WS_b_rawUniqMelt = melt(WS_b_rawUniq[,c("index","med","mean")])
+
+colnames(WS_b_rawAll) = c("index","min","q1","med","q3","max","mean","sd","fdr")
+WS_b_rawAllMelt = melt(WS_b_rawAll[,c("index","med","mean")])
+
+###plot median
+ggplot(WS_b_rawAllMelt, aes(x=variable, y=value)) + 
+  geom_violin(colour="green") + labs(title = "Unmasked all kmers") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+ggplot(WS_b_rawAllMelt, aes(x=variable, y=value)) + 
+  geom_violin(colour="green") + labs(title = "Unmasked all kmers") + geom_jitter(shape=16, position=position_jitter(0.2)) + coord_cartesian(ylim=c(0,10))
+
+#ggplot(WS_b_rawUniqMelt, aes(x=variable, y=value)) + 
+#  geom_violin(colour="green") + labs(title = "Unmasked uniq kmers") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+#ggplot(WS_b_rawUniqMelt, aes(x=variable, y=value)) + 
+#  geom_violin(colour="green") + labs(title = "Unmasked uniq kmers") + coord_cartesian(ylim=c(0,10)) + geom_jitter(shape=16, #position=position_jitter(0.2))
+
+###compare masked vs unmasked MEDIAN
+
+df_med = as.data.frame(cbind(WS_b_rawAll$med,WS_b_maskedAll$med))
+colnames(df_med) = c("raw_seq","masked_seq")
+df_medMelt = melt(df_med)
+
+ggplot(df_medMelt, aes(x=variable, y=value)) + 
+  geom_violin(colour="green") + labs(title = "raw sequence vs masked sequence - median") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+summary(WS_b_rawAll$med)
+summary(WS_b_maskedAll$med)
+
+###compare masked vs unmasked MEAN
+
+df_m = as.data.frame(cbind(WS_b_rawAll$mean,WS_b_maskedAll$mean))
+colnames(df_m) = c("raw_seq","masked_seq")
+df_mMelt = melt(df_m)
+
+ggplot(df_mMelt, aes(x=variable, y=value)) + 
+  geom_violin(colour="green") + labs(title = "raw sequence vs masked sequence - mean") + geom_jitter(shape=16, position=position_jitter(0.2))
+
+summary(WS_b_rawAll$mean)
+summary(WS_b_maskedAll$mean)
+```
+
+## Compare BUSCO vs gene families, uniq kmers
+
+Compare the maksked vs the unmasked genome version
+
+```{r BUSCOvsGF}
+
+WS_g_maskedAll = read.table("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/miBF/WS77111geneFamilies/TestRunJune/TestRunGenesAll_masked.out", quote="\"", comment.char="")
+
+WS_g_unmaskedAll = read.table("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/miBF/WS77111geneFamilies/TestRunJune/TestRunGenesAll_unmasked.out", quote="\"", comment.char="")
+  
+colnames(WS_g_maskedAll) = c("index","min","q1","med","q3","max","mean","sd","fdr")
+colnames(WS_g_unmaskedAll) = c("index","min","q1","med","q3","max","mean","sd","fdr")
+
+WS_g_maskedAllMelt = melt(WS_g_maskedAll[,c("index","med","mean")])
+WS_g_unmaskedAllMelt = melt(WS_g_unmaskedAll[,c("index","med","mean")])
+
+#bind the table together for final plot
+
+WS_g_maskedAllMelt$class = rep("Genes_masked",nrow(WS_g_maskedAllMelt))
+WS_g_unmaskedAllMelt$class = rep("Genes_raw",nrow(WS_g_unmaskedAllMelt))
+
+WS_b_maskedAllMelt$class = rep("BUSCO_masked",nrow(WS_b_maskedAllMelt))
+WS_b_rawAllMelt$class= rep("BUSCO_raw",nrow(WS_b_rawAllMelt))
+
+B_vs_G = rbind(WS_g_maskedAllMelt,WS_g_unmaskedAllMelt,WS_b_maskedAllMelt,WS_b_rawAllMelt)
+
+B_vs_Gmed = subset(B_vs_G,B_vs_G$variable == "med")
+
+ggplot(B_vs_Gmed, aes(x=variable, y=value,fill=class)) + geom_violin() + labs(title = "Genes vs BUSCOs - med") + coord_cartesian(ylim=c(0,10)) #+ geom_jitter(shape=16, position=position_jitter(0.2))
+
+summary(WS_g_maskedAll$med)
+summary(WS_b_maskedAll$med)
+
+summary(WS_g_unmaskedAll$med)
+summary(WS_b_rawAll$med)
+```
+
+

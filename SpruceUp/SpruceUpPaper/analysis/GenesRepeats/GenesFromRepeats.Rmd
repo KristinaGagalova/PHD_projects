@@ -1,0 +1,66 @@
+---
+title: "Check repeats distance from genes"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the file with the intervals
+
+```{r load_data}
+KbpHQDist <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GenesRepeats/WS77111/WS77111-v2_1000plus_allAnnotated.DistHQPolish1Kbp.out", header=FALSE)
+
+colnames(KbpHQDist) = c("scaffold","gene","repeat","rep_class","distance")
+
+#number of genes that are not found on scaffold with repeats
+nrow(subset(KbpHQDist,rep_class == "."))
+
+KbpHQDistPolish = subset(KbpHQDist,rep_class != ".")
+
+#summary(KbpHQDistPolish[,c("rep_class","gene")])
+
+KbpRepClasNum = KbpHQDistPolish %>% 
+  group_by(gene,rep_class) %>%
+  summarise(no_rows = length(distance))
+
+genesCountsForUniq = apply(table(KbpRepClasNum$gene,KbpRepClasNum$rep_class),2, sum)
+genesCountsForUniq1 = genesCountsForUniq[2:9]
+
+genesCountsForUniq1
+
+df_KbpHQDistPolishGeneOverlap = as.data.frame(table(as.character(subset(KbpHQDistPolish, distance == 0)$rep_class)))
+
+#check type of repeats and number
+#table(KbpHQDistPolishGeneOverlap[,c("rep_class","gene","distance")])
+```
+
+## Plot distance
+
+```{r distanceFromGene1Kbp}
+library(dplyr)
+library(ggplot2)
+
+ggplot(data = KbpHQDistPolish, aes(x=distance)) + geom_density(alpha = 0.4) + facet_wrap( ~ rep_class)
+
+ggplot(data = KbpHQDistPolish, aes(x=distance)) + geom_histogram(alpha = 0.4) + facet_wrap( ~ rep_class)
+
+KbpHQDistPolish %>% 
+  group_by(rep_class) %>% 
+  summarize(mean = mean(distance),
+            med = median(distance),
+            mad = mad(distance))
+
+#no overlap
+KbpHQDistPolishNoOver =  subset(KbpHQDistPolish, distance != 0)
+
+ggplot(data = KbpHQDistPolishNoOver, aes(x=distance)) + geom_density(alpha = 0.4) + facet_wrap( ~ rep_class)
+
+ggplot(data = KbpHQDistPolishNoOver, aes(x=distance)) + geom_histogram(alpha = 0.4) + facet_wrap( ~ rep_class)
+
+ggplot(data=df_KbpHQDistPolishGeneOverlap, aes(x=Var1, y=Freq)) +
+  geom_bar(stat="identity")
+```
+

@@ -1,0 +1,147 @@
+---
+title: "Kollector targets aligned to PG29 assembly"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## PG29v4
+
+**BWA mem** align assembled genes to genome assembly, use `-x intractg`  -B9 -O16 -L5  (intra-species contigs to ref)
+
+Plot values from sam alignment:
+
+```{r }
+library(ggplot2)
+library(dplyr)
+library(Rsamtools)
+
+samPG29 <- read.table("/projects/btl/kgagalova/PHD_projects/SpruceUp/KollectorGeneReconstruction3species/ComparativeAnlysis/data/PG29/ParsedSamv4.txt", quote="\"")
+nams = c("qname","flag","rname","pos","mapq","cigar","md","nm")
+colnames(samPG29) = nams
+samPG29$flag = as.factor(samPG29$flag)
+#primary alignments
+samPG29prim=subset(samPG29,samPG29$flag == 16 | samPG29$flag == 0 )
+samPG29prim$qname = as.character(samPG29prim$qname)
+head(samPG29prim)
+```
+
+## General statistics
+
+```{r stats}
+#alignment
+table(samPG29$flag)
+#alignment quality - Phred score is not available
+# The calculation is based on the number of optimal (best) alignments found, as well as the number of sub-optimal #alignments combined with the Phred scores of the bases which differ between the optimal and sub-optimal alignments
+
+
+#excllude the 16 flag
+samPG29allmapped = subset(samPG29,samPG29$flag != 4)
+samPG29allmapped$flag= droplevels(samPG29allmapped$flag)
+#levels(samPG29allmapped$flag)<-c(0,16,2048,2064)
+
+#all alignments, color by flag
+ggplot(samPG29allmapped, aes(x=mapq,fill=flag)) +
+    geom_density(alpha=0.10)
+
+#summary values, per flag
+group_by(samPG29, flag) %>%
+summarise(mean=mean(mapq), median=median(mapq), sd=sd(mapq),mad=mad(mapq))
+```
+
+## SNPs analysis
+
+The analysis is performed only on the primary alignments
+
+```{r snps}
+####functions to parse MD and CIGAR
+countSnps <- function(my_str){
+  
+  n = nchar(gsub("MD:Z:","",gsub('[[:digit:]]+', '', my_str)))
+  return(n)
+}
+#-----------------------------------
+#extract the cigar elements
+#see link: https://www.biostars.org/p/9335/
+matcher <- function(pattern, x) {
+
+  ind = gregexpr(pattern, x)[[1]]
+  start = as.numeric(ind)
+  end = start + attr(ind, "match.length")- 2
+  apply(cbind(start,end), 1, function(y) substr(x, start=y[1], stop=y[2]));
+}
+doone <- function(c, cigar) {
+  pat <- paste("\\d+", c , sep="")
+  sum(as.numeric(matcher(pat, cigar)), na.rm=T)
+}
+
+## takes a cigar string and parses it, not very fast but...
+cigarsums <- function(cigar, chars=c("M","N","D","I","S","H", "P", "X", "=")) {
+   sapply (chars, doone, cigar)
+}
+#------------------------------------
+
+Mcigar = sapply(samPG29prim$cigar, cigarsums)[1,]
+snpsPG29 = sapply(samPG29prim$md,countSnps)
+#exclude insertions in the reference alignments (2807 excluded) - complicated, admixture of Ns etc
+samPG29noins = samPG29prim[!grepl("\\^",samPG29prim$md),]
+Mcigar = Mcigar[!grepl("\\^",samPG29prim$md)]
+snpsPG29 = snpsPG29[!grepl("\\^",samPG29prim$md)]
+
+#how many with 0 snps
+sum(snpsPG29==0)
+#distribution
+summary(snpsPG29)
+
+#normalize for the length of matching regions
+percSNPs = data.frame(perc_snps=((snpsPG29/Mcigar)*100))
+summary(percSNPs$perc_snps)
+
+ggplot(aes(y = perc_snps,x=1),data=percSNPs) + geom_boxplot() + 
+    xlab("") +
+    ylab("% snps per alignment") +
+    theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_blank(),
+          axis.text.y = element_text(face='bold',size=14,color='black'),
+          axis.ticks.x=element_blank())
+
+#check th outliers
+samPG29noins[which(percSNPs>5),]
+```
+
+## Analysis of joined contigs - PG29v3
+
+```{r contigs_oining}
+library(plyr)
+
+samPG29v3 <- read.table("/projects/btl/kgagalova/PHD_projects/SpruceUp/KollectorGeneReconstruction3species/ComparativeAnlysis/data/PG29/ParsedSamv3.txt", quote="\"")
+colnames(samPG29v3) = nams
+
+samPG29v3_targ = samPG29v3[table(samPG29v3$qname)>1,]
+
+#samPG29v3_targ = samPG29v3_targ[sort(samPG29v3_targ$qname),]
+
+#count double combinations
+counts = count(samPG29v3_targ[,c("qname","rname")])
+counts$qname = as.character(counts$qname)
+candidates = names(table(counts$qname)[table(counts$qname)>1])
+samPG29v3_targC = samPG29v3_targ[samPG29v3_targ$qname %in% candidates,]
+samPG29v3_targC = samPG29v3_targC[order(samPG29v3_targC$qname),]
+
+samPG29v3_targC = samPG29v3_targC[sort(samPG29v3_targC$qname),]
+#get only those that map to the first position of the contig
+
+
+
+```
+
+
+## Summary
+
+- All the Kollector reconstructed genes (except one) are aligned to the assembly.
+- Large part of the primary alignments have mapq score == 60, some of those also low quality scores.
+- When excluding indels and clipping (only looking at the matching regions), the snps percentage is very low with median of 0.8% from the sequence length. Alignments with higher percentage of snps have high amount of Ns in the Kollector gene reconstruction (individual cases need to be checked)

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#$ -S /bin/bash
+#$ -N KollectorMerged
+#$ -q all.q,mpi.q
+#$ -pe ncpus 12
+#$ -l mem_token=3.8G,mem_free=3.8G,h_vmem=3.8G
+#$ -R y
+#$ -j y
+
+#add here the paths to software
+export PATH=/home/kgagalova/.linuxbrew/bin:$PATH
+export PATH=/usr/mpi/gcc/openmpi-1.4.1/bin:$PATH
+export PATH=/home/shammond/src/abyss-2.0.1-build/k256/bin:$PATH
+export PATH=/extscratch/btl/kgagalova/trial_SitkaMerged3/kollector_newbiobloom:$PATH
+export PATH=/home/kgagalova/bin/biobloom_develop2/bin:$PATH
+
+seed=_RePlAcE_
+pe=/extscratch/btl/kgagalova/SitkaRun/Sitka_Merged/ReadsRun/Sitka_chromium_pe.in
+merg=/extscratch/btl/kgagalova/SitkaRun/Sitka_Merged/ReadsRun/chromium-merged-compact.in
+p=/extscratch/btl/kgagalova/SitkaRun/Sitka_raw/RepFilters/dsk25_100.bf
+
+k=64
+o=kollector_multiple
+mk=25000000
+a=30G
+r=0.9
+s=0.75
+j=12
+#d=0.05
+e=3
+
+./kollector_multiple_merg.sh -k$k -o$o -a$a -p$p -n$mk -r$r -s$s -j$j -e$e $seed $merg $pe

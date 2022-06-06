@@ -1,0 +1,10 @@
+- **TestRuns** - Parameters, performance and output of test runs
+- **ComparisonSeedAssemblies** - Seed vs assembled sequences comparison for a test Kollector run, Jira ticket [here](https://www.bcgsc.ca/jira/browse/BTL-863)        
+- **MemoryIssueAbuss** - Runs statistics and info about memory allocation error in Abyss (occurs after pre-unitig stage)  
+- **TestRepeatFilter** - Performance with different filters  
+- **PlotCoveragePerBin** - summary statistics about WS77111 Kollector run. Plots the coverage reached for non-successfully assembled genes (<90%)
+- **PlotEveryCoveragePerTranscript** - plot multeplicity of gene reconstruction for all the targets
+- **PlotEveryCoveragePerTranscript_TPS** - plot multeplicity of reconstruction for terpene synthases (TPS) in our target set
+- **PlotEveryCoveragePerTranscript_BUSCO** - plot multeplicity of reconstruction for single copy genes - BUSCO for WS and PG29 reconstruction
+- **TestKollectorVersions** - process the same Kollector bin but with different Abyss versions, compare output
+- **TestKollectorVersions_shuffle** - process the same Kollector bin but shuffling only the reads (everything else is the same: parameters, software versions etc.), compare output

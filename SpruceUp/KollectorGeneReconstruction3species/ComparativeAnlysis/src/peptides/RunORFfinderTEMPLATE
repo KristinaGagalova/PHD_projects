@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+###############################
+#######Kristina Gagalova#######
+###############################
+#########29 Nov 2017###########
+###############################
+
+#Description: extract the longest ORF from the cdna sequences
+#Dependencies: bioawk, ORFfinder 
+
+#if error - libc.so.6 library is here
+#LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/gsc/software/src/glibc-2.14/build
+
+PATH=$PATH:/gsc/btl/linuxbrew/bin 
+
+#fasta file with one per line cdna sequences
+fasta=/projects/btl_scratch/kgagalova/TargetSetKollector/cdhit-4/Peptides/PeptidesMaker/cdhit-output-4noSpaceOk.fa
+
+nam=$(echo _RePlAcE_ | rev | cut -d/ -f1 | rev)
+
+#remove partial files
+if [ -f AllPeptidesComplete_${nam}.fa ] ; then
+    rm AllPeptidesComplete_${nam}.fa
+fi
+
+while read line
+do
+echo $line
+grep -A 1 $line $fasta > tmpline
+#ORFfinder here
+awk '/^>/ {printf("\n%s\n",$0);next; } { printf("%s",$0);}  END {printf("\n");}' <(ORFfinder -in tmpline) | sed -r 's/\s+/_/g;/^$/d' > tmpeptide
+#chech the cdna with only partial sequences and discard them
+count=$(cat tmpeptide | pcregrep -Mv "partial*\n" | wc -l)
+echo $count
+if [ $count != "0" ]
+then
+grep -A 1 `cat tmpeptide | pcregrep -Mv "partial*\n" | bioawk -c fastx '{ print length($seq), $name }'| sort -k1,1rn | head -1 | awk '{print $2}'` tmpeptide | sed "s/>.*/&"_"$line/" >> AllPeptidesGCAT_${nam}.fa
+else
+continue
+fi
+done < _RePlAcE_
+
+rm tmpeptide tmpline

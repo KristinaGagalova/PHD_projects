@@ -1,0 +1,14 @@
+#!/bin/bash
+
+list_files=/extscratch/btl/kgagalova/SitkaRun/Sitka_Merged/seed_failed/list_fasta.in
+
+for fasta in `cat $list_files`
+do
+	nam=$(echo $fasta | rev | cut -d/ -f1 | rev | cut -f1 -d. )
+	mkdir $nam && cd $nam
+	cp ../RunKollectorMultiple_TEMPLATE RunKollectorMultiple_$nam && cp ../kollector_multiple_merg.sh ./
+	sed -i -e "s#_RePlAcE_#${fasta}#g" RunKollectorMultiple_$nam
+	qsub RunKollectorMultiple_$nam
+	cd ..
+done
+

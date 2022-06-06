@@ -1,0 +1,69 @@
+---
+title: "Statistics binning - coverage"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load dataset
+
+```{r load_data}
+PerBaseCov <- read.table(gzfile("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/GenomeAnnotation/Kollector/Spruce/WS77111/ExonsCovselGCATKollectorSortForR.gff.gz"), header=FALSE)
+
+head(PerBaseCov)
+colNams = c("contig","pos","cove","exon","gene")
+colnames(PerBaseCov) = colNams
+
+PerBaseCov$exon = as.factor(PerBaseCov$exon)
+PerBaseCov$gene = as.factor(PerBaseCov$gene)
+```
+
+## Including Plots
+
+```{r calculate_stats_genes}
+library(plyr)
+library(ggplot2)
+
+r1 = ddply(PerBaseCov,~gene,summarize,mean=mean(cove),sd=sd(cove),len=length(cove),med=median(cove))
+r1<-r1[with(r1, order(len)),]
+r1$pos = 1:nrow(r1)
+
+r1exons = ddply(PerBaseCov, gene~exon,summarize,mean=mean(cove),sd=sd(cove),len=length(cove),med=median(cove))
+r1exons<-r1exons[with(r1exons, order(len)),]
+r1exons$pos = 1:nrow(r1exons)
+
+#######Plot
+pd <- position_dodge(0.1)
+ggplot(r1, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r1,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+
+ggplot(r1, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Indivisual gene (sorted len)")
+ggplot(r1,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median gene cov") + xlab("Individual gene (sorted len)")
+```
+
+```{r statistics_significance}
+summary(r1$len)
+summary(r1$mean)
+summary(r1$med)
+summary(r1$sd)
+```
+
+```{r calculate_stats_exons}
+#######Plot
+
+ggplot(r1exons, aes(pos,mean)) + geom_point() + ylab("Mean exon cov") + xlab("Individual exon (sorted len)")
+ggplot(r1exons,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean exon cov") + xlab("Individual exon (sorted len)")
+
+ggplot(r1exons, aes(pos,med)) + geom_point() + ylab("Median exon cov") + xlab("Individual exon (sorted len)")
+ggplot(r1exons,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median exon cov") + xlab("Individual exon (sorted len)")
+```
+
+```{r statistics_significance1}
+summary(r1exons$len)
+summary(r1exons$mean)
+summary(r1exons$med)
+summary(r1exons$sd)
+```

@@ -1,0 +1,161 @@
+---
+title: "GMAP alignments for 3 species - cdhit4"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Upload the results from the alignment - coverage/identity and length of the targets
+
+```{r load_data}
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+library(plyr)
+library(splitstackshape)
+
+dataPath=c("/projects/btl/kgagalova/PHD_projects2/SpruceUp/KollectorGeneReconstruction3species/ComparativeAnlysis/data/GMAPcDNA_GCAT")
+
+allFiles <- list.files( path = dataPath, pattern = "Coverage", full.names = TRUE )
+
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = F)
+  d$fileName <- fn;
+  d
+  } );
+
+allGMAP <- bind_rows( l );
+dim(allGMAP)
+
+colnames(allGMAP)[1:3] = c("query","identity","coverage")
+
+#load the len of the sequences
+lenSeqs <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/KollectorGeneReconstruction3species/ComparativeAnlysis/data/GMAPcDNA_GCAT/lenSeqs.txt", header=FALSE)
+colnames(lenSeqs) = c("query","len")
+allGMAPm = merge(allGMAP,lenSeqs,by="query",all.x=T)
+
+allGMAPm$species = gsub("CoverageIdentity||targetsTargets.txt||targets.txt","",sapply(strsplit(allGMAPm$fileName,"/"),"[[",11))
+
+countsPaths = as.data.frame(table(allGMAPm[,c("query","species")]))
+
+allGMAPm = merge(allGMAPm,countsPaths,by.x=c("query","species"),by.y=c("query","species"))
+
+allGMAPm$type = ifelse(grepl("augustus|maker|snap|genemark",allGMAPm$query), "Maker", "GCAT")#number of total alignments
+
+#number of unique alignments - targets
+detach("package:plyr", unload=TRUE) 
+test = allGMAPm %>% group_by(query,species,type) %>% summarize(count=n())
+
+table(subset(test,test$species=="PG29")$type)
+table(subset(test,test$species=="Q903")$type)
+table(subset(test,test$species=="WS77111")$type)
+```
+
+## Plot the coverage and identity for the GMAP alignments
+
+```{r plots_cov_identity}
+ggplot(allGMAPm, aes(x=coverage, y=identity)) + 
+    geom_point(aes(shape=Freq > 1,colour = Freq > 1)) + facet_wrap( ~ species ) 
+
+ggplot(allGMAPm, aes(x=coverage, y=identity)) + 
+    geom_point(aes(shape=Freq > 1,colour = Freq > 1)) + facet_wrap( ~ species ) + 
+  coord_cartesian(xlim = c(90,100),ylim= c(95,100))
+
+#select only the ones that are >90% cov and 95% identity
+allGMAPmSel = subset(allGMAPm,allGMAPm$coverage>=90 & allGMAPm$identity>=95)
+
+tmp = allGMAPmSel %>% group_by(query,species,type) %>% summarize(count=n())
+table(tmp[,c("species","type")])
+
+ggplot(allGMAPmSel, aes(x=coverage, y=identity)) + 
+    geom_point(aes(shape=Freq > 1,colour = Freq > 1),size=3) + facet_wrap( ~ species )
+
+#Quantify exactly for the 3 species
+table(subset(allGMAPmSel, allGMAPmSel$Freq == 1)$species)
+
+#divide per type
+ggplot(allGMAPm, aes(x=coverage, y=identity)) + 
+    geom_point(aes(shape=type,colour = type),size=3) + facet_wrap( ~ species )
+
+ggplot(allGMAPmSel, aes(x=coverage, y=identity)) + 
+    geom_point(aes(shape=type,colour = Freq > 1),size=3) + facet_wrap( ~ species ) + 
+    scale_shape_manual(values=c(3, 16)) + 
+    scale_color_manual(values=c('#999999','#E69F00'))
+
+#GCAT only
+allGMAPmSelGCAT = subset(allGMAPmSel,allGMAPmSel$type == "GCAT")
+allGMAPmSelMaker = subset(allGMAPmSel,allGMAPmSel$type == "Maker")
+
+ggplot(allGMAPmSelGCAT, aes(x=coverage, y=identity)) + 
+    geom_point(aes(shape=type,colour = Freq > 1),size=3) + facet_wrap( ~ species ) + 
+    scale_shape_manual(values=c(3)) + 
+    scale_color_manual(values=c('#999999','#E69F00'))
+
+ggplot(allGMAPmSelMaker, aes(x=coverage, y=identity)) + 
+    geom_point(aes(shape=type,colour = Freq > 1),size=3) + facet_wrap( ~ species ) + 
+    scale_shape_manual(values=c(16)) + 
+    scale_color_manual(values=c('#999999','#E69F00'))
+```
+
+```{r plots_multiple_alignments}
+allGMAPmSelGCATfreq = subset(melt(table(allGMAPmSelGCAT[,c("query","species")]),id.var=query),melt(table(allGMAPmSelGCAT[,c("query","species")]),id.var=query)$value>0)
+allGMAPmSelMakerfreq = subset(melt(table(allGMAPmSelMaker[,c("query","species")]),id.var=query),melt(table(allGMAPmSelMaker[,c("query","species")]),id.var=query)$value>0)
+
+
+allGMAPmSelGCATfreq[allGMAPmSelGCATfreq$value == 1,] %>% group_by(species) %>% summarize(count=n())
+allGMAPmSelMakerfreq[allGMAPmSelMakerfreq$value == 1,] %>% group_by(species) %>% summarize(count=n())
+
+allGMAPmSelGCATfreq[allGMAPmSelGCATfreq$value == 2,] %>% group_by(species) %>% summarize(count=n())
+allGMAPmSelMakerfreq[allGMAPmSelMakerfreq$value == 2,] %>% group_by(species) %>% summarize(count=n())
+
+allGMAPmSelGCATfreq[allGMAPmSelGCATfreq$value > 2,] %>% group_by(species) %>% summarize(count=n())
+allGMAPmSelMakerfreq[allGMAPmSelMakerfreq$value > 2,] %>% group_by(species) %>% summarize(count=n())
+
+#plot the graphs
+ggplot(allGMAPmSelGCATfreq, aes(x=value, fill=species)) + geom_density(alpha=.3) +
+  ggtitle("GCAT targets") +
+    xlab("Number of complete aligmnetsper target")
+ 
+#ggplot(df, aes(x=dose, y=, fill=species)) 
+ggplot(allGMAPmSelGCATfreq, aes(x=value, fill=species)) + geom_histogram(alpha=.3) +
+    ggtitle("GCAT targets") +
+      xlab("Number of complete aligmnets per target") + 
+          facet_wrap( ~ species )
+
+ggplot(allGMAPmSelMakerfreq, aes(x=value, fill=species)) + geom_density(alpha=.3) +
+  ggtitle("Maker targets") +
+    xlab("Number of complete aligmnets per target")
+  
+ggplot(allGMAPmSelMakerfreq, aes(x=value, fill=species)) + geom_histogram(alpha=.3) +
+    ggtitle("Maker targets") +
+      xlab("Number of complete aligmnets per target") + 
+                facet_wrap( ~ species )
+```
+
+
+## Intersect with the common Kollector
+
+```{r intersect_KollectorCommon}
+Common <- read.table("/projects/btl/kgagalova/PHD_projects2/SpruceUp/KollectorGeneReconstruction3species/ComparativeAnlysis/data/GMAPcDNA_GCAT/common_intersection3.txt", quote="\"", comment.char="")
+table(as.character(Common$V1) %in% unique(as.character(allGMAPmSelMakerfreq$query))) 
+
+namsCorr = gsub("_status","status",gsub("_cluster","cluster", gsub("_clone","clone", unique(as.character(Common$V1)))))
+
+#check how many are reconstructed as complete
+allGMAPmSelMakerfreq[as.character(allGMAPmSelMakerfreq$query) %in% as.character(Common$V1),] %>% group_by(species) %>% count(value)
+allGMAPmSelGCATfreq[as.character(allGMAPmSelGCATfreq$query) %in% as.character(namsCorr),] %>% group_by(species) %>% count(value)
+
+ggplot(allGMAPmSelMakerfreq[as.character(allGMAPmSelMakerfreq$query) %in% as.character(Common$V1),] %>% group_by(species) %>% count(value),aes(x=value,y=n,colour=species)) + geom_bar(stat="identity") +  facet_wrap( ~ species ) + 
+ggtitle("Maker targets") +
+xlab("Number of complete aligmnets per target") + ylab("Count")
+
+ggplot(allGMAPmSelGCATfreq[as.character(allGMAPmSelGCATfreq$query) %in% as.character(namsCorr),] %>% group_by(species) %>% count(value),aes(x=value,y=n,colour=species)) + geom_bar(stat="identity") +  facet_wrap( ~ species ) + 
+ggtitle("GCAT targets") +
+xlab("Number of complete aligmnets per target") + ylab("Count")
+
+```
+

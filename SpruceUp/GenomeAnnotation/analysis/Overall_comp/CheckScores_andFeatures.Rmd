@@ -1,0 +1,197 @@
+---
+title: "Compare annotation features - 3 species"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load data sets 
+
+```{r load_allTables}
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+
+dataPath="/projects/spruceup_scratch/dev/SprucePaper2018/TestScoresAnnotation/StatseAEDfeatures"
+allFiles <- list.files( path = dataPath, pattern = ".stats", full.names = TRUE )
+
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = F );
+  d$fileName <- fn;
+  d
+  } );
+
+d <- bind_rows( l );
+dim(d)
+
+d$species = gsub(".stats","",sapply(strsplit(d$fileName,"/"),"[[",8))
+
+colnames(d) = c("trans","mRNAlen","eAED","fiveprimeLen","FracSS_EST","FracOverEST","FracOverEST_prot","FracSS_SNAP","FracExon_SNAP","NumExons","threeprimeLen","ProtLen","fileNam","species")
+
+d$trans_species = paste(d$trans,d$species,sep="|")
+#add ng50
+d$ng50 = as.numeric(replace(replace(replace(d$species, d$species=="PG29", 121714),d$species=="WS77111",131339),d$species=="Q903",38458))
+```
+
+
+## Plot scores
+
+You can include R code in the document as follows:
+
+```{r plot_scatter_mRNA}
+tapply(d$mRNAlen, d$species, summary)
+tapply(d$eAED, d$species, summary)
+
+ggplot(d,aes(mRNAlen,eAED)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+
+#zoomed region
+ggplot(d,aes(mRNAlen,eAED)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.) +
+          coord_cartesian(xlim=c(1000,10000))
+```
+
+```{r plot_scatter_prot}
+tapply(d$ProtLen, d$species, summary)
+tapply(d$eAED, d$species, summary)
+
+ggplot(d,aes(ProtLen,eAED)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+
+#zoomed region
+ggplot(d,aes(ProtLen,eAED)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") + 
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.) +
+          coord_cartesian(xlim=c(4,1000))
+```
+```{r plot_scatter_mRNAprot}
+ggplot(d,aes(mRNAlen,ProtLen)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+
+```
+
+```{r plot_scatter_UTRlen}
+ggplot(d,aes(mRNAlen,fiveprimeLen)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+
+ggplot(d,aes(mRNAlen,threeprimeLen)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+
+ggplot(d,aes(fiveprimeLen,eAED)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") + 
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+
+ggplot(d,aes(threeprimeLen,eAED)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+```
+```{r plot_scatter_ng50}
+
+ggplot(d,aes(ng50,fiveprimeLen)) + geom_violin(aes(colour=species)) + 
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black'))
+
+ggplot(d,aes(ng50,threeprimeLen)) + geom_violin(aes(colour=species)) + 
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black'))
+
+ggplot(d,aes(ng50,mRNAlen)) + geom_violin(aes(colour=species)) + 
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black'))
+
+ggplot(d,aes(ng50,ProtLen)) + geom_violin(aes(colour=species)) + 
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black'))
+
+```
+
+
+## Statistics introns
+
+```{r load_introns}
+
+#dataPath="/projects/spruceup_scratch/dev/SprucePaper2018/TestScoresAnnotation/StatseAEDfeatures"
+allFiles <- list.files( path = dataPath, pattern = ".introns2", full.names = TRUE )
+
+l <- lapply( allFiles, function( fn ){
+  d1 <- read.table( fn, header = F );
+  d1$fileName <- fn;
+  d1
+  } );
+
+d1<- bind_rows( l );
+dim(d1)
+
+d1$species = gsub(".introns2","",sapply(strsplit(d1$fileName,"/"),"[[",8))
+
+colnames(d1) = c("trans_introns","intron_len","fileNam","species")
+
+d1$trans = sapply(strsplit(d1$trans_intron,"\\|"),"[[",1)
+d1$trans_species = paste(d1$trans,d1$species,sep="|")
+
+tapply(d1$intron_len, d1$species, summary)
+
+d1eAED = merge(d[,c("eAED","trans_species","ng50")],d1,by="trans_species",all.y = T)
+```
+
+## Statistics eAED
+```{r plot_scatter_introneAED}
+ggplot(d1eAED,aes(intron_len,eAED)) + geom_point(aes(colour=species),size=4,alpha=0.4) + 
+   geom_density2d(colour="black") +
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black')) + facet_grid(species ~.)
+```
+```{r plot_scatter_introneNG50}
+ggplot(d1eAED,aes(ng50,intron_len)) + geom_violin(aes(colour=species)) + 
+   theme(axis.title.x = element_text(face='bold',size=16,hjust=0.5),
+          axis.title.y = element_text(face='bold',size=16,vjust=1),
+          axis.text.x = element_text(face='bold',size=14,color='black'),
+          axis.text.y = element_text(face='bold',size=14,color='black'))
+```

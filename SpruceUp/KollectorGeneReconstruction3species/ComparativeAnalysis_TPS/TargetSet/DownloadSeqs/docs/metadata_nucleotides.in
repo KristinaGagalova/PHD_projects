@@ -1,0 +1,3795 @@
+LOCUS       AAN01133                 383 aa            linear   PLN 29-AUG-2002
+DEFINITION  geranyl diphosphate synthase [Abies grandis].
+ACCESSION   AAN01133
+VERSION     AAN01133.1
+DBSOURCE    accession AF513111.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 383)
+  AUTHORS   Burke,C. and Croteau,R.
+  TITLE     Geranyl diphosphate synthase from Abies grandis: cDNA isolation,
+            functional expression, and characterization
+  JOURNAL   Arch. Biochem. Biophys. 405 (1), 130-136 (2002)
+   PUBMED   12176066
+REFERENCE   2  (residues 1 to 383)
+  AUTHORS   Burke,C.C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (20-MAY-2002) Institute of Biological Research,
+            Washington State University, P.O. Box 646340, Pullman, WA
+            99164-6340, USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..383
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+     Protein         1..383
+                     /product="geranyl diphosphate synthase"
+                     /name="prenyltransferase"
+     Region          115..381
+                     /region_name="Trans_IPPS_HT"
+                     /note="Trans-Isoprenyl Diphosphate Synthases,
+                     head-to-tail; cd00685"
+                     /db_xref="CDD:173833"
+     Site            order(162,165..167,169..171,175..176,181..182,244,247,
+                     268..269,272,309..310,313,323,328,333)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173833"
+     Site            order(165..172,175..176)
+                     /site_type="other"
+                     /note="chain length determination region"
+                     /db_xref="CDD:173833"
+     Site            order(170..171,176,181..182,247,268,309..310,313,323,328,
+                     333)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173833"
+     Site            order(170..171,176,181..182,268,309..310)
+                     /site_type="active"
+                     /note="catalytic residues [active]"
+                     /db_xref="CDD:173833"
+     Site            order(170..171,176,181..182,247,268)
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173833"
+     Site            order(178..192,316..317,323..328,331..335)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173833"
+     Site            order(309..310,313,323,328,333)
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173833"
+     CDS             1..383
+                     /gene="GPPS1"
+                     /coded_by="AF513111.1:83..1234"
+ORIGIN      
+        1 mayscmaasc hglhfmnias qecnlkrgii pskrlhgiss slwasngfqg hlerdlsayr
+       61 hlvsssrcln tiamlsnlse qakekatefd fkeylhskai svnealerav plrypekihe
+      121 amrysllagg krirpiltia acelvggsee lamptacame mihtmslihd dlpsmdnddl
+      181 rrgkltnhkv fgegtavlag dallsfafeh iavstrktva shrvlrvvse lgkaigsqgv
+      241 aggqvadits egdpsvglet lewihihkta vllecavvsg aiiggasene iertgryarc
+      301 vgllfqvvdd ildvtrssee lgktagkdlv sdkatypklm glekakefad elldrakeel
+      361 scfnpakaap llgladyial rqn
+//
+
+LOCUS       AF425235_1               383 aa            linear   PLN 28-JAN-2002
+DEFINITION  geranylgeranyl diphosphate synthase [Abies grandis].
+ACCESSION   AAL17614
+VERSION     AAL17614.2
+DBSOURCE    accession AF425235.2
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 383)
+  AUTHORS   Burke,C. and Croteau,R.
+  TITLE     Interaction with the small subunit of geranyl diphosphate synthase
+            modifies the chain length specificity of geranylgeranyl diphosphate
+            synthase to produce geranyl diphosphate
+  JOURNAL   J. Biol. Chem. 277 (5), 3141-3149 (2002)
+   PUBMED   11733504
+REFERENCE   2  (residues 1 to 383)
+  AUTHORS   Burke,C.C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-SEP-2001) Institute of Biological Chemistry,
+            Washington State University, P.O. Box 646340, Pullman, WA
+            99164-6340, USA
+REFERENCE   3  (residues 1 to 383)
+  AUTHORS   Burke,C.C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (05-DEC-2001) Institute of Biological Chemistry,
+            Washington State University, P.O. Box 646340, Pullman, WA
+            99164-6340, USA
+  REMARK    Sequence update by submitter
+COMMENT     On Dec 5, 2001 this sequence version replaced gi:16306459.
+            Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..383
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+     Protein         1..383
+                     /product="geranylgeranyl diphosphate synthase"
+                     /name="prenyltransferase"
+     Region          90..355
+                     /region_name="IspA"
+                     /note="Geranylgeranyl pyrophosphate synthase [Coenzyme
+                     transport and metabolism]; COG0142"
+                     /db_xref="CDD:223220"
+     Site            order(162,165..167,169..171,175..176,181..182,244,247,
+                     268..269,272,309..310,313,323,328,333)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173833"
+     Site            order(165..172,175..176)
+                     /site_type="other"
+                     /note="chain length determination region"
+                     /db_xref="CDD:173833"
+     Site            order(170..171,176,181..182,247,268,309..310,313,323,328,
+                     333)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173833"
+     Site            order(170..171,176,181..182,268,309..310)
+                     /site_type="active"
+                     /note="catalytic residues [active]"
+                     /db_xref="CDD:173833"
+     Site            order(170..171,176,181..182,247,268)
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173833"
+     Site            order(178..192,316..317,323..328,331..335)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173833"
+     Site            order(309..310,313,323,328,333)
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173833"
+     CDS             1..383
+                     /coded_by="AF425235.2:58..1209"
+ORIGIN      
+        1 maysgmatsy hglhfmniat qecnlkrlsi psrrfhgvsp slwasngfqg hlkrelsans
+       61 flvsssrysn tiakftnlpe kvkekviefd fkeylrskam avnealdrav plryperihe
+      121 amrysllagg krvrpvlcis acelvggtee vamptacame mihtmslihd dlpcmdnddf
+      181 rrgkptnhkv fgegtailag dallsfafeh iavstsksvg tdrilrvvse lgrtigsqgl
+      241 vggqvadits egdasvdldt lewihihkta vllecsvmcg aiisgasdne ieriqryars
+      301 vgllfqvvdd ildvtksske lgktagkdli sdkatypklm glekakqfas dllirakedl
+      361 scfdpmkaap llgladyiaf rqn
+//
+
+LOCUS       AAD16018                 393 aa            linear   PLN 01-MAY-2001
+DEFINITION  geranylgeranyl diphosphate synthase [Taxus canadensis].
+ACCESSION   AAD16018
+VERSION     AAD16018.1
+DBSOURCE    accession AF081514.1
+KEYWORDS    .
+SOURCE      Taxus canadensis
+  ORGANISM  Taxus canadensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 393)
+  AUTHORS   Hefner,J., Ketchum,R.E. and Croteau,R.
+  TITLE     Cloning and functional expression of a cDNA encoding geranylgeranyl
+            diphosphate synthase from Taxus canadensis and assessment of the
+            role of this prenyltransferase in cells induced for taxol
+            production
+  JOURNAL   Arch. Biochem. Biophys. 360 (1), 62-74 (1998)
+   PUBMED   9826430
+REFERENCE   2  (residues 1 to 393)
+  AUTHORS   Hefner,J., Ketchum,R.E.B. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (31-JUL-1998) Institute of Biological Chemistry,
+            Washington State University, Pullman, WA 99164-6340, USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..393
+                     /organism="Taxus canadensis"
+                     /db_xref="taxon:88032"
+                     /cell_line="CO93P"
+                     /note="undifferentiated suspension cells"
+     Protein         1..393
+                     /product="geranylgeranyl diphosphate synthase"
+                     /function="prenyltransferase"
+                     /name="geranylgeranyl pyrophosphate synthase"
+     Region          125..391
+                     /region_name="Trans_IPPS_HT"
+                     /note="Trans-Isoprenyl Diphosphate Synthases,
+                     head-to-tail; cd00685"
+                     /db_xref="CDD:173833"
+     Site            order(172,175..177,179..181,185..186,191..192,254,257,
+                     278..279,282,319..320,323,333,338,343)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173833"
+     Site            order(175..182,185..186)
+                     /site_type="other"
+                     /note="chain length determination region"
+                     /db_xref="CDD:173833"
+     Site            order(180..181,186,191..192,257,278,319..320,323,333,338,
+                     343)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173833"
+     Site            order(180..181,186,191..192,278,319..320)
+                     /site_type="active"
+                     /note="catalytic residues [active]"
+                     /db_xref="CDD:173833"
+     Site            order(180..181,186,191..192,257,278)
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173833"
+     Site            order(188..202,326..327,333..338,341..345)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173833"
+     Site            order(319..320,323,333,338,343)
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173833"
+     CDS             1..393
+                     /coded_by="AF081514.1:308..1489"
+ORIGIN      
+        1 maytamaagt qslqlrtvas yqecnsmrsc fkltpfksfh gvnfnvpslg aanceimghl
+       61 klgslpykqc svsskstktm aqlvdlaete kaegkdiefd fneymkskav avdaaldkai
+      121 pleypekihe smrysllagg krvrpalcia acelvggsqd lamptacame mihtmslihd
+      181 dlpcmdnddf rrgkptnhkv fgedtavlag dallsfafeh iavatsktvp sdrtlrvise
+      241 lgktigsqgl vggqvvdits egdanvdlkt lewihihkta vllecsvvsg gilggatede
+      301 iarirryarc vgllfqvvdd ildvtkssee lgktagkdll tdkatypklm glekakefaa
+      361 elatrakeel ssfdqikaap llgladyiaf rqn
+//
+
+LOCUS       AAB70707                 618 aa            linear   PLN 10-AUG-2001
+DEFINITION  (-)-camphene synthase [Abies grandis].
+ACCESSION   AAB70707
+VERSION     AAB70707.1
+DBSOURCE    locus AGU87910 accession U87910.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 618)
+  AUTHORS   Bohlmann,J., Steele,C.L. and Croteau,R.
+  TITLE     Monoterpene synthases from grand fir (Abies grandis). cDNA
+            isolation, characterization, and functional expression of myrcene
+            synthase, (-)-(4S)-limonene synthase, and (-)-(1S,5S)-pinene
+            synthase
+  JOURNAL   J. Biol. Chem. 272 (35), 21784-21792 (1997)
+   PUBMED   9268308
+REFERENCE   2  (residues 1 to 618)
+  AUTHORS   Bohlmann,J., Phillips,M., Ramachandiran,V., Katoh,S. and Croteau,R.
+  TITLE     cDNA cloning, characterization, and functional expression of four
+            new monoterpene synthase members of the Tpsd gene family from grand
+            fir (Abies grandis)
+  JOURNAL   Arch. Biochem. Biophys. 368 (2), 232-243 (1999)
+   PUBMED   10441373
+REFERENCE   3  (residues 1 to 618)
+  AUTHORS   Bohlmann,J., Steele,C.L. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (31-JAN-1997) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..618
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+     Protein         1..618
+                     /product="(-)-camphene synthase"
+     Region          59..615
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(59..66,520..521,523..526,528..531,594..597)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(332,341,362,364..366,369,373,444,510..511,513..514,
+                     517,521,591,595,597)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(369,373,513,517,521)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            369..373
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            513..521
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..618
+                     /gene="AG6.5"
+                     /coded_by="U87910.1:36..1892"
+                     /note="terpene synthase; monoterpene synthase; terpene
+                     cyclase"
+ORIGIN      
+        1 mallsitplv srsclssshe ikalrrtipt lgicrpgksv ahsinmclts vastdsvqrr
+       61 vgnyhsnlwd ddfiqslist pygapdyrer adrligevkd imfnfksled ggndllqrll
+      121 lvddverlgi drhfkkeikt aldyvnsywn ekgigcgres vvtdlnstal glrtlrlhgy
+      181 tvssdvlnvf kdkngqfsst aniqiegeir gvlnlfrasl vafpgekvmd eaetfstkyl
+      241 realqkipas silsleirdv leygwhtnlp rlearnymdv fgqhtknkna aekllelakl
+      301 efnifhslqe relkhvsrww kdsgspemtf crhrhveyya lasciafepq hsgfrlgftk
+      361 mshlitvldd mydvfgtvde lelftatikr wdpsameclp eymkgvymmv yhtvnemarv
+      421 aekaqgrdtl nyarqaweac fdsymqeakw iatgylptfe eylengkvss ahrpcalqpi
+      481 ltldipfpdh ilkevdfpsk lndliciilr lrgdtrcyka drargeeass iscymkdnpg
+      541 lteedalnhi nfmirdaire lnwellkpdn svpitskkha fdisrvwhhg yryrdgysfa
+      601 nvetkslvmr tviepvpl
+//
+
+LOCUS       AAB70907                 637 aa            linear   PLN 22-SEP-1997
+DEFINITION  (-)-4S-limonene synthase [Abies grandis].
+ACCESSION   AAB70907
+VERSION     AAB70907.1
+DBSOURCE    accession AF006193.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 637)
+  AUTHORS   Bohlmann,J., Steele,C.L. and Croteau,R.
+  TITLE     Monoterpene synthases from grand fir (Abies grandis). cDNA
+            isolation, characterization, and functional expression of myrcene
+            synthase, (-)-(4S)-limonene synthase, and (-)-(1S,5S)-pinene
+            synthase
+  JOURNAL   J. Biol. Chem. 272 (35), 21784-21792 (1997)
+   PUBMED   9268308
+REFERENCE   2  (residues 1 to 637)
+  AUTHORS   Bohlmann,J., Katoh,S. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (30-MAY-1997) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+FEATURES             Location/Qualifiers
+     source          1..637
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /clone="AG10"
+     Protein         1..637
+                     /product="(-)-4S-limonene synthase"
+     Region          70..634
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(70..77,539..540,542..545,547..550,613..616)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(351,360,381,383..385,388,392,463,529..530,532..533,
+                     536,540,610,614,616)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(388,392,532,536,540)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            388..392
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            532..540
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..637
+                     /coded_by="AF006193.1:73..1986"
+                     /note="terpene synthase; monoterpene synthase; terpene
+                     cyclase"
+ORIGIN      
+        1 mallsivslq vpkscglksl isssnvqkal cistavptlr mrrrqkalvi nmklttvshr
+       61 ddngggvlqr riadhhpnlw eddfiqslss pyggssyser aetvveevke mfnsipnnre
+      121 lfgsqndllt rlwmvdsier lgidrhfqne irvaldyvys ywkekegigc grdstfpdln
+      181 stalalrtlr lhgynvssdv leyfkdekgh facpailteg qitrsvlnly raslvafpge
+      241 kvmeeaeifs asylkkvlqk ipvsnlsgei eyvleygwht nlprlearny ievyeqsgye
+      301 slnempymnm kkllqlakle fnifhslqlr elqsisrwwk esgssqltft rhrhveyytm
+      361 ascismlpkh safrmefvkv chlvtvlddi ydtfgtmnel qlftdaikrw dlsttrwlpe
+      421 ymkgvymdly qcinemveea ektqgrdmln yiqnawealf dtfmqeakwi sssylptfee
+      481 ylknakvssg sriatlqpil tldvplpdyi lqeidypsrf nelassilrl rgdtrcykad
+      541 rargeeasai scymkdhpgs ieedalnhin amisdairel nwellrpdsk spisskkhaf
+      601 ditrafhhvy kyrdgytvsn netknlvmkt vleplal
+//
+
+LOCUS       AF139207_1               637 aa            linear   PLN 24-JUL-2001
+DEFINITION  (-)-limonene/(-)-alpha-pinene synthase [Abies grandis].
+ACCESSION   AAF61455
+VERSION     AAF61455.1
+DBSOURCE    accession AF139207.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 637)
+  AUTHORS   Bohlmann,J., Phillips,M., Ramachandiran,V., Katoh,S. and Croteau,R.
+  TITLE     cDNA cloning, characterization, and functional expression of four
+            new monoterpene synthase members of the Tpsd gene family from grand
+            fir (Abies grandis)
+  JOURNAL   Arch. Biochem. Biophys. 368 (2), 232-243 (1999)
+   PUBMED   10441373
+REFERENCE   2  (residues 1 to 637)
+  AUTHORS   Phillips,M.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (30-MAR-1999) Institute of Biological Chemistry,
+            Washington State University, 289 Clark Hall, Pullman, WA
+            99164-6340, USA
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..637
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /tissue_type="stem"
+                     /dev_stage="sapling"
+     Protein         1..637
+                     /product="(-)-limonene/(-)-alpha-pinene synthase"
+                     /name="monoterpene synthase"
+     Region          70..634
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(70..77,539..540,542..545,547..550,613..616)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(351,360,381,383..385,388,392,463,529..530,532..533,
+                     536,540,610,614,616)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(388,392,532,536,540)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            388..392
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            532..540
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..637
+                     /gene="agc11"
+                     /coded_by="AF139207.1:35..1948"
+                     /note="includes N-terminal transit peptide"
+ORIGIN      
+        1 mallsivslq vpkscglksl isssnvqkal cistavptlr mrrrqkalvi nmklttvshr
+       61 ddngggvlqr riadhhpnlw eddfiqslss pyggssyser avtvveevke mfnsipnnre
+      121 lfgsqndllt rlwmvdsier lgidrhfqne irvaldyvys ywkekegigc grdstfpdln
+      181 stalalrtlr lhgynvssdv leyfkdqkgh facpailteg qitrsvlnly raslvafpge
+      241 kvmeeaeifs asylkevlqk ipvssfsrei eyvleygwht nlprlearny idvygqdsye
+      301 ssnempyvnt qkllklakle fnifhslqqk elqyisrwwk dscsshltft rhrhveyytm
+      361 ascismepkh safrlgfvkt chlltvlddm ydtfgtldel qlfttafkrw dlsetkclpe
+      421 ymkavymdly qclnelaqea ektqgrdtln yirnayeshf dsfmheakwi ssgylptfee
+      481 ylkngkvssg srtatlqpil tldvplpnyi lqeidypsrf ndlassllrl rgdtrcykad
+      541 rargeeasai scymkdhpgs teedalnhin vmisdairel nwellrpdsk spisskkhaf
+      601 ditrafhhly kyrdgytvas setknlvmkt vlepval
+//
+
+LOCUS       AAB71084                 627 aa            linear   PLN 23-SEP-1997
+DEFINITION  myrcene synthase [Abies grandis].
+ACCESSION   AAB71084
+VERSION     AAB71084.1
+DBSOURCE    locus AGU87908 accession U87908.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 627)
+  AUTHORS   Bohlmann,J., Steele,C.L. and Croteau,R.
+  TITLE     Monoterpene synthases from grand fir (Abies grandis). cDNA
+            isolation, characterization, and functional expression of myrcene
+            synthase, (-)-(4S)-limonene synthase, and (-)-(1S,5S)-pinene
+            synthase
+  JOURNAL   J. Biol. Chem. 272 (35), 21784-21792 (1997)
+   PUBMED   9268308
+REFERENCE   2  (residues 1 to 627)
+  AUTHORS   Bohlmann,J., Steele,C.L. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (31-JAN-1997) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+FEATURES             Location/Qualifiers
+     source          1..627
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+     Protein         1..627
+                     /product="myrcene synthase"
+     Region          64..623
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(64..71,529..530,532..535,537..540,603..606)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(341,350,371,373..375,378,382,453,519..520,522..523,
+                     526,530,600,604,606)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(378,382,522,526,530)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            378..382
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            522..530
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..627
+                     /gene="AG2.2"
+                     /coded_by="U87908.1:69..1952"
+                     /note="monoterpene synthase; terpene synthase; monoterpene
+                     synthase; terpene cyclase"
+ORIGIN      
+        1 malvsispla sksclrksli ssihehkppy rtipnlgmrr rgksvtpsms islataapdd
+       61 gvqrrigdyh sniwdddfiq slstpygeps yqeraerliv evkkifnsmy lddgrlmssf
+      121 ndlmqrlwiv dsverlgiar hfkneitsal dyvfryween gigcgrdsiv tdlnstalgf
+      181 rtlrlhgytv spevlkafqd qngqfvcspg qtegeirsvl nlyrasliaf pgekvmeeae
+      241 ifstrylkea lqkipvsals qeikfvmeyg whtnlprlea rnyidtlekd tsawlnknag
+      301 kkllelakle fnifnslqqk elqyllrwwk esdlpkltfa rhrhvefytl asciaidpkh
+      361 safrlgfakm chlvtvlddi ydtfgtidel elftsaikrw nsseiehlpe ymkcvymvvf
+      421 etvneltrea ektqgrntln yvrkaweayf dsymeeakwi sngylpmfee yhengkvssa
+      481 yrvatlqpil tlnawlpdyi lkgidfpsrf ndlassflrl rgdtrcykad rdrgeeasci
+      541 scymkdnpgs teedalnhin amvndiikel nwellrsndn ipmlakkhaf ditralhhly
+      601 iyrdgfsvan ketkklvmet llesmlf
+//
+
+LOCUS       AF139205_1               630 aa            linear   PLN 24-JUL-2001
+DEFINITION  beta-phellandrene synthase [Abies grandis].
+ACCESSION   AAF61453
+VERSION     AAF61453.1
+DBSOURCE    accession AF139205.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 630)
+  AUTHORS   Bohlmann,J., Phillips,M., Ramachandiran,V., Katoh,S. and Croteau,R.
+  TITLE     cDNA cloning, characterization, and functional expression of four
+            new monoterpene synthase members of the Tpsd gene family from grand
+            fir (Abies grandis)
+  JOURNAL   Arch. Biochem. Biophys. 368 (2), 232-243 (1999)
+   PUBMED   10441373
+REFERENCE   2  (residues 1 to 630)
+  AUTHORS   Phillips,M.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (30-MAR-1999) Institute of Biological Chemistry,
+            Washington State University, 289 Clark Hall, Pullman, WA
+            99164-6340, USA
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..630
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /tissue_type="stem"
+                     /dev_stage="sapling"
+     Protein         1..630
+                     /product="beta-phellandrene synthase"
+                     /name="monoterpene synthase"
+                     /note="includes N-terminal transit peptide"
+     Region          62..627
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(62..69,532..533,535..538,540..543,606..609)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(344,353,374,376..378,381,385,456,522..523,525..526,
+                     529,533,603,607,609)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(381,385,525,529,533)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            381..385
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            525..533
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..630
+                     /gene="agc8"
+                     /coded_by="AF139205.1:34..1926"
+ORIGIN      
+        1 malvssapks clhkslirst hhelkplrrt iptlgmcrrg ksftpsvsms lttavsddgl
+       61 qrrigdyhsn lwdddfiqsl stpygepsyr eraekligev kemfnsmpse dgesmsplnd
+      121 lierlwmvds verlgidrhf kkeiksaldy vysywnekgi gcgrdsvfpd vnstasgfrt
+      181 lrlhgysvss evlkvfqdqn gqfafspstk erdirtvlnl yrasfiafpg ekvmeeaeif
+      241 ssrylkeavq kipvsslsqe idytleygwh tnmprletrn yldvfghpts pwlkkkrtqy
+      301 ldsekllela klefnifhsl qqkelqylsr wwihsglpel tfgrhrhvey ytlssciate
+      361 pkhsafrlgf aktchlitvl ddiydtfgtm deielfneav rrwnpseker lpeymkeiym
+      421 alyealtdma reaektqgrd tlnyarkawe vyldsytqea kwiasgylpt feeylenakv
+      481 ssghraaalt plltldvplp ddvlkgidfp srfndlassf lrlrgdtrcy kadrdrgeea
+      541 ssiscymkdn pglteedaln hinamindii kelnwellkp dsnipmtark hayeitrafh
+      601 qlykyrdgfs vatqetkslv rrtvlepvpl
+//
+
+LOCUS       AAB71085                 628 aa            linear   PLN 23-SEP-1997
+DEFINITION  pinene synthase [Abies grandis].
+ACCESSION   AAB71085
+VERSION     AAB71085.1
+DBSOURCE    locus AGU87909 accession U87909.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 628)
+  AUTHORS   Bohlmann,J., Steele,C.L. and Croteau,R.
+  TITLE     Monoterpene synthases from grand fir (Abies grandis). cDNA
+            isolation, characterization, and functional expression of myrcene
+            synthase, (-)-(4S)-limonene synthase, and (-)-(1S,5S)-pinene
+            synthase
+  JOURNAL   J. Biol. Chem. 272 (35), 21784-21792 (1997)
+   PUBMED   9268308
+REFERENCE   2  (residues 1 to 628)
+  AUTHORS   Bohlmann,J., Steele,C.L. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (31-JAN-1997) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+FEATURES             Location/Qualifiers
+     source          1..628
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+     Protein         1..628
+                     /product="pinene synthase"
+     Region          64..624
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(64..71,530..531,533..536,538..541,604..607)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(342,351,372,374..376,379,383,454,520..521,523..524,
+                     527,531,601,605,607)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(379,383,523,527,531)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            379..383
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            523..531
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..628
+                     /gene="AG3.18"
+                     /coded_by="U87909.1:6..1892"
+                     /note="monoterpene synthase; terpene synthase; monoterpene
+                     synthase; terpene cyclase"
+ORIGIN      
+        1 malvstapla sksclhksli ssthelkals rtipalgmsr rgksitpsis mssttvvtdd
+       61 gvrrrmgdfh snlwdddviq slptayeeks yleraeklig evknmfnsms ledgelmspl
+      121 ndliqrlwiv dslerlgihr hfkdeiksal dyvysywgen gigcgresvv tdlnstalgl
+      181 rtlrlhgypv ssdvfkafkg qngqfscsen iqtdeeirgv lnlfraslia fpgekimdea
+      241 eifstkylke alqkipvssl sreigdvley gwhtylprle arnyiqvfgq dtentksyvk
+      301 skkllelakl efnifqslqk releslvrww kesgfpemtf crhrhveyyt lasciafepq
+      361 hsgfrlgfak tchlitvldd mydtfgtvde lelftatmkr wdpssidclp eymkgvyiav
+      421 ydtvnemare aeeaqgrdtl tyareaweay idsymqearw iatgylpsfd eyyengkvsc
+      481 ghrisalqpi ltmdipfpdh ilkevdfpsk lndlacailr lrgdtrcyka drargeeass
+      541 iscymkdnpg vseedaldhi namisdvikg lnwellkpdi nvpisakkha fdiarafhyg
+      601 ykyrdgysva nvetkslvtr tllesvpl
+//
+
+LOCUS       AF139206_1               630 aa            linear   PLN 24-JUL-2001
+DEFINITION  terpinolene synthase [Abies grandis].
+ACCESSION   AAF61454
+VERSION     AAF61454.1
+DBSOURCE    accession AF139206.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 630)
+  AUTHORS   Bohlmann,J., Phillips,M., Ramachandiran,V., Katoh,S. and Croteau,R.
+  TITLE     cDNA cloning, characterization, and functional expression of four
+            new monoterpene synthase members of the Tpsd gene family from grand
+            fir (Abies grandis)
+  JOURNAL   Arch. Biochem. Biophys. 368 (2), 232-243 (1999)
+   PUBMED   10441373
+REFERENCE   2  (residues 1 to 630)
+  AUTHORS   Phillips,M.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (30-MAR-1999) Institute of Biological Chemistry,
+            Washington State University, 289 Clark Hall, Pullman, WA
+            99164-6340, USA
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..630
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /tissue_type="stem"
+                     /dev_stage="sapling"
+     Protein         1..630
+                     /product="terpinolene synthase"
+                     /name="monoterpene synthase"
+     Region          65..626
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(65..72,532..533,535..538,540..543,606..609)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(344,353,374,376..378,381,385,456,522..523,525..526,
+                     529,533,603,607,609)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(381,385,525,529,533)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            381..385
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            525..533
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..630
+                     /gene="agc9"
+                     /coded_by="AF139206.1:1..1893"
+                     /note="includes N-terminal transit peptide"
+ORIGIN      
+        1 malvsilpls sksvlhkswi vstyehkais rtipnlglrg rgksvthslr mslstavsdd
+       61 hgvqrrivef hsnlwdddfi qslstpygap syreradrli vevkgiftsi saedgelitp
+      121 lndliqrllm vdnverlgid rhfkneikaa ldyvysywne kgigsgsdsg vadlnstalg
+      181 frilrlhgys vssdvlehfk eekekgqfvc saiqteeeik svlnlfrasl iafpgekvme
+      241 eaeifskiyl kealqniavs slsreieyvl edgwqtnmpr letrnyidvl gendrdetly
+      301 mnmeklleia klefnifhsl qqrelkdlsr wwkdsgfshl tfsrhrhvef yalascietd
+      361 rkhsgfrlgf akmchlitvl ddiydtfgtm eelelftaaf krwdpsatdl lpeymkglym
+      421 vvyetvneia readksqgre tlndarrawe ayldsymkea ewissgylpt feeymetskv
+      481 sfgyrifalq piltmdvplt hhilqeidfp lrfndlicsi lrlkndtrcy kadrargeea
+      541 sciscymken pgsteedain hinamvnnli kevnwellrq dgtahiackk hafdilkgsl
+      601 hgykyrdgfs vanketknwv rrtvlesvpl
+//
+
+LOCUS       BAC92722                 605 aa            linear   PLN 26-SEP-2003
+DEFINITION  limonene/borneol synthase [Chamaecyparis obtusa].
+ACCESSION   BAC92722
+VERSION     BAC92722.1
+DBSOURCE    accession AB120957.1
+KEYWORDS    .
+SOURCE      Chamaecyparis obtusa
+  ORGANISM  Chamaecyparis obtusa
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Cupressaceae; Chamaecyparis.
+REFERENCE   1
+  AUTHORS   Katoh,S., Hyatt,D., Ogawa,K., Fujii,M., Furuno,T. and Croteau,R.
+  TITLE     cDNA cloning, characterization, and functional expression of
+            limonene/borneol synthase from hinoki cypress (Chamaecyparis
+            obtusa)
+  JOURNAL   Unpublished
+REFERENCE   2  (residues 1 to 605)
+  AUTHORS   Katoh,S., Ogawa,K., Fujii,M., Hyatt,D., Furuno,T. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (24-SEP-2003) Sadanobu Katoh, Shimane University,
+            Department of Natural Resources Process Engineering,
+            Interdisciplinary Faculty of Science and Engineering; Nishikawatsu
+            1060, Matsue, Shimane 690-8504, Japan
+            (E-mail:sadanobu@riko.shimane-u.ac.jp, Tel:81-852-32-6484,
+            Fax:81-852-32-6484)
+FEATURES             Location/Qualifiers
+     source          1..605
+                     /organism="Chamaecyparis obtusa"
+                     /db_xref="taxon:13415"
+                     /tissue_type="needle"
+     Protein         1..605
+                     /product="limonene/borneol synthase"
+     Region          54..602
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(54..61,508..509,511..514,516..519,581..584)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(321,330,351,353..355,358,362,433,498..499,501..502,
+                     505,509,578,582,584)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(358,362,501,505,509)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            358..362
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            501..509
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..605
+                     /gene="co1"
+                     /coded_by="AB120957.1:12..1829"
+                     /note="monoterpene synthase; includes N-terminal transit
+                     peptide"
+ORIGIN      
+        1 malislsssa ftfclkskpt hlskpspksf ptlarkcmrn tmamattsve svtrrtgnhh
+       61 gnlwdddfiq slpklpydap eyreradrlv gevknmfnav raadsssqni lrllemvdkv
+      121 erlgigrhfe teiaealdyv yrfwndissk dlntaalglr ilrlhrypvs sdvleqfkek
+      181 dghflccttq leeeiksiln lfrasliafp nekimdeaka fstmylkqvf qkshilgthl
+      241 lkeitfnley gwrtnlprle arnymdiyge nsswlmdmdn knilylakld fnilqslyrp
+      301 elqmisrwwk dsslykldfs rhrhieylfq gcaitgepkh sgfridiaky stlatiiddi
+      361 ydtygsieel khftevfkrw dssppdylpe ymkiaysaly dginksaqea vqiqgrdtlh
+      421 narnawddyl davmqeakwn sighmpnlke flengrvssg trvitlqall rlealqesel
+      481 qkidhpskfn ylfgltlrlr gdtrtfkaea nrgevtssia cylkehpest ekdalkylqf
+      541 mldenlkeln leylkndgvp icikdfaydm srcfevfyke rdgfsistkd mknhverili
+      601 epvem
+//
+
+LOCUS       AF461460_1               627 aa            linear   PLN 27-MAR-2003
+DEFINITION  (+)-3-carene synthase [Picea abies].
+ACCESSION   AAO73863
+VERSION     AAO73863.1
+DBSOURCE    accession AF461460.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 627)
+  AUTHORS   Faldt,J., Martin,D., Miller,B., Rawat,S. and Bohlmann,J.
+  TITLE     Traumatic resin defense in Norway spruce (Picea abies): methyl
+            jasmonate-induced terpene synthase gene expression, and cDNA
+            cloning and functional characterization of (+)-3-carene synthase
+  JOURNAL   Plant Mol. Biol. 51 (1), 119-133 (2003)
+   PUBMED   12602896
+REFERENCE   2  (residues 1 to 627)
+  AUTHORS   Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (20-DEC-2001) Biotechnology Laboratory, University of
+            British Columbia, 237-6174 University Blvd, Vancouver, BC V6T1Z4,
+            Canada
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..627
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..627
+                     /product="(+)-3-carene synthase"
+                     /function="catalyzes the cyclization of geranyl
+                     diphosphate to (+)-3-carene"
+     Region          64..624
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(64..71,529..530,532..535,537..540,603..606)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(341,350,371,373..375,378,382,453,519..520,522..523,
+                     526,530,600,604,606)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(378,382,522,526,530)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            378..382
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            522..530
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..627
+                     /gene="JF67"
+                     /coded_by="AF461460.1:43..1926"
+ORIGIN      
+        1 msvisilpla sksclykslm ssthelkalc rpiatlgmcr rgksvmasks tslttavsdd
+       61 gvqrrigdhh snlwddnfiq slsspygass ygeraerlig evkeifnsls rtdgelvshv
+      121 ddllqhlsmv dnverlgidr hfqteikvsl dyvysywsek gigsgrdivc tdlnttalgf
+      181 rilrlhgytv fpdvfehfkd qmgriacsdn hterqissil nlfrasliaf pgekvmeeae
+      241 ifsatylkea lqtipvssls qeiqyvlqyr whsnlprlea rtyidilqen tknqmldvnt
+      301 kkvlelakle fnifhslqqn elksvsrwwk esgfpdlnfi rhrhvefytl vsgidmepkh
+      361 ctfrlsfvkm chlitvlddm ydtfgtidel rlftaavkrw dpstteclpe ymkgvytvly
+      421 etvnemaqea qksqgrdtls yvrqaleayi gayhkeaewi ssgylptfde yfengkvssg
+      481 hriatlqptf mldipfphhv lqeidfpskf ndfacsilrl rgdtrcyqad rargeeasci
+      541 scymkdnpgs tqedalnhin nmieetikkl nwellkpdnn vpisskkhaf dinrglhhfy
+      601 nyrdgytvas netknlvikt vlepvpm
+//
+
+LOCUS       AAS47694                 634 aa            linear   PLN 08-APR-2009
+DEFINITION  (-)-limonene synthase [Picea abies].
+ACCESSION   AAS47694
+VERSION     AAS47694.1
+DBSOURCE    accession AY473624.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 634)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 634)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..634
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..634
+                     /product="(-)-limonene synthase"
+                     /function="cyclization of geranyl diphosphate to
+                     (-)-limonene"
+     Region          66..631
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(66..73,536..537,539..542,544..547,610..613)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(348,357,378,380..382,385,389,460,526..527,529..530,
+                     533,537,607,611,613)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(385,389,529,533,537)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            385..389
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            529..537
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..634
+                     /gene="TPS-Lim"
+                     /gene_synonym="PaDM743"
+                     /coded_by="AY473624.1:1..1905"
+                     /note="PaTPS-Lim"
+ORIGIN      
+        1 mspvsvipla yklclprslm sssrevkplh itipnlgmcr rgksmapast smiltaavsd
+       61 ddrvqrrrgn yhsnlwdddf iqslstpyge psyreraerl kgeikkmfrs mskddgelit
+      121 plndliqrlw mvdsvqrlgi drhfkneiks aldyvysywn ekgigcgrds vvadlnstal
+      181 gfrtlrlhgy nvssevlkvf edqngqfacs psktegeirs alnlyrasli afpgekvmdd
+      241 aeifssrylk eavqeipdcs lsqeiayale ygwhtnmprl earnymdvfg hpsspwlkkn
+      301 ktqymdgekl lelaklefni fhslqqeelq yisrwwkdsg lpklafsrhr hveyytlgsc
+      361 iatdpkhraf rlgfvktchl ntvlddiydt fgtmdeielf teavrrwdps eteslpdymk
+      421 gvymvlyeal temaqeaqkt qgrdtlnyar kaweiyldsy iqeakwiasg ylptfqeyfe
+      481 ngkissayra aaltpiltld vplpeyilkg idfpsrfndl assflrlrgd trcykadrar
+      541 geeasciscy mkdnpgstee dalnhinsmi neiikelnwe llrpdsnipm parkhafdit
+      601 ralhhlykyr dgfsvatket kslvsrmvle pvpl
+//
+
+LOCUS       AAS47693                 623 aa            linear   PLN 08-APR-2009
+DEFINITION  (-)-linalool synthase [Picea abies].
+ACCESSION   AAS47693
+VERSION     AAS47693.1
+DBSOURCE    accession AY473623.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 623)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 623)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..623
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..623
+                     /product="(-)-linalool synthase"
+                     /function="formation of (-)-linalool from geranyl
+                     diphosphate"
+     Region          63..620
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(63..70,525..526,528..531,533..536,599..602)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(337,346,367,369..371,374,378,449,515..516,518..519,
+                     522,526,596,600,602)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(374,378,518,522,526)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            374..378
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            518..526
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..623
+                     /gene="TPS-Lin"
+                     /gene_synonym="PaJF39"
+                     /coded_by="AY473623.1:1..1872"
+                     /note="PaTPS-Lin"
+ORIGIN      
+        1 mallsiaplt stwcvdkslv gsseakallr kiptlemcrl tksvtpsism cltttvsddg
+       61 vqrriadhhp nlwddnfiqs lstpygatay heraqklige vkviinsilv edgelitppn
+      121 dllqrlsivd sierlgidrh fkneiksald yvysywsekg igcgrdsvvn dlnttalglr
+      181 tlrlhgypvs sdvleqfkdq ngqfacsaiq tegeiktvln lfrasliafp gekvmeeaei
+      241 fstiylkeal lkipvcslsr eiayvleygw hmnlprlear nyidvfgqdp iylrstqkli
+      301 elaklefnif qslqqeelkh vsrwwkdsgf sqmafarhrh veyytlasci diypqhssfr
+      361 lgfakiahlg tvlddiydtf gtmdelelft aavkrwhpsa aeglpeymkg vymmfyetvn
+      421 emareaeksq grdtlnyarq aleayidsym keakwissgf lptfeeyldn gkvsfgyria
+      481 tlqpiltlgi pfphhilqei dfpsrlndla gsilrlkgdi hsyqaersrg eessciscym
+      541 kdnpeateed avtyinamvn rllkelnwel lkpdnnvpit skkhafdilr afyhlykdrd
+      601 gfsvarneir nlvmttvieh vpl
+//
+
+LOCUS       AAS47696                 633 aa            linear   PLN 08-APR-2009
+DEFINITION  myrcene synthase [Picea abies].
+ACCESSION   AAS47696
+VERSION     AAS47696.1
+DBSOURCE    accession AY473626.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 633)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 633)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..633
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..633
+                     /product="myrcene synthase"
+                     /function="conversion of geranyl diphosphate to myrcene"
+     Region          65..629
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(65..72,535..536,538..541,543..546,609..612)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(347,356,377,379..381,384,388,459,525..526,528..529,
+                     532,536,606,610,612)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(384,388,528,532,536)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            384..388
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            528..536
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..633
+                     /gene="TPS-Myr"
+                     /gene_synonym="PaJB16"
+                     /coded_by="AY473626.1:1..1902"
+                     /note="PaTPS-Myr"
+ORIGIN      
+        1 mspvsvvpla cklclcrsmt sstdelkplp ttiptrgmcg rrmsvtpsms mslntvvsdn
+       61 davqrrigdy hsnlwnddfi qslttpygap syieradrli sevkemfnrm cmedgelmsp
+      121 lndliqrlwt vdsverlgid rhfkneikas ldyvysywne kgigcgrqsv vtdlnstalg
+      181 lrilrqhgyt vssevlkvfe eengqfacsp sqtegeirsf lnlyraslia fpgekvmeea
+      241 qifssrylke avqkipvsgl sreigdvley gwhtnlprwe arnymdvfgq dtntsfnknk
+      301 mqymntekil qlvklefnif hslqqrelqc llrwwkesgl pqltfarhrh vefytlasci
+      361 acepkhsafr lgfakmchlv tvlddvydtf gkmdelelft aavkrwdlse terlpeymkg
+      421 lyvvvfetvn elaqeaektq grntlnyvrk aweayfdsym keaewistgy lptfeeycen
+      481 gkvssayrva alqpiltldv qlpddilkgi dfpsrfndla ssflrlrgdt rcyeadrarg
+      541 eeasciscym kdnpgsteed alnhinamin diirelnwef lkpdsnipmp arkhafditr
+      601 alhhlyiyrd gfsvanketk nlvektlles mlf
+//
+
+LOCUS       AAS47692                 621 aa            linear   PLN 26-JUL-2016
+DEFINITION  (-)-alpha/beta-pinene synthase, partial [Picea abies].
+ACCESSION   AAS47692
+VERSION     AAS47692.1
+DBSOURCE    accession AY473622.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 621)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 621)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..621
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         <1..621
+                     /product="(-)-alpha/beta-pinene synthase"
+                     /function="cyclization of geranyl diphosphate to
+                     (-)-alpha-pinene and (-)-beta-pinene"
+     Region          58..618
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(58..65,523..524,526..529,531..534,597..600)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(335,344,365,367..369,372,376,447,513..514,516..517,
+                     520,524,594,598,600)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(372,376,516,520,524)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            372..376
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            516..524
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..621
+                     /gene="TPS-Pin"
+                     /gene_synonym="PaJF104"
+                     /coded_by="AY473622.1:<1..1867"
+                     /note="PaTPS-Pin"
+                     /codon_start=2
+ORIGIN      
+        1 praagksclh kslsssahel kticrtiptl gmsrrgksat psmsmslttt vsddgvqrrm
+       61 gdfhsnlwnd dfiqslstsy gepsyrerae rligevkkmf nsmssedgel isphndliqr
+      121 vwmvdsverl gierhfknei ksaldyvysy wsekgigcgr esvvadlnst alglrtlrlh
+      181 gyavsadvln lfkdqngqfa cspsqteeei rsvlnlyras liafpgekvm eeaeifsaky
+      241 leealqkisv sslsqeirdv leygwhtylp rmearnhidv fgqdtqnsks cintdkllel
+      301 aklefnifhs lqkreleylv rwwkdsgspq mtfgrhrhie yytlasciaf epqhsgfrlg
+      361 faktchiiti lddmydtfgt vdelelftaa mkrwdpsaad clpeymkvmy mivydtvnem
+      421 cqeaekaqgr dtldyarqaw edyldsymqe akwiatgylp tfeeyyengk vssghrvaal
+      481 qpiltmdipf pphilkevdf psklsdlaca ilrlrgdtrc ykadrargee assiscymkd
+      541 npgateedal dhinamisdv irglnwellk pnssvpissk khvfdisraf hygykyrdgy
+      601 svanietksl vkrtvidpvt l
+//
+
+LOCUS       AAP72020                 627 aa            linear   PLN 20-DEC-2016
+DEFINITION  pinene synthase [Picea sitchensis].
+ACCESSION   AAP72020
+VERSION     AAP72020.1
+DBSOURCE    accession AY237645.2
+KEYWORDS    .
+SOURCE      Picea sitchensis (Sitka spruce)
+  ORGANISM  Picea sitchensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 627)
+  AUTHORS   McKay,S.A., Hunter,W.L., Godard,K.A., Wang,S.X., Martin,D.M.,
+            Bohlmann,J. and Plant,A.L.
+  TITLE     Insect attack and wounding induce traumatic resin duct development
+            and gene expression of (-)-pinene synthase in Sitka spruce
+  JOURNAL   Plant Physiol. 133 (1), 368-378 (2003)
+   PUBMED   12970502
+REFERENCE   2  (residues 1 to 627)
+  AUTHORS   Byun McKay,A.S., Hunter,W.L., Goddard,K.A., Wang,S.X., Martin,D.,
+            Bohlmann,J. and Plant,A.L.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (17-FEB-2003) Biology, Simon Fraser University, 8888
+            University Drive, Burnaby, BC V5A 1S6, Canada
+REFERENCE   3  (residues 1 to 627)
+  AUTHORS   Byun McKay,A.S., Hunter,W.L., Goddard,K.A., Wang,S.X., Martin,D.,
+            Bohlmann,J. and Plant,A.L.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (20-DEC-2016) Biology, Simon Fraser University, 8888
+            University Drive, Burnaby, BC V5A 1S6, Canada
+  REMARK    Sequence update by database staff to remove vector contamination
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..627
+                     /organism="Picea sitchensis"
+                     /db_xref="taxon:3332"
+                     /clone="19-2-1/12-3"
+     Protein         1..627
+                     /product="pinene synthase"
+                     /name="terpene synthase; monoterpene synthase; terpene
+                     cyclase"
+                     /note="(-)-pinene synthase"
+     Region          64..624
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(64..71,529..530,532..535,537..540,603..606)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(341,350,371,373..375,378,382,453,519..520,522..523,
+                     526,530,600,604,606)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(378,382,522,526,530)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            378..382
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            522..530
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..627
+                     /coded_by="AY237645.2:41..1924"
+ORIGIN      
+        1 malvsvapma srsclhksls ssahelktic rtiptlgmsr rgksatpsms msltttvsdd
+       61 gvqrrmgdfh snlwnddfiq slstsygeps yreraerlig evkkmfnsms sedgelisph
+      121 ndliqrvwmv dsverlgier hfkneiksal dyvysywsek gigcgresvv adlnstalgf
+      181 rtlrlhgyav sadvlnlfkd qngqfacsps qteeeirsvl nlyrasliaf pgekvmeeae
+      241 ifsakylees lqkisvssls qeirdvleyg whtylprmea rnhidvfgqd tqnskscint
+      301 ekllelakle fnifhslqkr eleylvrwwk dsgspqmtfc rhrhveyytl asciafepqh
+      361 sgfrlgfaka chiitilddm ydtfgtvdel elftaamkrw dpsaadclpe ymkgvylily
+      421 dtvnetsrea ekaqgrdtld yarrawddyl dsymqeakwi atgylptfae yyengkvssg
+      481 hrtsalqpil tmdipfpphi lkevdfpskl ndlasailrl rgdtrcykad rargeeassi
+      541 scymkdnpga teedaldhin amisdvirgl nwellnpnss vpisskkhvf disrafhygy
+      601 kyrdgysvan ietkslvrrt vidpvtl
+//
+
+LOCUS       AAO61225                 629 aa            linear   PLN 10-MAR-2003
+DEFINITION  (-)-alpha-pinene synthase [Pinus taeda].
+ACCESSION   AAO61225
+VERSION     AAO61225.1
+DBSOURCE    accession AF543527.1
+KEYWORDS    .
+SOURCE      Pinus taeda (loblolly pine)
+  ORGANISM  Pinus taeda
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pinus; Pinus.
+REFERENCE   1  (residues 1 to 629)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C., Hyatt,D.C. and
+            Croteau,R.
+  TITLE     cDNA isolation, functional expression, and characterization of
+            (+)-alpha-pinene synthase and (-)-alpha-pinene synthase from
+            loblolly pine (Pinus taeda): Stereocontrol in pinene biosynthesis
+  JOURNAL   Arch. Biochem. Biophys. 411 (2), 267-276 (2003)
+   PUBMED   12623076
+REFERENCE   2  (residues 1 to 629)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (09-SEP-2002) Institute of Biological Chemistry,
+            Washington State University, PO Box 646340, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..629
+                     /organism="Pinus taeda"
+                     /db_xref="taxon:3352"
+     Protein         1..629
+                     /product="(-)-alpha-pinene synthase"
+                     /name="monoterpene synthase"
+     Region          66..626
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(66..73,531..532,534..537,539..542,605..608)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(343,352,373,375..377,380,384,455,521..522,524..525,
+                     528,532,602,606,608)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(380,384,524,528,532)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            380..384
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            524..532
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..629
+                     /coded_by="AF543527.1:32..1921"
+ORIGIN      
+        1 mspvsvislp sdlclptsfi drsgrelipl hitipnvamr rqgklmtras msmnlrtavs
+       61 ddavirrrgd fhsnlwdddl iqslsspyge psyreraerl igevknsfns msnedgesit
+      121 plddliqrlw mvdsverlgi drhfkkeiks aldhvyryws ekgigcgres vvtdlnstal
+      181 glrtlrlhgy dvsadvlnhf knqsgqfact lkqtedqirt vlnlyrasli afpgekvmde
+      241 aesfsakylk ealqkipvss fsreigdvle ygwhtylprl earnyidvfg qdtensksym
+      301 ktekllelak lefnifhalq kreleylvrw wkgsgspqmt fcrhrhveyy tlasciafep
+      361 qhsgfrlgfa kachiitvld dmydtfgtld elelftsaik rwdpsatecl peymkgvymi
+      421 vyntvnemsq eadkaqgrdt lnycrqawee yidaymqeak wiasgevptf eeyyengkvs
+      481 sghrvsalqp ilttdipfpe hvlkevdips qlndlasail rlrgdtrcyq adrargeeas
+      541 ciscymkdnp gtteedalnh lnamisdvik glnwellkpn ssvpisakkh afdisrafhc
+      601 gykyrdgysv anietkslvk rtvidpvtl
+//
+
+LOCUS       AAO61228                 628 aa            linear   PLN 10-MAR-2003
+DEFINITION  (+)-alpha-pinene synthase [Pinus taeda].
+ACCESSION   AAO61228
+VERSION     AAO61228.1
+DBSOURCE    accession AF543530.1
+KEYWORDS    .
+SOURCE      Pinus taeda (loblolly pine)
+  ORGANISM  Pinus taeda
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pinus; Pinus.
+REFERENCE   1  (residues 1 to 628)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C., Hyatt,D.C. and
+            Croteau,R.
+  TITLE     cDNA isolation, functional expression, and characterization of
+            (+)-alpha-pinene synthase and (-)-alpha-pinene synthase from
+            loblolly pine (Pinus taeda): Stereocontrol in pinene biosynthesis
+  JOURNAL   Arch. Biochem. Biophys. 411 (2), 267-276 (2003)
+   PUBMED   12623076
+REFERENCE   2  (residues 1 to 628)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (09-SEP-2002) Institute of Biological Chemistry,
+            Washington State University, PO Box 646340, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..628
+                     /organism="Pinus taeda"
+                     /db_xref="taxon:3352"
+     Protein         1..628
+                     /product="(+)-alpha-pinene synthase"
+                     /name="monoterpene synthase; Pt30"
+     Region          65..624
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(65..72,530..531,533..536,538..541,604..607)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(342,351,372,374..376,379,383,454,520..521,523..524,
+                     527,531,601,605,607)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(379,383,523,527,531)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            379..383
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            523..531
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..628
+                     /coded_by="AF543530.1:1..1887"
+ORIGIN      
+        1 malvsavpln sklclrrtlf gfshelkaih stvpnlgmcr ggksiapsms mssttsvsne
+       61 dgvprriagh hsnlwdddsi aslstsyeap syrkradkli gevknifdlm svedgvftsp
+      121 lsdlhhrlwm vdsverlgid rhfkdeinsa ldhvysywte kgigrgresg vtdlnstalg
+      181 lrtlrlhgyt vsshvldhfk nekgqftcsa iqtegeirdv lnlfraslia fpgekimeaa
+      241 eifstmylkd alqkippsgl sqeieyllef gwhtnlprme trmyidvfge dttfetpyli
+      301 rekllelakl efnifhslvk relqslsrww kdygfpeitf srhrhveyyt laaciandpk
+      361 hsafrlgfgk ishmitildd iydtfgtmee lklltaafkr wdpssieclp dymkgvymav
+      421 ydninemare aqkiqgwdtv syarksweaf igayiqeakw issgylptfd eylengkvsf
+      481 gsrittlepm ltlgfplppr ilqeidfpsk fndlicailr lkgdtqcyka drargeeasa
+      541 vscymkdhpg iteedavnqv namvdnltke lnwellrpds gvpisykkva fdicrvfhyg
+      601 ykyrdgfsva sieiknlvtr tvvetvpl
+//
+
+LOCUS       AAO61227                 627 aa            linear   PLN 10-MAR-2003
+DEFINITION  alpha-terpineol synthase [Pinus taeda].
+ACCESSION   AAO61227
+VERSION     AAO61227.1
+DBSOURCE    accession AF543529.1
+KEYWORDS    .
+SOURCE      Pinus taeda (loblolly pine)
+  ORGANISM  Pinus taeda
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pinus; Pinus.
+REFERENCE   1  (residues 1 to 627)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C., Hyatt,D.C. and
+            Croteau,R.
+  TITLE     cDNA isolation, functional expression, and characterization of
+            (+)-alpha-pinene synthase and (-)-alpha-pinene synthase from
+            loblolly pine (Pinus taeda): Stereocontrol in pinene biosynthesis
+  JOURNAL   Arch. Biochem. Biophys. 411 (2), 267-276 (2003)
+   PUBMED   12623076
+REFERENCE   2  (residues 1 to 627)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (09-SEP-2002) Institute of Biological Chemistry,
+            Washington State University, PO Box 646340, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..627
+                     /organism="Pinus taeda"
+                     /db_xref="taxon:3352"
+     Protein         1..627
+                     /product="alpha-terpineol synthase"
+                     /name="monoterpene synthase; Pt10"
+     Region          64..624
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(64..71,529..530,532..535,537..540,603..606)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(341,350,371,373..375,378,382,453,519..520,522..523,
+                     526,530,600,604,606)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(378,382,522,526,530)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            378..382
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            522..530
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..627
+                     /coded_by="AF543529.1:59..1942"
+ORIGIN      
+        1 mdlisvlpsa skscvclhkp lsssthklkp fcktirilvm prrwefarps mslstvased
+       61 diqrrtggyl snlwnddviq flstpygela yreraerlid evrdifssms ledgefsdli
+      121 qrlwmvdnve rlgidrhfkn eiksaldyvy sywsekgigc gtksiitnln stalgfrtlr
+      181 lhgypvsadv lkhfrnqigq fvscpsetee dirimvnlyr asliafpvaf pgekvmeeae
+      241 sfsekylket lqkipdcsls reigdvlehg whtnlprlea rnyidvfgqd tknmepnrkt
+      301 ekllelakle fnifqsiqkt elesllrwwn dsgspqitft rhrhveyytl asciafepqh
+      361 sgfrlgfaka chiltvlddm ydlfgtvdel klftaaikrw dpsatdclpq ymkgiymmvy
+      421 ntvnemsaea qkaqgrdtln yarqawedcl dshmqeakwi atgflptfee ylengkvssa
+      481 hrvsalqpml tmdipfpphi lkevdfpsnl ndlacamlrl rgdtrcyqad rargeetsci
+      541 scymkdnpga teedalnhln vmisgvikel nwellkpnss vpisskkinf ditrafhygy
+      601 kyrdgysvss vetkslvmrt llepvpl
+//
+
+LOCUS       AAX07267                 619 aa            linear   PLN 21-JUN-2005
+DEFINITION  (-)-alpha-pinene/(-)-camphene synthase [Pseudotsuga menziesii].
+ACCESSION   AAX07267
+VERSION     AAX07267.1
+DBSOURCE    accession AY906869.1
+KEYWORDS    .
+SOURCE      Pseudotsuga menziesii (Douglas-fir)
+  ORGANISM  Pseudotsuga menziesii
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pseudotsuga.
+REFERENCE   1  (residues 1 to 619)
+  AUTHORS   Huber,D.P., Philippe,R.N., Godard,K.A., Sturrock,R.N. and
+            Bohlmann,J.
+  TITLE     Characterization of four terpene synthase cDNAs from methyl
+            jasmonate-induced Douglas-fir, Pseudotsuga menziesii
+  JOURNAL   Phytochemistry 66 (12), 1427-1439 (2005)
+   PUBMED   15921711
+REFERENCE   2  (residues 1 to 619)
+  AUTHORS   Huber,D.P.W., Philippe,R.N., Godard,K.-A. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (26-JAN-2005) Michael Smith Laboratories, University of
+            British Columbia, 321 - 2185 East Mall, Vancouver, British Columbia
+            V6T 1Z4, Canada
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..619
+                     /organism="Pseudotsuga menziesii"
+                     /db_xref="taxon:3357"
+     Protein         1..619
+                     /product="(-)-alpha-pinene/(-)-camphene synthase"
+     Region          51..618
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(51..58,524..525,527..530,532..535,597..600)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(336,345,366,368..370,373,377,448,514..515,517..518,
+                     521,525,594,598,600)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(373,377,517,521,525)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            373..377
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            517..525
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..619
+                     /gene="TPS1"
+                     /coded_by="AY906869.1:51..1910"
+ORIGIN      
+        1 mssifhehkp lrktiptlig kcstssrrsv tpasitsmtm etavsddgvq rrvgnyhsnl
+       61 wdddfinsli stpyeapsyr ergetligev keifnsisve dagelitpln dliqrlwmvd
+      121 sverlgidrh fkdeiksald yvyshwreeg igcgresvat dlnstalglr tlrlhgypvs
+      181 sdvlehfkdq kghfascsss sietggeirs vlnlfrasli afpnekvmde aqifsttylk
+      241 eavqkipvss lsrqieyvme ygwdtnlprl earhyihvlg qdityndnem pytnveklle
+      301 laklefnmfh slqqrelkhl srwwkdsgmp eatftrhrhv eyyalascia fepqhsgfrf
+      361 gfaklchiit vlddmydlfg tidelelfta aikrwdpsat dclpeymkgv ytmvydtine
+      421 mageaqnaqg rdtlnyarea weacldsylq eakwiatgyl psfeeyyeng kvssahrvct
+      481 lqpiltldip fpdhilkevd fpsklndlac avlrlrgdtr cyqadrarge eassiscymk
+      541 dnpgsteeda lnhinamlsd vikelnwell kpdsvpisak khaydvsraf hygykyrdgy
+      601 svanieiknf vaisvlepv
+//
+
+LOCUS       AAX07264                 625 aa            linear   PLN 21-JUN-2005
+DEFINITION  terpinolene synthase [Pseudotsuga menziesii].
+ACCESSION   AAX07264
+VERSION     AAX07264.1
+DBSOURCE    accession AY906866.1
+KEYWORDS    .
+SOURCE      Pseudotsuga menziesii (Douglas-fir)
+  ORGANISM  Pseudotsuga menziesii
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pseudotsuga.
+REFERENCE   1  (residues 1 to 625)
+  AUTHORS   Huber,D.P., Philippe,R.N., Godard,K.A., Sturrock,R.N. and
+            Bohlmann,J.
+  TITLE     Characterization of four terpene synthase cDNAs from methyl
+            jasmonate-induced Douglas-fir, Pseudotsuga menziesii
+  JOURNAL   Phytochemistry 66 (12), 1427-1439 (2005)
+   PUBMED   15921711
+REFERENCE   2  (residues 1 to 625)
+  AUTHORS   Huber,D.P.W., Philippe,R.N., Godard,K.-A. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (26-JAN-2005) Michael Smith Laboratories, University of
+            British Columbia, 321 - 2185 East Mall, Vancouver, British Columbia
+            V6T 1Z4, Canada
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..625
+                     /organism="Pseudotsuga menziesii"
+                     /db_xref="taxon:3357"
+     Protein         1..625
+                     /product="terpinolene synthase"
+     Region          62..622
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(62..69,527..528,530..533,535..538,601..604)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(339,348,369,371..373,376,380,451,517..518,520..521,
+                     524,528,598,602,604)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(376,380,520,524,528)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            376..380
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            520..528
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..625
+                     /gene="TPS2"
+                     /coded_by="AY906866.1:10..1887"
+ORIGIN      
+        1 mslismapla pksclhkpfi gsthepkvfc rkiptptlvm crraksvtss mgtsldaghv
+       61 qrrigdyhsn iwddnfiqsl sspyeessyg draetligev keifnslsmt gvvsplndll
+      121 qrllmvdnve rlgierhfqn eiksalqyvy sywsengigc gkdsvstdln ttalgfrilr
+      181 lhgytvfsdv leqfkdqkgq fasawsanht erqirsvlnl frasliafpg ekvmeeaqif
+      241 satylkealq tiplsglsqe iqyaleyrwh snlprlevrs yidilaenti nemsypkvek
+      301 llelaklefn ifhslqqkel qciwrwwkes gspeltfvrh ryveyytlva gidmepqhsa
+      361 friayvkmch litilddmyd tfgtidelrl ftaavkrwdr spteclpqym kgvymvlydt
+      421 vnemacealk sqgwdtlnya rqafedyids ylkeaewist gylptfeeyl engkvssahr
+      481 vatlqpiltl dipfplhiiq eidfpskfnd sassilrlrg dtrcyqadma rgeeassisc
+      541 ymhdnpgste edalnhingm iediikelnw ellrkdinvp isckkhafei srgfhhfykd
+      601 rdgytvsnie tkdlvmktvl epvpl
+//
+
+LOCUS       AAC24192                 817 aa            linear   PLN 24-JUN-1998
+DEFINITION  E-alpha-bisabolene synthase [Abies grandis].
+ACCESSION   AAC24192
+VERSION     AAC24192.1
+DBSOURCE    accession AF006195.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 817)
+  AUTHORS   Bohlmann,J., Crock,J., Jetter,R. and Croteau,R.
+  TITLE     Terpenoid-based defenses in conifers: cDNA cloning,
+            characterization, and functional expression of wound-inducible
+            (E)-alpha-bisabolene synthase from grand fir (Abies grandis)
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 95 (12), 6756-6761 (1998)
+   PUBMED   9618485
+REFERENCE   2  (residues 1 to 817)
+  AUTHORS   Bohlmann,J., Jetter,R. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (30-MAY-1997) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+FEATURES             Location/Qualifiers
+     source          1..817
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /clone="RJ8/AG1.28"
+     Protein         1..817
+                     /product="E-alpha-bisabolene synthase"
+     Region          82..817
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          286..814
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(529,538,559,561..563,566,570,641,710..711,713..714,
+                     717,721,790,794,796)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(566,570,713,717,721)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            566..570
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            713..721
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..817
+                     /coded_by="AF006195.1:1..2454"
+                     /note="sesquiterpene synthase; terpene synthase; terpene
+                     cyclase; sesquiterpene cyclase"
+ORIGIN      
+        1 magvsavskv sslvcdlsst sglirrtanp hpnvwgydlv hslkspyids syreraevlv
+       61 seikamlnpa itgdgesmit psaydtawva rvpaidgsar pqfpqtvdwi lknqlkdgsw
+      121 giqshfllsd rllatlscvl vllkwnvgdl qveqgiefik snlelvkdet dqdslvtdfe
+      181 iifpsllrea qslrlglpyd lpyihllqtk rqerlaklsr eeiyavpspl lyslegiqdi
+      241 vewerimevq sqdgsflssp astacvfmht gdakclefln svmikfgnfv pclypvdlle
+      301 rllivdnivr lgiyrhfeke ikealdyvyr hwnergigwg rlnpiadlet talgfrllrl
+      361 hrynvspaif dnfkdangkf icstgqfnkd vasmlnlyra sqlafpgeni ldeaksfatk
+      421 ylrealekse tssawnnkqn lsqeikyalk tswhasvprv eakrycqvyr pdyariakcv
+      481 yklpyvnnek flelgkldfn iiqsihqeem knvtswfrds glplftfare rplefyflva
+      541 agtyepqyak crflftkvac lqtvlddmyd tygtldelkl fteavrrwdl sftenlpdym
+      601 klcyqiyydi vhevaweaek eqgrelvsff rkgwedyllg yyeeaewlaa eyvptldeyi
+      661 kngitsigqr illlsgvlim dgqllsqeal ekvdypgrrv ltelnslisr laddtktyka
+      721 ekargelass iecymkdhpe cteeealdhi ysilepavke ltreflkpdd vpfackkmlf
+      781 eetrvtmvif kdgdgfgvsk levkdhikec lieplpl
+//
+
+LOCUS       AAC05728                 593 aa            linear   PLN 17-MAR-1998
+DEFINITION  gamma-humulene synthase [Abies grandis].
+ACCESSION   AAC05728
+VERSION     AAC05728.1
+DBSOURCE    locus AGU92267 accession U92267.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 593)
+  AUTHORS   Steele,C.L., Crock,J., Bohlmann,J. and Croteau,R.
+  TITLE     Sesquiterpene synthases from grand fir (Abies grandis). Comparison
+            of constitutive and wound-induced activities, and cDNA isolation,
+            characterization, and bacterial expression of delta-selinene
+            synthase and gamma-humulene synthase
+  JOURNAL   J. Biol. Chem. 273 (4), 2078-2089 (1998)
+   PUBMED   9442047
+REFERENCE   2  (residues 1 to 593)
+  AUTHORS   Steele,C.L., Bohlmann,J. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (05-MAR-1997) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..593
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /clone="AG5"
+     Protein         1..593
+                     /product="gamma-humulene synthase"
+                     /name="sesquiterpene synthase"
+     Region          22..590
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(22..27,495..496,498..501,502..505,569..572)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(306,315,336,338..340,343,347,419,485..486,488..489,
+                     492,496,566,570,572)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(343,347,488,492,496)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            343..347
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            488..496
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..593
+                     /coded_by="U92267.1:4..1785"
+                     /note="terpene synthase; terpene cyclase; sesquiterpene
+                     cyclase"
+ORIGIN      
+        1 maqisesvsp stdlkstess itsnrhgnmw eddriqslns pygapayqer seklieeikl
+       61 lflsdmddsc ndsdrdlikr leivdtvecl gidrhfqpei klaldyvyrc wnergigegs
+      121 rdslkkdlna talgfralrl hrynvssgvl enfrddngqf fcgstveeeg aeaynkhvrc
+      181 mlslsrasni lfpgekvmee akafttnylk kvlagreath vdesllgevk yalefpwhcs
+      241 vqrwearsfi eifgqidsel ksnlskkmle lakldfnilq cthqkelqii srwfadssia
+      301 slnfyrkcyv efyfwmaaai sepefsgsrv aftkiailmt mlddlydthg tldqlkifte
+      361 gvrrwdvslv eglpdfmkia fefwlktsne liaeavkaqg qdmaayirkn aweryleayl
+      421 qdaewiatgh vptfdeylnn gtpntgmcvl nliplllmge hlpidileqi flpsrfhhli
+      481 elasrlvdda rdfqaekdhg dlsciecylk dhpestveda lnhvngllgn cllemnwkfl
+      541 kkqdsvplsc kkysfhvlar siqfmynqgd gfsisnkvik dqvqkvlivp vpi
+//
+
+LOCUS       AAC05727                 581 aa            linear   PLN 17-MAR-1998
+DEFINITION  d-selinene synthase [Abies grandis].
+ACCESSION   AAC05727
+VERSION     AAC05727.1
+DBSOURCE    locus AGU92266 accession U92266.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 581)
+  AUTHORS   Steele,C.L., Crock,J., Bohlmann,J. and Croteau,R.
+  TITLE     Sesquiterpene synthases from grand fir (Abies grandis). Comparison
+            of constitutive and wound-induced activities, and cDNA isolation,
+            characterization, and bacterial expression of delta-selinene
+            synthase and gamma-humulene synthase
+  JOURNAL   J. Biol. Chem. 273 (4), 2078-2089 (1998)
+   PUBMED   9442047
+REFERENCE   2  (residues 1 to 581)
+  AUTHORS   Steele,C.L., Bohlmann,J. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (05-MAR-1997) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..581
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /clone="AG4"
+     Protein         1..581
+                     /product="d-selinene synthase"
+     Region          11..576
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(11..18,482..483,485..488,490..493,555..558)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(294,303,324,326..328,331,335,406,472..473,475..476,
+                     479,483,552,556,558)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(331,335,475,479,483)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            331..335
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            475..483
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..581
+                     /coded_by="U92266.1:1..1746"
+                     /note="terpene synthase; terpene cyclase; sesquiterpene
+                     synthase"
+ORIGIN      
+        1 maeisessip rrtgnhhgnv wdddlihsln spygapayye llqkliqeik hllltememd
+       61 dgdhdlikrl qivdtleclg idrhfeheiq taaldyvyrw wnekgigegs rdsfskdlna
+      121 talgfralrl hrynvssgvl knfkdengkf fcnftgeegr gdkqvrsmls llraseisfp
+      181 gekvmeeaka ftreylnqvl aghgdvtdvd qsllrevkya lefpwhcsvp rwearsflei
+      241 yghnhswlks ninqkmlkla kldfnilqck hhkeiqfitr wwrdsgisql nfyrkrhvey
+      301 yswvvmcife pefsesriaf aktailctvl ddlydthatl heikimtegv rrwdlsltdd
+      361 lpdyikiafq fffntvneli veivkrqgrd mttivkdcwk ryiesylqea ewiatghipt
+      421 fneyikngma ssgmcilnln plllldkllp dnileqihsp skildllelt griaddlkdf
+      481 edekergema sslqcymken pestvenaln hikgilnrsl eefnwefmkq dsvpmcckkf
+      541 tfnigrglqf iykyrdglyi sdkevkdqif kilvhqvpme e
+//
+
+LOCUS       AAS47689                 807 aa            linear   PLN 08-APR-2009
+DEFINITION  E-alpha-bisabolene synthase [Picea abies].
+ACCESSION   AAS47689
+VERSION     AAS47689.1
+DBSOURCE    accession AY473619.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 807)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 807)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..807
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..807
+                     /product="E-alpha-bisabolene synthase"
+                     /function="cyclization of farnesyl diphosphate to
+                     E-alpha-bisabolene"
+     Region          60..807
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          <73..>156
+                     /region_name="ISOPREN_C2_like"
+                     /note="This group contains class II terpene cyclases,
+                     protein prenyltransferases beta subunit, two broadly
+                     specific proteinase inhibitors alpha2-macroglobulin (alpha
+                     (2)-M) and pregnancy zone protein (PZP) and, the C3 C4 and
+                     C5 components of vertebrate...; cl08267"
+                     /db_xref="CDD:298658"
+     Region          271..804
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(519,528,549,551..553,556,560,631,700..701,703..704,
+                     707,711,780,784,786)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(556,560,703,707,711)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            556..560
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            703..711
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..807
+                     /gene="TPS-Bis"
+                     /gene_synonym="PaDM03"
+                     /coded_by="AY473619.1:100..2523"
+                     /note="PaTPS-Bis"
+ORIGIN      
+        1 mtsvsvesgt vsclssnnli rrtanphpni wgydfvhslk spythdssyr eraetlisei
+       61 kvmlgggelm mtpsaydtaw varvpsidgs acpqfpqtve wilknqlkdg swgteshfll
+      121 sdrllatlsc vlallkwkva dvqveqgief ikrnlqaikd erdqdslvtd feiifpsllk
+      181 eaqslnlglp ydlpyirllq tkrqerlanl smdkihggtl lsslegiqdi vewetimdvq
+      241 sqdgsflssp astacvfmht gdmkcldfln nvltkfgssv pclypvdlle rllivdnver
+      301 lgidrhfeke ikealdyvyr hwndrgigwg rlspiadlet talgfrllrl hrynvspvvl
+      361 dnfkdadgef fcstgqfnkd vasmlslyra sqlafpeesi ldeaksfstq ylrealekse
+      421 tfsswnhrqs lseeikyalk tswhasvprv eakrycqvyr qdyahlaksv yklpkvnnek
+      481 ilelakldfn iiqsihqkem knvtswfrds glplftfare rplefyflia ggtyepqyak
+      541 crflftkvac lqtvlddmyd tygtpselkl fteavrrwdl sftenlpdym klcykiyydi
+      601 vhevawevek eqgrelvsff rkgwedyllg yyeeaewlaa eyvptldeyi kngitsigqr
+      661 illlsgvlim egqllsqeal ekvdypgrrv ltelnslisr laddtktyka ekargelass
+      721 iecymkdhpg cqeeealnhi ygilepavke ltreflkadh vpfpckkmlf detrvtmvif
+      781 kdgdgfgisk levkdhikec lieplpl
+//
+
+LOCUS       AAS47697                 580 aa            linear   PLN 29-AUG-2004
+DEFINITION  E,E-alpha-farnesene synthase [Picea abies].
+ACCESSION   AAS47697
+VERSION     AAS47697.1
+DBSOURCE    accession AY473627.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 580)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 580)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..580
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..580
+                     /product="E,E-alpha-farnesene synthase"
+                     /function="formation of E,E-alpha-farnesene from farnesyl
+                     diphosphate"
+     Region          18..577
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(18..25,482..483,485..488,490..493,556..559)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(294,303,324,326..328,331,335,406,472..473,475..476,
+                     479,483,553,557,559)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(331,335,475,479,483)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            331..335
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            475..483
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..580
+                     /gene="TPS-Far"
+                     /gene_synonym="PaJF71"
+                     /coded_by="AY473627.1:24..1766"
+                     /note="PaTPS-Far"
+ORIGIN      
+        1 mdlaveiamd lavddverrv gdyhsnlwdd dfiqslstpy gassyrerae rlvgevkemf
+       61 tsisiedgel tsdllqrlwm vdnverlgis rhfeneikaa idyvysywsd kgivrgrdsa
+      121 vpdlnsialg frtlrlhgyt vssdvfkvfq drkgefacsa iptegdikgv lnllrasyia
+      181 fpgekvmeka qtfaatylke alqkiqvssl sreieyvley gwltnfprle arnyidvfge
+      241 eicpyfkkpc imvdkllela klefnlfhsl qqtelkhvsr wwkdsgfsql tftrhrhvef
+      301 ytlasciaie pkhsafrlgf akvcylgivl ddiydtfgkm kelelftaai krwdpsttec
+      361 lpeymkgvym afyncvnela lqaektqgrd mlnyarkawe alfdafleea kwissgylpt
+      421 feeylengkv sfgyraatlq piltldiplp lhilqqidfp srfndlassi lrlrgdicgy
+      481 qaersrgeea ssiscymkdn pgsteedals hinamisdni nelnwellkp nsnvpisskk
+      541 hafdilrafy hlykyrdgfs iakietknlv mrtvlepvpm
+//
+
+LOCUS       AAS47695                 578 aa            linear   PLN 08-APR-2009
+DEFINITION  longifolene synthase [Picea abies].
+ACCESSION   AAS47695
+VERSION     AAS47695.1
+DBSOURCE    accession AY473625.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 578)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 578)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..578
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..578
+                     /product="longifolene synthase"
+                     /function="cyclization of farnesyl diphosphate to the
+                     major products longifolene and alpha-longipinene"
+     Region          20..576
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(20..25,482..483,485..488,490..493,555..558)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(294,303,324,326..328,331,335,406,472..473,475..476,
+                     479,483,552,556,558)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(331,335,475,479,483)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            331..335
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            475..483
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..578
+                     /gene="TPS-Lon"
+                     /gene_synonym="PaDM486"
+                     /coded_by="AY473625.1:1..1737"
+                     /note="PaTPS-Lon"
+ORIGIN      
+        1 maqiskcssl saelnessii shhhgnlwdd dfiqslkssn gapqyheraa klveeiknlv
+       61 vsemkdcndd lirrlqmvdi feclgidrhf qheiqvaldy vyrywnqleg igigsrdsli
+      121 kdfnatalgf ralrlhrynv ssdvlenfkn engqffcsst veekevrcml tlfraseisf
+      181 pgekvmdeak aftteyltkv ltgvdvtdvn qsllrevkya lefpwhcslp rwearsfiei
+      241 cgqndswlks imnkrvlela kldfnilqwa hhrelqllss wwsqsdiaqq nfyrkrhvef
+      301 ylwvvigtfe pefstcritf akistlmtil ddlydthgtl eqlkiftegv krwdlslvdr
+      361 lpdyikitfe fflntsneli aevaktqerd msayirktwe ryleaylqea ewiaarhvpt
+      421 fdeymkngis ssgmcilnly slllmgqllp ddvleqihsp skihelvelt arlvddskdf
+      481 etkkvggela sgiecyvkdn pectledasn hlnglldltv kelnwefvrh dsvalcfkkf
+      541 afnvarglrl iykyrdgfdv snqemkthif kilidplt
+//
+
+LOCUS       AAO61226                 574 aa            linear   PLN 10-MAR-2003
+DEFINITION  alpha-farnesene synthase [Pinus taeda].
+ACCESSION   AAO61226
+VERSION     AAO61226.1
+DBSOURCE    accession AF543528.1
+KEYWORDS    .
+SOURCE      Pinus taeda (loblolly pine)
+  ORGANISM  Pinus taeda
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pinus; Pinus.
+REFERENCE   1  (residues 1 to 574)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C., Hyatt,D.C. and
+            Croteau,R.
+  TITLE     cDNA isolation, functional expression, and characterization of
+            (+)-alpha-pinene synthase and (-)-alpha-pinene synthase from
+            loblolly pine (Pinus taeda): Stereocontrol in pinene biosynthesis
+  JOURNAL   Arch. Biochem. Biophys. 411 (2), 267-276 (2003)
+   PUBMED   12623076
+REFERENCE   2  (residues 1 to 574)
+  AUTHORS   Phillips,M.A., Wildung,M.R., Williams,D.C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (09-SEP-2002) Institute of Biological Chemistry,
+            Washington State University, PO Box 646340, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..574
+                     /organism="Pinus taeda"
+                     /db_xref="taxon:3352"
+     Protein         1..574
+                     /product="alpha-farnesene synthase"
+                     /name="sesquiterpene synthase; Pt5"
+     Region          11..571
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(11..18,477..478,480..483,485..488,550..553)
+                     /site_type="active"
+                     /note="active site lid residues [active]"
+                     /db_xref="CDD:173832"
+     Site            order(289,298,319,321..323,326,330,401,467..468,470..471,
+                     474,478,547,551,553)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(326,330,470,474,478)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            326..330
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            470..478
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..574
+                     /coded_by="AF543528.1:48..1772"
+ORIGIN      
+        1 msslavddae rrvgdyhpnl wddaliqsls tpygaspyrd vaekligeik emfasisied
+       61 gddeicyflq rlwmidnver lgisrhfene ikaamedvys rhwsdkgiac grhsvvadln
+      121 stalafrtlr lhgysvcsdv fkifqdqkge facsadqteg eikgilnllr asliafpger
+      181 ilqeaeifat tylkealpki qgsrlsqeie yvleygwltd lprletrnyi evlaeeitpy
+      241 fkkpcmavek llklakiefn lfhslqqtel khlsrwwkds gfaqltftrh rhvefytlas
+      301 ciamepkhsa frlgfaklcy lgivlddiyd tygkmeelel ftaaikrwdt stteclpeym
+      361 kgvymafydc vnemarqaek tqgwdtldya rktwealida fmeeakwiss gyvptfqkyl
+      421 dngkvsfgyr aatlqpiltl diplplhilq eidfpssfnd lassilrlrg dicgyqaers
+      481 rgeqassisc ymkdnpgste edalshvnam igdkipefnw efmkpskapi sskkyafdil
+      541 rafyhlykyr dgfsiakiet kklvmrtvld pvpm
+//
+
+LOCUS       AAX07266                 815 aa            linear   PLN 21-JUN-2005
+DEFINITION  (E)-gamma-bisabolene synthase [Pseudotsuga menziesii].
+ACCESSION   AAX07266
+VERSION     AAX07266.1
+DBSOURCE    accession AY906868.1
+KEYWORDS    .
+SOURCE      Pseudotsuga menziesii (Douglas-fir)
+  ORGANISM  Pseudotsuga menziesii
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pseudotsuga.
+REFERENCE   1  (residues 1 to 815)
+  AUTHORS   Huber,D.P., Philippe,R.N., Godard,K.A., Sturrock,R.N. and
+            Bohlmann,J.
+  TITLE     Characterization of four terpene synthase cDNAs from methyl
+            jasmonate-induced Douglas-fir, Pseudotsuga menziesii
+  JOURNAL   Phytochemistry 66 (12), 1427-1439 (2005)
+   PUBMED   15921711
+REFERENCE   2  (residues 1 to 815)
+  AUTHORS   Huber,D.P.W., Philippe,R.N., Godard,K.-A. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (26-JAN-2005) Michael Smith Laboratories, University of
+            British Columbia, 321 - 2185 East Mall, Vancouver, British Columbia
+            V6T 1Z4, Canada
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..815
+                     /organism="Pseudotsuga menziesii"
+                     /db_xref="taxon:3357"
+     Protein         1..815
+                     /product="(E)-gamma-bisabolene synthase"
+     Region          17..>63
+                     /region_name="Isoprenoid_Biosyn_C1"
+                     /note="Isoprenoid Biosynthesis enzymes, Class 1; cl00210"
+                     /db_xref="CDD:294142"
+     Region          32..>160
+                     /region_name="ISOPREN_C2_like"
+                     /note="This group contains class II terpene cyclases,
+                     protein prenyltransferases beta subunit, two broadly
+                     specific proteinase inhibitors alpha2-macroglobulin (alpha
+                     (2)-M) and pregnancy zone protein (PZP) and, the C3 C4 and
+                     C5 components of vertebrate...; cl08267"
+                     /db_xref="CDD:298658"
+     Region          74..815
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          280..812
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(524,533,554,556..558,561,565,636,706..707,709..710,
+                     713,717,788,792,794)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(561,565,709,713,717)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            561..565
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            709..717
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..815
+                     /gene="TPS3"
+                     /coded_by="AY906868.1:73..2520"
+ORIGIN      
+        1 maastlpsgl stndlirrta nphpnvwgyd llcslkspys rdssykerad tlineikaml
+       61 gaafgdgkem itpsaydtaw varipsidgs sgsarpqfpq tvdwilknql kdgswgtesh
+      121 fllsepllat iscvlalfkw qvgdlqverg ieflksslek iknesdqdsl vtdfeiifps
+      181 mlreaqslhl glpydlpyiq llqtkrqerl anlsrekihg gilqlssleg iedmvewerl
+      241 mdlqsldgsf lsspastafv fihtgdlkcl aflnsvlakf gafvpclyhv dllerllivd
+      301 nierlgidrh fekeineald yvyrywsner gigwgrmnat adlettalgf rllrlhryhv
+      361 spvvfkkfkd adgeflssig qfnkdvasml nlyracelaf pgenildeak gftakylrea
+      421 lektetfssw nikrnlsqei kyalktswha siprveakry cqvyrpdyar ldksvyklhh
+      481 vnnekilela kldfniiqsi lqeemknvts wfrdsglplf sfarqrplef yflitagtye
+      541 pryakcrllf tkvacvetvl ddmydtygtl delklftqav rrwdpslten lpdymkrcyk
+      601 ifydivheaa weaekeqgre lvsflrkawe dfvlsyheea ewlsaeyvpg fdeyikngit
+      661 sigqrvllls gllvmdgqll sqkalekidy persrvlmeq iclisrladd tqsykaekar
+      721 gelasgiecy mkdhpectee ealnhiygim evtakeltke ylkvddddvp fackkmlfee
+      781 trvtmvifkd gdrlsnskle mkdhfkecli eplpl
+//
+
+LOCUS       AAX07265                 826 aa            linear   PLN 21-JUN-2005
+DEFINITION  (E)-beta-farnesene synthase [Pseudotsuga menziesii].
+ACCESSION   AAX07265
+VERSION     AAX07265.1
+DBSOURCE    accession AY906867.1
+KEYWORDS    .
+SOURCE      Pseudotsuga menziesii (Douglas-fir)
+  ORGANISM  Pseudotsuga menziesii
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pseudotsuga.
+REFERENCE   1  (residues 1 to 826)
+  AUTHORS   Huber,D.P., Philippe,R.N., Godard,K.A., Sturrock,R.N. and
+            Bohlmann,J.
+  TITLE     Characterization of four terpene synthase cDNAs from methyl
+            jasmonate-induced Douglas-fir, Pseudotsuga menziesii
+  JOURNAL   Phytochemistry 66 (12), 1427-1439 (2005)
+   PUBMED   15921711
+REFERENCE   2  (residues 1 to 826)
+  AUTHORS   Huber,D.P.W., Philippe,R.N., Godard,K.-A. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (26-JAN-2005) Michael Smith Laboratories, University of
+            British Columbia, 321 - 2185 East Mall, Vancouver, British Columbia
+            V6T 1Z4, Canada
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..826
+                     /organism="Pseudotsuga menziesii"
+                     /db_xref="taxon:3357"
+     Protein         1..826
+                     /product="(E)-beta-farnesene synthase"
+     Region          63..>169
+                     /region_name="ISOPREN_C2_like"
+                     /note="This group contains class II terpene cyclases,
+                     protein prenyltransferases beta subunit, two broadly
+                     specific proteinase inhibitors alpha2-macroglobulin (alpha
+                     (2)-M) and pregnancy zone protein (PZP) and, the C3 C4 and
+                     C5 components of vertebrate...; cl08267"
+                     /db_xref="CDD:298658"
+     Region          87..826
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          299..823
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(534,543,564,566..568,571,575,646,715..716,718..719,
+                     722,726,799,803,805)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(571,575,718,722,726)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            571..575
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            718..726
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..826
+                     /gene="TPS4"
+                     /coded_by="AY906867.1:48..2528"
+ORIGIN      
+        1 msleefypma tvyvpsstlp calstsssss slvrrtanph pnvwdyhfvq slqspytdpc
+       61 ygervetlva eikamlhgeg glmitpsayd tawvarvpsi dgsarpqfpq tvqwilknql
+      121 kdgswgtesh fllsdrllat lscvlallkw kvgdlqvqqg iefiksnlea ikdendedsl
+      181 vtdfdiifps llreaqyldi elplqpalck stppkrqerl anmsreeihg vpspllysle
+      241 giedmvdwer imdvrsqdgs flsspasiac vfmhtgdikc leflnnvltn fgtfvpclyp
+      301 vdllerlliv dnlvqlgidr hfekeikeal dyvhrhwner gigwgrlnpi adleitalgf
+      361 rllrlhrynv spavfenfkd snghfvcsga qfnkdvasml slyrasqlaf pgenildeak
+      421 sftskylkea lekretysaw nnkqslseei kyalenswha svprveakry cqvyrsdyty
+      481 laksvyklpk vnnekilela kldfqhypgh ppkrdeechh lvknsefpll pfgrerpvec
+      541 ffivaagtye pqyakcrflf skvaclntvl ddmydtygtl delklfteav rrwdlslten
+      601 lpdymklcyk ifydivhevv leaekeqgre lltffrkgwe eylmgyyeea ewlaceylps
+      661 leeyirngii sigqrilvvs gvllmegqil sqealeqldy pgrrvlteln siitrladdi
+      721 htykaekarg elassiecym rehpgsteev avnymyslle pavkeltwef lkpedstvhi
+      781 pfqckkmlme etrvtmvifk egdgfgiskt kikdyikdcl ieplpl
+//
+
+LOCUS       AAB05407                 868 aa            linear   PLN 02-AUG-1996
+DEFINITION  abietadiene cyclase [Abies grandis].
+ACCESSION   AAB05407
+VERSION     AAB05407.1
+DBSOURCE    locus AGU50768 accession U50768.1
+KEYWORDS    .
+SOURCE      Abies grandis
+  ORGANISM  Abies grandis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Abies.
+REFERENCE   1  (residues 1 to 868)
+  AUTHORS   Stoffer-Vogel,B., Wildung,M.R., Vogel,G. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (06-MAR-1996) Mark Wildung, IBC, Washington State
+            University, Pullman, WA 99164-6340, USA
+FEATURES             Location/Qualifiers
+     source          1..868
+                     /organism="Abies grandis"
+                     /db_xref="taxon:46611"
+                     /tissue_type="wounded stem"
+     Protein         1..868
+                     /product="abietadiene cyclase"
+     Region          71..868
+                     /region_name="PLN02592"
+                     /note="ent-copalyl diphosphate synthase"
+                     /db_xref="CDD:215321"
+     Region          349..866
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(584,593,614,616..618,621,625,696,762..763,765..766,
+                     769,773,841,845,847)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(621,625,765,769,773)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            621..625
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            765..773
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..868
+                     /gene="ac22"
+                     /coded_by="U50768.1:3..2609"
+                     /note="diterpene cyclase"
+ORIGIN      
+        1 mampssslss qiptaahhlt anaqsiphfs ttlnagssas krrslylrwg kgsnkiiacv
+       61 geggatsvpy qsaekndsls sstlvkrefp pgfwkddlid sltsshkvaa sdekrietli
+      121 seiknmfrcm gygetnpsay dtawvaripa vdgsdnphfp etvewilqnq lkdgswgegf
+      181 yflaydrila tlaciitltl wrtgetqvqk gieffrtqag kmedeadshr psgfeivfpa
+      241 mlkeakilgl dlpydlpflk qiiekreakl kriptdvlya lpttllysle glqeivdwqk
+      301 imklqskdgs flsspastaa vfmrtgnkkc ldflnfvlkk fgnhvpchyp ldlferlwav
+      361 dtverlgidr hfkeeikeal dyvyshwder gigwarenpv pdiddtamgl rilrlhgynv
+      421 ssdvlktfrd engeffcflg qtqrgvtdml nvnrcshvsf pgetimeeak lcterylrna
+      481 lenvdafdkw afkknirgev eyalkypwhk smprlearsy ienygpddvw lgktvymmpy
+      541 isnekylela kldfnkvqsi hqtelqdlrr wwkssgftdl nftrervtei yfspasfife
+      601 pefskcrevy tktsnftvil ddlydahgsl ddlklftesv krwdlslvdq mpqqmkicfv
+      661 gfyntfndia kegrerqgrd vlgyiqnvwk vqleaytkea ewseakyvps fneyienasv
+      721 sialgtvvli salftgevlt devlskidre srflqlmglt grlvndtkty qaergqgeva
+      781 saiqcymkdh pkiseeealq hvysvmenal eelnrefvnn kipdiykrlv fetarimqlf
+      841 ymqgdgltls hdmeikehvk nclfqpva
+//
+
+LOCUS       AF331704_1               873 aa            linear   PLN 03-OCT-2001
+DEFINITION  levopimaradiene synthase [Ginkgo biloba].
+ACCESSION   AAL09965
+VERSION     AAL09965.1
+DBSOURCE    accession AF331704.1
+KEYWORDS    .
+SOURCE      Ginkgo biloba (maidenhair tree)
+  ORGANISM  Ginkgo biloba
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Ginkgoidae; Ginkgoales; Ginkgoaceae; Ginkgo.
+REFERENCE   1  (residues 1 to 873)
+  AUTHORS   Schepmann,H.G., Pang,J. and Matsuda,S.P.
+  TITLE     Cloning and characterization of Ginkgo biloba levopimaradiene
+            synthase which catalyzes the first committed step in ginkgolide
+            biosynthesis
+  JOURNAL   Arch. Biochem. Biophys. 392 (2), 263-269 (2001)
+   PUBMED   11488601
+REFERENCE   2  (residues 1 to 873)
+  AUTHORS   Schepmann,H.G. and Matsuda,S.P.T.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (21-DEC-2000) Chemistry, Rice University, 6100 S. Main
+            Street, Houston, TX 77005, USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..873
+                     /organism="Ginkgo biloba"
+                     /db_xref="taxon:3311"
+     Protein         1..873
+                     /product="levopimaradiene synthase"
+     Region          98..873
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          <131..>223
+                     /region_name="ISOPREN_C2_like"
+                     /note="This group contains class II terpene cyclases,
+                     protein prenyltransferases beta subunit, two broadly
+                     specific proteinase inhibitors alpha2-macroglobulin (alpha
+                     (2)-M) and pregnancy zone protein (PZP) and, the C3 C4 and
+                     C5 components of vertebrate...; cl08267"
+                     /db_xref="CDD:298658"
+     Region          351..871
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(587,596,617,619..621,624,628,700,766..767,769..770,
+                     773,777,847,851,853)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(624,628,769,773,777)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            624..628
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            769..777
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..873
+                     /coded_by="AF331704.1:23..2644"
+ORIGIN      
+        1 magvlfanlp cslqlspkvp frqstnilip fhkrssfgfn aqhcvrshlr lrwncvgiha
+       61 saaetrpdql pqeerfvsrl nadyhpavwk ddfidsltsp nshatskssv detinkriqt
+      121 lvkeiqcmfq smgdgetnps aydtawvari psidgsgapq fpqtlqwiln nqlpdgswge
+      181 eciflaydrv lntlaclltl kiwnkgdiqv qkgvefvrkh meemkdeadn hrpsgfevvf
+      241 pamldeaksl gldlpyhlpf isqihqkrqk klqkiplnvl hnhqtallys leglqdvvdw
+      301 qeitnlqsrd gsflsspast acvfmhtqnk rclhflnfvl skfgdyvpch ypldlferlw
+      361 avdtverlgi dryfkkeike sldyvyrywd aergvgwarc npipdvddta mglrilrlhg
+      421 ynvssdvlen frdekgdffc fagqtqigvt dnlnlyrcsq vcfpgekime eaktfttnhl
+      481 qnalaknnaf dkwavkkdlp geveyaikyp whrsmprlea rsyieqfgsn dvwlgktvyk
+      541 mlyvsnekyl elakldfnmv qalhqketqh ivswwresgf ndltftrqrp vemyfsvavs
+      601 mfepefaacr iayaktscla vilddlydth gslddlklfs eavrrwdisv ldsvrdnqlk
+      661 vcflglyntv ngfgkdglke qgrdvlgylr kvwegllasy tkeaewsaak yvptfneyve
+      721 nakvsialat vvlnsifftg ellpdyilqq vdlrskflhl vsltgrlind tktyqaernr
+      781 gelvssvqcy mrenpectee ealshvygii dnalkelnwe lanpasnapl cvrrllfnta
+      841 rvmqlfymyr dgfgisdkem kdhvsrtlfd pva
+//
+
+LOCUS       AAS47690                 867 aa            linear   PLN 08-APR-2009
+DEFINITION  isopimaradiene synthase [Picea abies].
+ACCESSION   AAS47690
+VERSION     AAS47690.2
+DBSOURCE    accession AY473620.2
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 867)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 867)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+REFERENCE   3  (residues 1 to 867)
+  AUTHORS   Martin,D.M., Keeling,C. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (12-OCT-2005) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+  REMARK    Sequence update by submitter
+COMMENT     On Oct 12, 2005 this sequence version replaced gi:44804506.
+            Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..867
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..867
+                     /product="isopimaradiene synthase"
+                     /function="cyclization of geranylgeranyl diphosphate to
+                     isopimaradiene"
+     Region          91..>216
+                     /region_name="ISOPREN_C2_like"
+                     /note="This group contains class II terpene cyclases,
+                     protein prenyltransferases beta subunit, two broadly
+                     specific proteinase inhibitors alpha2-macroglobulin (alpha
+                     (2)-M) and pregnancy zone protein (PZP) and, the C3 C4 and
+                     C5 components of vertebrate...; cl08267"
+                     /db_xref="CDD:298658"
+     Region          95..867
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          347..865
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(582,591,612,614..616,619,623,694,760..761,763..764,
+                     767,771,840,844,846)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(619,623,763,767,771)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            619..623
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            763..771
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..867
+                     /gene="TPS-Iso"
+                     /gene_synonym="PaDM2425"
+                     /coded_by="AY473620.2:1..2604"
+                     /note="PaTPS-Iso"
+ORIGIN      
+        1 mallssslss qiptgshplt htqciphfst tinagisagk prsfylrwgk gsnkiiacvg
+       61 egttslpyqs aektdslsap tlvkrefppg fwkdhvidsl tsshkvsaae ekrmetlise
+      121 iknifrsmgy getnpsaydt awvaripavd gsehpefpet lewilqnqlk dgswgegfyf
+      181 laydrilatl aciitltlwr tgetqirkgi effktqagki edeadshrps gfeivfpaml
+      241 keakvlgldl pyelpfikqi iekreakler lptnilyalp ttllyslegl qeivdwekii
+      301 klqskdgsfl tspastaavf mrtgnkkcle flnfvlkkfg nhvpchypld lferlwavdt
+      361 verlgidhhf keeikdaldy vyshwdergi gwarenpipd iddtamglri lrlhgynvss
+      421 dvlktfrden geffcflgqt qrgvtdmlnv nrcshvafpg etimqeaklc terylrnale
+      481 dvgafdkwal kknirgevey alkypwhrsm prlearsyie hygpndvwlg ktmymmpyis
+      541 nlkylelakl dfnhvqslhq kelrdlrrww kssglselkf trervteiyf saasfifepe
+      601 fatcrdvytk isiftvildd lydahgtldn lelfsegvkr wdlslvdrmp qdmkicftvl
+      661 yntvneiave grkrqgrdvl gyirnvleil laahtkeaew saaryvpsfd eyienasvsi
+      721 slgtlvlisv lftgeiltdd vlskigrgsr flqlmgltgr lvndtktyea ergqgevasa
+      781 vqcymkehpe iseeealkhv ytvmenalde lnrefvnnrd vpdscrrlvf etarimqlfy
+      841 megdgltlsh emeikehvkn clfqpva
+//
+
+LOCUS       AAS47691                 859 aa            linear   PLN 08-APR-2009
+DEFINITION  levopimaradiene/abietadiene synthase [Picea abies].
+ACCESSION   AAS47691
+VERSION     AAS47691.1
+DBSOURCE    accession AY473621.1
+KEYWORDS    .
+SOURCE      Picea abies (Norway spruce)
+  ORGANISM  Picea abies
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Picea.
+REFERENCE   1  (residues 1 to 859)
+  AUTHORS   Martin,D.M., Faldt,J. and Bohlmann,J.
+  TITLE     Functional characterization of nine Norway Spruce TPS genes and
+            evolution of gymnosperm terpene synthases of the TPS-d subfamily
+  JOURNAL   Plant Physiol. 135 (4), 1908-1927 (2004)
+   PUBMED   15310829
+REFERENCE   2  (residues 1 to 859)
+  AUTHORS   Martin,D.M., Faeldt,J. and Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (18-NOV-2003) Biotechnology Laboratory and Departments of
+            Botany and Forest Sciences, University of British Columbia, 6174
+            University Boulevard, Vancouver, B.C. V6T 1Z3, Canada
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..859
+                     /organism="Picea abies"
+                     /db_xref="taxon:3329"
+     Protein         1..859
+                     /product="levopimaradiene/abietadiene synthase"
+                     /function="cyclization of geranylgeranyl diphosphate to
+                     levopimaradiene, abietadiene, and neoabietadiene"
+     Region          83..>208
+                     /region_name="ISOPREN_C2_like"
+                     /note="This group contains class II terpene cyclases,
+                     protein prenyltransferases beta subunit, two broadly
+                     specific proteinase inhibitors alpha2-macroglobulin (alpha
+                     (2)-M) and pregnancy zone protein (PZP) and, the C3 C4 and
+                     C5 components of vertebrate...; cl08267"
+                     /db_xref="CDD:298658"
+     Region          87..859
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          339..857
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(574,583,604,606..608,611,615,686,752..753,755..756,
+                     759,763,832,836,838)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(611,615,755,759,763)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            611..615
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            755..763
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..859
+                     /gene="TPS-LAS"
+                     /gene_synonym="PaDM2420"
+                     /coded_by="AY473621.1:12..2591"
+                     /note="PaTPS-LAS"
+ORIGIN      
+        1 mallssslss qiptgahhlt lnayantqci phffstlnag tsagkrssly lrwgkgsnki
+       61 iacvgedsls aptlvkrefp pgfwkdhvid sltsshkvaa sdekrietli seiknmfrsm
+      121 gygdtnpsay dtawvaripa vdgseqpefp etlewilqnq lkdgswgegf yflaydrila
+      181 tlaciitltl wrtgeiqvqk gieffktqag kiedeadshr psgfeivfpa mlkeakvlgl
+      241 dlpyelpfik qiiekreakl erlptnilya lpttllysle glqeivdwqk iiklqskdgs
+      301 flsspastaa vfmrtgnkkc leflnfvlkk fgnhvpchyp ldlferlwav dtierlgidr
+      361 hfkeeikdal dyvyshwder gigwarenpv pdiddtamgl rilrlhgynv ssdvlktfrd
+      421 engeffcflg qtqrgvtdml nvnrcshvaf pgetimeeak tcterylrna ledvgafdkw
+      481 alkknirgev eyalkypwhr smprlearsy iehygpndvw lgktmymmpy isnekylela
+      541 kldfnhvqsl hqkelrdlrr wwtssgftel kftrervtei yfspasfmfe pefatcravy
+      601 tktsnftvil ddlydahgtl ddlklfsdsv kkwdlslvdr mpqdmkicfm gfyntfneia
+      661 eegrkrqgrd vlgyirnvwe iqleaytkea ewsaaryvps fdeyidnasv sialgtvvli
+      721 salftgeilt ddvlskigrg srflqlmglt grlvndtkty eaergqgeva savqcymkdh
+      781 peiseeealk hvytvmenal delnrefvnn revpdscrrl vfetarimql fymdgdgltl
+      841 sheteikehv knclfqpva
+//
+
+LOCUS       AAX07435                 850 aa            linear   PLN 02-JUN-2005
+DEFINITION  diterpene synthase [Pinus taeda].
+ACCESSION   AAX07435
+VERSION     AAX07435.1
+DBSOURCE    accession AY779541.1
+KEYWORDS    .
+SOURCE      Pinus taeda (loblolly pine)
+  ORGANISM  Pinus taeda
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pinus; Pinus.
+REFERENCE   1  (residues 1 to 850)
+  AUTHORS   Ro,D.K., Arimura,G., Lau,S.Y., Piers,E. and Bohlmann,J.
+  TITLE     Loblolly pine abietadienol/abietadienal oxidase PtAO (CYP720B1) is
+            a multifunctional, multisubstrate cytochrome P450 monooxygenase
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 102 (22), 8060-8065 (2005)
+   PUBMED   15911762
+REFERENCE   2  (residues 1 to 850)
+  AUTHORS   Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (12-OCT-2004) Botany, Forestry, and Biotechnology Lab,
+            University of British Columbia, 237-6174 University Blvd,
+            Vancouver, BC V6T1Z4, Canada
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..850
+                     /organism="Pinus taeda"
+                     /db_xref="taxon:3352"
+     Protein         1..850
+                     /product="diterpene synthase"
+     Region          74..296
+                     /region_name="ISOPREN_C2_like"
+                     /note="This group contains class II terpene cyclases,
+                     protein prenyltransferases beta subunit, two broadly
+                     specific proteinase inhibitors alpha2-macroglobulin (alpha
+                     (2)-M) and pregnancy zone protein (PZP) and, the C3 C4 and
+                     C5 components of vertebrate...; cl08267"
+                     /db_xref="CDD:298658"
+     Region          104..850
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          330..848
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(565,574,595,597..599,602,606,677,743..744,746..747,
+                     750,754,823,827,829)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(602,606,746,750,754)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            602..606
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            746..754
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..850
+                     /coded_by="AY779541.1:1..2553"
+ORIGIN      
+        1 malpssslss qihtgattqc iphfhgslna gtsagkrrsl ylrwgkgpsk ivacagqdpf
+       61 svptlvkref ppgfwkdhvi eslmpsykva psdekrietl iteiknmfrs mgygetnpsa
+      121 ydtawvarip avdgsekpqf petlewilqn qlkdgswgee fyflaydril atlaciitlt
+      181 iwqtgdtqvq kgieffktqa gkieeeadsh rpsgfeivfp amlkeakalg lalpyelpfi
+      241 qqiiekreak lqrlppdlly alpttllysl eglqeivdwe kimklqskdg sflsspasta
+      301 avfmrtgnkk cleflnfvlk kfgnhvpchy pldlferlwa vdtverlgid hhfkeeikda
+      361 ldyvyshwde rgigwarenp vpdiddtamg lrilrlhgyn vssdvlktfr dengeffcfl
+      421 gqtqrgvtdm lnvnrcshva fpgetimeea klcterylrn aledggasdk walkknirge
+      481 veyalkypwh rsmprlears yienygpndv wlgktmymmp nisnekylel akldfnrvqf
+      541 fhrqelqdir rwwnssgfsq lgftrervae iyfspasflf epefatcrav ytktsnftvi
+      601 lddlydahgt ldnlklfses vkrwdlslvd qmpqdmkicf kgfyntfnei aeegrkrqgr
+      661 dvlsyiqkvw evqleaytke aewsavryvp sydeyignas vsialgtvvl isalftgeil
+      721 tddilskigr dsrflylmgl tgrlvndtkt yqaergqgev asavqcymkd hpeiseeeal
+      781 khvytimdna ldelnrefvn nrdvpdtcrr lvfetarimq lfymdgdglt lshnmeikeh
+      841 vknclfqpva
+//
+
+LOCUS       CAC42773                 862 aa            linear   PLN 14-NOV-2006
+DEFINITION  taxadiene synthase [Taxus baccata].
+ACCESSION   CAC42773
+VERSION     CAC42773.1
+DBSOURCE    embl accession AJ320538.1
+KEYWORDS    .
+SOURCE      Taxus baccata (English yew)
+  ORGANISM  Taxus baccata
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1
+  AUTHORS   Goerhardt,B.
+  JOURNAL   Thesis (2001) Department of Biotechnology, Technische Universitaet
+            Berlin, Berlin, Germany
+REFERENCE   2
+  AUTHORS   Goerhardt,B., Hornbogen,T., Glinski,M. and Zocher,R.
+  JOURNAL   Unpublished
+REFERENCE   3  (residues 1 to 862)
+  AUTHORS   Zocher,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (21-JUN-2001) Zocher R., Fakultaet II, Chemisches
+            Institut, Franklinstr. 29, 10587 Berlin, GERMANY
+FEATURES             Location/Qualifiers
+     source          1..862
+                     /organism="Taxus baccata"
+                     /db_xref="taxon:25629"
+                     /country="Germany:Brandenburg"
+     Protein         1..862
+                     /product="taxadiene synthase"
+     Region          122..860
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          348..859
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(578,587,606,608..610,613,617,688,754..755,757..758,
+                     761,765,835,839,841)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(613,617,757,761,765)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            613..617
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            757..765
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..862
+                     /gene="tasy"
+                     /coded_by="join(AJ320538.1:1..324,AJ320538.1:413..725,
+                     AJ320538.1:916..1093,AJ320538.1:1181..1395,
+                     AJ320538.1:1494..1614,AJ320538.1:1698..1810,
+                     AJ320538.1:1992..2206,AJ320538.1:2337..2449,
+                     AJ320538.1:2560..2658,AJ320538.1:2765..2974,
+                     AJ320538.1:3075..3213,AJ320538.1:3332..3580,
+                     AJ320538.1:3681..3980)"
+                     /db_xref="GOA:Q93YA3"
+                     /db_xref="InterPro:IPR001906"
+                     /db_xref="InterPro:IPR005630"
+                     /db_xref="InterPro:IPR008930"
+                     /db_xref="InterPro:IPR008949"
+                     /db_xref="UniProtKB/Swiss-Prot:Q93YA3"
+ORIGIN      
+        1 maqlsfnaal kmnalgnkai hdptncraks erqmmwvcsr sgrtrvkmsr gsggpgpvvm
+       61 mssstgtskv vsetsstivd diprlsanyh gdlwhhnviq tletpfress tyqeradelv
+      121 vkikdmfnal gdgdispsay dtawvarvat vssdgsekpr fpqalnwvln nqlqdgswgi
+      181 eshfslcdrl lntvnsvial svwktghsqv eqgaefiaen lrllneedel spdfeiifpa
+      241 llqkakalgi nlpydlpfik slsttrearl tdvsaaadni panmlnaleg leevidwnki
+      301 mrfqskdgsf lsspastacv lmntgdekcf tllnnlldkf ggcvpcmysi dllerlslvd
+      361 niehlgigrh fkqeikvald yvyrhwserg igwgrdslvp dlnttalglr tlrthgydvs
+      421 sdvlnnfkde ngrffssagq thvelrsvvn lfrasdlafp degamddark faepylrdal
+      481 atkistntkl ykeieyvvey pwhmsiprle arsyidsydd dyvwqrktly rmpslsnskc
+      541 lelakldfni vqslhqeelk lltrwwkesg madinftrhr vaevyfssat fepeysatri
+      601 aftkigclqv lfddmadifa tldelksfte gvkrwdtsll heipecmqtc fkvwfklmee
+      661 vnndvvkvqg rdmlahirkp welyfncyvq erewleagyi ptfeeylkty aisvglgpct
+      721 lqpillmgel vkddvvekvh ypsnmfelvs lswrltndtk tyqaekargq qasgiacymk
+      781 dnpgateeda ikhicrvvdr alkeasfeyf kpsndipmgc ksfifnlrlc vqifykfidg
+      841 ygianeeikd yirkvyidpi qv
+//
+
+LOCUS       AAC49310                 862 aa            linear   PLN 05-JUN-1996
+DEFINITION  taxadiene synthase [Taxus brevifolia].
+ACCESSION   AAC49310
+VERSION     AAC49310.1
+DBSOURCE    locus TBU48796 accession U48796.1
+KEYWORDS    .
+SOURCE      Taxus brevifolia
+  ORGANISM  Taxus brevifolia
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 862)
+  AUTHORS   Wildung,M.R. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (07-FEB-1996) Mark R. Wildung, IBC, WSU, Clark Hall,
+            Pullman, WA 99164-63, USA
+REFERENCE   2  (residues 1 to 862)
+  AUTHORS   Wildung,M.R. and Croteau,R.
+  TITLE     A cDNA clone for taxadiene synthase, the diterpene cyclase that
+            catalyzes the committed step of taxol biosynthesis
+  JOURNAL   J. Biol. Chem. 271 (16), 9201-9204 (1996)
+   PUBMED   8621577
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..862
+                     /organism="Taxus brevifolia"
+                     /db_xref="taxon:46220"
+     Protein         1..862
+                     /product="taxadiene synthase"
+     Region          84..>134
+                     /region_name="Isoprenoid_Biosyn_C1"
+                     /note="Isoprenoid Biosynthesis enzymes, Class 1; cl00210"
+                     /db_xref="CDD:294142"
+     Region          122..860
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          348..859
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(578,587,606,608..610,613,617,688,754..755,757..758,
+                     761,765,835,839,841)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(613,617,757,761,765)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            613..617
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            757..765
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..862
+                     /gene="TDC1"
+                     /coded_by="U48796.1:22..2610"
+                     /note="catalyze's the first step in taxol biosynthesis;
+                     diterpene cyclase"
+ORIGIN      
+        1 maqlsfnaal kmnalgnkai hdptncraks erqmmwvcsr sgrtrvkmsr gsggpgpvvm
+       61 mssstgtskv vsetsstivd diprlsanyh gdlwhhnviq tletpfress tyqeradelv
+      121 vkikdmfnal gdgdispsay dtawvarlat issdgsekpr fpqalnwvfn nqlqdgswgi
+      181 eshfslcdrl lnttnsvial svwktghsqv qqgaefiaen lrllneedel spdfqiifpa
+      241 llqkakalgi nlpydlpfik ylsttrearl tdvsaaadni panmlnaleg leevidwnki
+      301 mrfqskdgsf lsspastacv lmntgdekcf tflnnlldkf ggcvpcmysi dllerlslvd
+      361 niehlgigrh fkqeikgald yvyrhwserg igwgrdslvp dlnttalglr tlrmhgynvs
+      421 sdvlnnfkde ngrffssagq thvelrsvvn lfrasdlafp deramddark faepylreal
+      481 atkistntkl fkeieyvvey pwhmsiprle arsyidsydd nyvwqrktly rmpslsnskc
+      541 lelakldfni vqslhqeelk lltrwwkesg madinftrhr vaevyfssat fepeysatri
+      601 aftkigclqv lfddmadifa tldelksfte gvkrwdtsll heipecmqtc fkvwfklmee
+      661 vnndvvkvqg rdmlahirkp welyfncyvq erewleagyi ptfeeylkty aisvglgpct
+      721 lqpillmgel vkddvvekvh ypsnmfelvs lswrltndtk tyqaekargq qasgiacymk
+      781 dnpgateeda ikhicrvvdr alkeasfeyf kpsndipmgc ksfifnlrlc vqifykfidg
+      841 ygianeeikd yirkvyidpi qv
+//
+
+LOCUS       AAR13860                 862 aa            linear   PLN 01-SEP-2004
+DEFINITION  taxa-4(5),11(12)-diene synthase [Taxus canadensis].
+ACCESSION   AAR13860
+VERSION     AAR13860.1
+DBSOURCE    accession AY364469.1
+KEYWORDS    .
+SOURCE      Taxus canadensis
+  ORGANISM  Taxus canadensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 862)
+  AUTHORS   Long,R.M., Williams,R.M., Croteau,R. and Jennewein,S.
+  TITLE     Cloning and characterization of taxadiene-5-alpha-hydroxylase, a
+            mechanistically unusual cytochrome P450 monooxygenase which
+            catalyzes the first oxygenation step of taxol biosynthesis
+  JOURNAL   Unpublished
+REFERENCE   2  (residues 1 to 862)
+  AUTHORS   Long,R.M., Williams,R.M., Croteau,R. and Jennewein,S.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (08-AUG-2003) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164-6340,
+            USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..862
+                     /organism="Taxus canadensis"
+                     /isolation_source="methyl jasmonate-induced cell culture"
+                     /db_xref="taxon:88032"
+                     /clone="Tc3003"
+     Protein         1..862
+                     /product="taxa-4(5),11(12)-diene synthase"
+                     /name="diterpene synthase"
+     Region          122..860
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          348..859
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(578,587,606,608..610,613,617,688,754..755,757..758,
+                     761,765,835,839,841)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(613,617,757,761,765)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            613..617
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            757..765
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..862
+                     /coded_by="AY364469.1:1..2589"
+ORIGIN      
+        1 maqlsfnaal kmnalgnkai hdptncraks egqmmwvcsk sgrtrvkmsr gsggpgpvvm
+       61 mssstgtskv vsetsstivd diprlsanyh gdlwhhnviq tletpfress tyqeradelv
+      121 vkikdmfnal gdgdispsay dtawvarvat issdgsekpr fpqalnwvfn nqlqdgswgi
+      181 eshfslcdrl lnttnsvial svwktghsqv eqgtefiaen lrllneedel spdfeiifpa
+      241 llqkakalgi nlpydlpfik slsttrearl tdvsaaadni panmlnaleg leevidwnki
+      301 mrfqskdgsf lsspastacv lmnigdekcf tflnnlldkf ggcvpcmysi dllerlslvd
+      361 niehlgigrh fkqeikgald yvyrhwserg igwgrdslvp dlnttalglr tlrthgydvs
+      421 sdvlnnfkde ngrffssagq thvelrsvvn lfrasdlafp degvmddark faepylrdal
+      481 atkistntkl fkeieyvvey pwhmsiprle agsyidsydd dyvwqrktly rmpslsnskc
+      541 lelakldfni vqslhqeelk lltrwwkesg madinftrhr vaevyfssat fepeysatri
+      601 aftkigclqv lfddmadifa tldelksfte gvkrwdtsll heipecmqtc fkvwfklmee
+      661 vnndvvkvqg rdmlahirkp welyfncyvq erewleagyi ptfeeylkty aisvglgpct
+      721 lqpillmgel vkddvvekvh ypsnmfelvs lswrltndtk tyqaekargq qasgiacymk
+      781 dnpgateeda ikhicrvvdr alkeasfeyf kpsndipmgc ksfifnlrlc vqifykfidg
+      841 ygianeeikd yirkvyidpi qv
+//
+
+LOCUS       AAG02257                 862 aa            linear   PLN 06-JUN-2002
+DEFINITION  taxadiene synthase [Taxus wallichiana var. chinensis].
+ACCESSION   AAG02257
+VERSION     AAG02257.1
+DBSOURCE    accession AY007207.1
+KEYWORDS    .
+SOURCE      Taxus wallichiana var. chinensis
+  ORGANISM  Taxus wallichiana var. chinensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 862)
+  AUTHORS   Wang,W., Shi,Q., Ouyang,T., Zhu,P. and Cheng,K.
+  TITLE     Cloning, expression, and characterization of taxadiene synthase, a
+            diterpene cyclase from Taxus chinensis
+  JOURNAL   Acta Bot. Sin. 44 (2), 181-187 (2002)
+REFERENCE   2  (residues 1 to 862)
+  AUTHORS   Wang,W., Shi,Q., Ouyang,T., Zhu,P. and Cheng,K.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (15-AUG-2000) Key Laboratory of Biosynthsis of Natural
+            Products, Institute of Materia Medica, 1 Xian Nong Tan Street,
+            Beijing 100050, China
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..862
+                     /organism="Taxus wallichiana var. chinensis"
+                     /variety="chinensis"
+                     /db_xref="taxon:29808"
+                     /tissue_type="callus"
+     Protein         1..862
+                     /product="taxadiene synthase"
+     Region          122..860
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          348..859
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(578,587,606,608..610,613,617,688,754..755,757..758,
+                     761,765,835,839,841)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(613,617,757,761,765)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            613..617
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            757..765
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..862
+                     /coded_by="AY007207.1:8..2596"
+ORIGIN      
+        1 maqlsfnaal kmnalgnkai hdptncraks egqmmwvcsk sgrtrvkmsr gsggpgpvvm
+       61 mssstgtskv vsetsstivd diprlsanyh gdlwhhnviq tletpfress tyqeradelv
+      121 vkikdmfnal gdgdispsay dtawvarvat issdgsekpr fpqalnwvfn nqlqdgswgi
+      181 eshfslcdrl lnttnsvial svwktghsqv eqgtefiaen lrllneedel spdfeiifpa
+      241 llqkakalgi nlpydlpfik ylsttrearl tdvsaaadni panmlnaleg leevmdwkki
+      301 mrfqskdgsf lsspastacv lmntgdekcf tflnnllvkf ggcvpcmysi dllerlslvd
+      361 niehlgigrh fkqeikvald yvyrhwserg igwgrdslvp dlnttalglr tlrthgydvs
+      421 sdvlnnfkde ngrffssagq thvelrsvvi lfrasdlafp degamddark faepylrdal
+      481 atkistntkl fkeieyvvey pwhmsiprse arsyidsydd dyvwerktly rmpslsnskc
+      541 lelakldfni vqslhqeelk lltrwwkesg madinftrhr vaevyfssat fepeysatri
+      601 aftkigclqv lfddmadifa tldelksfte gvkrwdtsll heipecmqtc fkvwfkliee
+      661 vnndvvkvqg rdmlahirkp welyfncyvq erewldagyi ptfeeylkty aisvglgpct
+      721 lqpillmgel vkddvvekvh ypsnmfelvs lswrltndtk tyqaekargq qasgiacymk
+      781 dnlgateeda ikhicrvvdr alkeasfeyf kpsndipmgc ksfifnlrlc vqifykfidg
+      841 ygianeeikd yirkvyidpi qv
+//
+
+LOCUS       AAR15329                 862 aa            linear   PLN 16-FEB-2005
+DEFINITION  taxadiene synthase [Taxus mairei].
+ACCESSION   AAR15329
+VERSION     AAR15329.1
+DBSOURCE    accession AY365032.2
+KEYWORDS    .
+SOURCE      Taxus mairei
+  ORGANISM  Taxus mairei
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 862)
+  AUTHORS   Lung,J., Tsai,C.-J., Hardin,S., Chang,S.-H. and Ho,C.-K.
+  TITLE     Molecular characterization of taxadiene synthase gene from Taxus
+            mairei
+  JOURNAL   Unpublished
+REFERENCE   2  (residues 1 to 862)
+  AUTHORS   Lung,J., Tsai,C.-J., Hardin,S., Chang,S.-H. and Ho,C.-K.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (11-AUG-2003) Silviculture, Taiwan Forestry Research
+            Institute, 53 Nan-Hai Road, Taipei 100, Taiwan
+REFERENCE   3  (residues 1 to 862)
+  AUTHORS   Lung,J., Tsai,C.-J., Hardin,S., Chang,S.-H. and Ho,C.-K.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (16-FEB-2005) Silviculture, Taiwan Forestry Research
+            Institute, 53 Nan-Hai Road, Taipei 100, Taiwan
+  REMARK    Sequence update by submitter
+FEATURES             Location/Qualifiers
+     source          1..862
+                     /organism="Taxus mairei"
+                     /variety="mairei"
+                     /cultivar="GN"
+                     /db_xref="taxon:120273"
+                     /tissue_type="leaf"
+     Protein         1..862
+                     /product="taxadiene synthase"
+                     /name="terpenoid synthase"
+     Region          122..860
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          348..859
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(578,587,606,608..610,613,617,688,754..755,757..758,
+                     761,765,835,839,841)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(613,617,757,761,765)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            613..617
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            757..765
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..862
+                     /coded_by="AY365032.2:81..2669"
+ORIGIN      
+        1 maqlsfnaal kmnalgnkai hdptncraks egqmmwvcsk sgrprvkmsr gsggpgpvvm
+       61 mssstgtskv vsetsstivd diprlsanyh gdlwhhnviq tletpfress tyqeradelv
+      121 vkikdmfnal gdgdispsay dtawvarvat issdgsekpr fpqalnwvln nqlqdgswgi
+      181 eshfslcdrl lntinsvivl svwktghsqv eqgtefiaen lrllneedel spdfeiifpa
+      241 llqkakalgi nlpydlpfik ylsttrearl tdvsaaadni panmlnaleg leevidwkki
+      301 mrfrskdgsf lsspastacv lmntgdekcf tflnnlldkf ggcvpcmysi dllerlslvd
+      361 niehlgigrh fkqeikvald yvyrhwserg igwgrdclvp dlnttalglr tlrthgydvs
+      421 sdvlnnfkde ngrffssagq thvelrsvvn lfrasdlafp degamddark faepylrdal
+      481 atkistntkl fkeieyvvey pwhmsiprle arsyidsydd dyvwerktly rmpslsnskc
+      541 lelakldfni vqslhqeelk lltrwwkesg madinftrhr vaevyfssat fepeysatri
+      601 aftkigclqv lfddmadifa tldelksfte gvkrwdtsll heipecmqtc fkvwfklmee
+      661 vnndvvkvqg rdmlahirkp welyfncyvq erewldagyi ptfeeylkty aisvglgpct
+      721 pqpillmgel vkddvvekvh ypsnmfelvs lswrltndtk tyqaekargq qasgiacymk
+      781 dnpgateeda ikhicrvvdr alkeasfeyf kpsndipmgc ksfifnlrlc vqifykfidg
+      841 ygianeeikd yirkvyidpi qv
+//
+
+LOCUS       AAS18603                 862 aa            linear   PLN 17-AUG-2007
+DEFINITION  taxadiene synthase [Taxus x media].
+ACCESSION   AAS18603
+VERSION     AAS18603.1
+DBSOURCE    accession AY461450.2
+KEYWORDS    .
+SOURCE      Taxus x media
+  ORGANISM  Taxus x media
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 862)
+  AUTHORS   Kai,G., Zhao,L., Zhang,L., Li,Z., Guo,B., Zhao,D., Sun,X., Miao,Z.
+            and Tang,K.
+  TITLE     Characterization and expression profile analysis of a new cDNA
+            encoding taxadiene synthase from taxus media
+  JOURNAL   J. Biochem. Mol. Biol. 38 (6), 668-675 (2005)
+   PUBMED   16336781
+REFERENCE   2  (residues 1 to 862)
+  AUTHORS   Kai,G., Zhang,L., Miao,Z. and Tang,K.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (07-NOV-2003) Plant Biotechnology Research Center,
+            Shanghai Jiaotong University, 1954 Huashan Road, Shanghai 200030,
+            P.R. China
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..862
+                     /organism="Taxus x media"
+                     /db_xref="taxon:85957"
+     Protein         1..862
+                     /product="taxadiene synthase"
+                     /name="TmTXS"
+     Region          122..860
+                     /region_name="PLN02279"
+                     /note="ent-kaur-16-ene synthase"
+                     /db_xref="CDD:177918"
+     Region          348..859
+                     /region_name="Terpene_cyclase_plant_C1"
+                     /note="Plant Terpene Cyclases, Class 1; cd00684"
+                     /db_xref="CDD:173832"
+     Site            order(578,587,606,608..610,613,617,688,754..755,757..758,
+                     761,765,835,839,841)
+                     /site_type="other"
+                     /note="substrate binding pocket [chemical binding]"
+                     /db_xref="CDD:173832"
+     Site            order(613,617,757,761,765)
+                     /site_type="other"
+                     /note="substrate-Mg2+ binding site"
+                     /db_xref="CDD:173832"
+     Site            613..617
+                     /site_type="other"
+                     /note="aspartate-rich region 1"
+                     /db_xref="CDD:173832"
+     Site            757..765
+                     /site_type="other"
+                     /note="aspartate-rich region 2"
+                     /db_xref="CDD:173832"
+     CDS             1..862
+                     /gene="txs"
+                     /coded_by="AY461450.2:80..2668"
+                     /note="diterpene cyclase"
+ORIGIN      
+        1 maqlsfnaal kmnalgnkai hdptncraks egqmmwvcsk sgrtrvkmsr gsggpgpvvm
+       61 mssstgtskv vsetsstivd diprlsanyh gdlwhhnviq tletpfress tfqeradelv
+      121 vkikdmfnal gdgdispsay dtawvarvat vssdgsekpr fpqalnwvln nqlqdgswgi
+      181 eshfslcdrl lntvnsvial svwktghsqv eqgtefiaen lrllneedel spdfeiifpa
+      241 llqkakalgi nlpydlpfik slsttrearl tdvsavadni panmlnaleg leevidwnki
+      301 mrfqskdgsf lsspastacv lmntgdekcf tllnnlldkf ggcvpcmysi dllerlslvd
+      361 niehlgigrh fkqeikvald yvyrhwserg igwgrdslvp dlnttalglr tlrthgydvs
+      421 sdvlnnfkde ngrffssagq thvelrsvvn lfrasdlafp degamddark faepylrdal
+      481 atkistntkl ykeieyvvey pwhmsiprle arsyidsydd dyvwqrktly rmpslsnskc
+      541 lelakldfni vqslhqeelk lltrwwkesg madinftrhr vaevyfssat fepeysatri
+      601 aftkigclqv lfddmadifa tldelksfte gvkrwdtsll heipecmqtc fkvwfklmee
+      661 vnndvvkvqg rdmlahirkp welyfncyvq erewleagyi ptfeeylkty aisvglgpct
+      721 lqpillmgel vkddvvekvh ypsnmfelvs lswrltndtk tyqaekargq qasgiacymk
+      781 dnpgateeda ikhicrvvdr alkeasfeyf kpsndipmgc ksfifnlrlc vqifykfidg
+      841 ygianeeikd yirkvyidpi qv
+//
+
+LOCUS       AAX07431                 481 aa            linear   PLN 02-JUN-2005
+DEFINITION  cytochrome P450 CYPA [Pinus taeda].
+ACCESSION   AAX07431
+VERSION     AAX07431.1
+DBSOURCE    accession AY779537.1
+KEYWORDS    .
+SOURCE      Pinus taeda (loblolly pine)
+  ORGANISM  Pinus taeda
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Pinales; Pinaceae; Pinus; Pinus.
+REFERENCE   1  (residues 1 to 481)
+  AUTHORS   Ro,D.K., Arimura,G., Lau,S.Y., Piers,E. and Bohlmann,J.
+  TITLE     Loblolly pine abietadienol/abietadienal oxidase PtAO (CYP720B1) is
+            a multifunctional, multisubstrate cytochrome P450 monooxygenase
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 102 (22), 8060-8065 (2005)
+   PUBMED   15911762
+REFERENCE   2  (residues 1 to 481)
+  AUTHORS   Bohlmann,J.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (12-OCT-2004) Botany, Forestry, and Biotechnology Lab,
+            University of British Columbia, 237-6174 University Blvd,
+            Vancouver, BC V6T1Z4, Canada
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..481
+                     /organism="Pinus taeda"
+                     /db_xref="taxon:3352"
+     Protein         1..481
+                     /product="cytochrome P450 CYPA"
+                     /name="abietadienol and abietadienal oxidase"
+     Region          45..481
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..481
+                     /coded_by="AY779537.1:1..1446"
+ORIGIN      
+        1 madqislllv vftaavallh liyrwwnaqr gqkrtsnekn qelhlppgst gwpligetys
+       61 yyrsmtsnrp rqfiddrekr ydsdvfvshl fgsqavissd pqfnkyvlqn egrffqahyp
+      121 kalkaligdy gllsvhgdlq rklhgiavnl lrferlkfdf meeiqnlvhs tldrwvdkke
+      181 ialqnechqm vlnlmakqll dlspsketne icelfvdytn aviaipikip gstyakglka
+      241 rellirkisn mikerrdhph ivhkdlltkl leedsisdei icdfilfllf aghetssram
+      301 tfaikflttc pkaltqmkee hdailkakgg hkklewddyk smkftqcvin etlrlgnfgp
+      361 gvfretkedt kvkdclipkg wvvfafltat hldekfhnea ltfnpwrwel dqdvsnnhlf
+      421 spfgggarlc pgshlarlel alflhifitr frwealadeh psyfplpyla kgfpmrlynr
+      481 e
+//
+
+LOCUS       AAS89065                 495 aa            linear   PLN 14-JUN-2005
+DEFINITION  taxoid 2-alpha-hydroxylase [Taxus canadensis].
+ACCESSION   AAS89065
+VERSION     AAS89065.2
+DBSOURCE    accession AY518383.2
+KEYWORDS    .
+SOURCE      Taxus canadensis
+  ORGANISM  Taxus canadensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 495)
+  AUTHORS   Chau,M. and Croteau,R.
+  TITLE     Molecular cloning and characterization of a cytochrome P450 taxoid
+            2alpha-hydroxylase involved in Taxol biosynthesis
+  JOURNAL   Arch. Biochem. Biophys. 427 (1), 48-57 (2004)
+   PUBMED   15178487
+REFERENCE   2  (residues 1 to 495)
+  AUTHORS   Chau,M. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (05-JAN-2004) Institute of Biological Chemistry,
+            Washington State University, 299 Clark Hall, Pullman, WA 99164, USA
+REFERENCE   3  (residues 1 to 495)
+  AUTHORS   Mau,C. and Croteau,R.B.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (14-JUN-2005) Institute of Biological Chemistry,
+            Washington State University, 299 Clark Hall, Pullman, WA 99164, USA
+  REMARK    Sequence update by submitter
+COMMENT     On Jun 14, 2005 this sequence version replaced gi:46360522.
+FEATURES             Location/Qualifiers
+     source          1..495
+                     /organism="Taxus canadensis"
+                     /db_xref="taxon:88032"
+     Protein         1..495
+                     /product="taxoid 2-alpha-hydroxylase"
+                     /name="cytochrome P450"
+     Region          36..467
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..495
+                     /coded_by="AY518383.2:1..1488"
+ORIGIN      
+        1 mdamdltvak fkeftqlqss ailltvvsgi ivivilllrs krrsslklpp gklglplige
+       61 slsflwalrs ntleqfvdkr vkkygnvfkt sllgqptvvl cgaagnrlil snqekllsrt
+      121 vsdrvakltg dtsisviagd shriiraava gflgpaglki higemsahir nhinqvwkgk
+      181 devnvlslar elvfaisasl flnindreeq hqlhktleti lpgyfsvpin fpgfafrkal
+      241 egnskrrkhf svlqekrrrd lsvglasrtq dllsvllaye ddkgnpltde evldnisali
+      301 dgsyestssq mamllkllsd hpecyekvvq eqleiashkk egeeitwkdv kamrytwqvm
+      361 qetlrmfapv fgprgkaitd ihydgytipk gwqlswatys thqndtyfne pdkfmpsrfd
+      421 eeggrlapyt fvpfgggrrk cpgwefakte illfvhhfvk tfsaytpidp hesiwgrplp
+      481 pvpangfpik lisrs
+//
+
+LOCUS       AAX59903                 485 aa            linear   PLN 04-APR-2005
+DEFINITION  13-alpha-hydroxylase [Taxus wallichiana var. chinensis].
+ACCESSION   AAX59903
+VERSION     AAX59903.1
+DBSOURCE    accession AY959321.1
+KEYWORDS    .
+SOURCE      Taxus wallichiana var. chinensis
+  ORGANISM  Taxus wallichiana var. chinensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 485)
+  AUTHORS   Feng,L., Wang,W., Xu,C.-S., Meng,C., Zhu,P. and Cheng,K.-D.
+  TITLE     Molecular cloning and expression of Taxane 13-alpha-hydroxylase of
+            taxus chinensis in yeast
+  JOURNAL   Unpublished
+REFERENCE   2  (residues 1 to 485)
+  AUTHORS   Wang,W., Feng,L. and Cheng,K.-D.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (10-MAR-2005) Key Laboratory of Biosynthesis of Natural
+            Products, Institute of Materia Medica, 1 Xian Nong Tan Street,
+            Beijing 100050, China
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..485
+                     /organism="Taxus wallichiana var. chinensis"
+                     /variety="chinensis"
+                     /db_xref="taxon:29808"
+     Protein         1..485
+                     /product="13-alpha-hydroxylase"
+     Region          13..485
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..485
+                     /coded_by="join(AY959321.1:1..961,AY959321.1:1220..1407,
+                     AY959321.1:1545..1853)"
+ORIGIN      
+        1 mdalkqlevs psilfvtlav mvgiilffrs krhssvklpp gnlgfplvge tlqfvrtlgs
+       61 stpqqfieer mskfgdvfkt siighptvvl cgpagnrlvl snenklvqms wpssmmklig
+      121 edclggktge qhrivraalt rflgpqalqn hfakmssgiq rhinekwrgk devtvlplvk
+      181 dlvfsvasrl ffgiteehlq eqlhnllevi lvgsfsvpln ipgfsyhkam qaratlvdim
+      241 tsliekrrne lragtasenq dllsvlltft dergnsladk eildnfsmll hgsydstnsp
+      301 ltmlikvlas hpesyekvaq eqfgilstkm egdeiawkdl kemkyswqva qetlrmfppi
+      361 fgtfrkaitd ihyngytipk gwkllwttys thtkegyfkg adqfkpsrfe eegkhvtpyt
+      421 ylpfgggmrg cpgwefakme tllflhhfvk alsglkaidp neklsgkplp plpvnglpik
+      481 lysrs
+//
+
+LOCUS       AAN52360                 497 aa            linear   PLN 07-MAR-2005
+DEFINITION  5-alpha-taxadienol-10-beta-hydroxylase [Taxus wallichiana var.
+            chinensis].
+ACCESSION   AAN52360
+VERSION     AAN52360.1
+DBSOURCE    accession AF545833.1
+KEYWORDS    .
+SOURCE      Taxus wallichiana var. chinensis
+  ORGANISM  Taxus wallichiana var. chinensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 497)
+  AUTHORS   Tu,J., Zhu,P., Cheng,K.D. and Meng,C.
+  TITLE     Cloning and sequencing of hydroxylase genes involved in taxol
+            biosynthesis
+  JOURNAL   Z. Naturforsch., C, J. Biosci. 59 (7-8), 561-564 (2004)
+   PUBMED   15813380
+REFERENCE   2  (residues 1 to 497)
+  AUTHORS   Tu,J. and Cheng,K.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (11-SEP-2002) Key Laboratory of Biosynthsis of Natural
+            Products, Institute of Materia Medica, 1 Xian Nong Tan Street,
+            Beijing 100050, China
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..497
+                     /organism="Taxus wallichiana var. chinensis"
+                     /variety="chinensis"
+                     /db_xref="taxon:29808"
+     Protein         1..497
+                     /product="5-alpha-taxadienol-10-beta-hydroxylase"
+     Region          50..482
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..497
+                     /coded_by="AF545833.1:1..1494"
+ORIGIN      
+        1 mdsfiflrsi gtkfgqless paiisltlap ilaiillllf rynhrssvkl ppgklgfpli
+       61 getiqllrtl rsetpqkffd drlkkfgpvy mtslighstv vlcgpagnkl alsnedklve
+      121 megpksfmkl igedsivakr gedhrilrta larflgaqal qnylgrmsse ighhfnkkwk
+      181 gkdevkvlpl vrglifsias tlffdandgh qqkqlhhlle tilvgslsvp ldfpgtryrk
+      241 glqarlklde ilsslikrrr sdlrsgiasd dqdllsvllt frdekgnslt dqgildnfsa
+      301 mfhasydttv apmalifkll ysnpeyhekv fqeqleiign kkegeeiswk dlksmkytwq
+      361 avqeslrmyp pvfgifrkai tdihydgyti pkgwrvlcsp ytthlreeyf pepekfrpsr
+      421 fedegrhvtp ytyvpfgggl rtcpgwefsk ieillfvhhf vknfssyipv dpnekvlsdp
+      481 lpplpangfs iklfprs
+//
+
+LOCUS       AAV54171                 495 aa            linear   PLN 15-NOV-2004
+DEFINITION  taxoid 2-alpha-hydroxylase [Taxus wallichiana var. chinensis].
+ACCESSION   AAV54171
+VERSION     AAV54171.1
+DBSOURCE    accession AY789508.1
+KEYWORDS    .
+SOURCE      Taxus wallichiana var. chinensis
+  ORGANISM  Taxus wallichiana var. chinensis
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 495)
+  AUTHORS   Wang,W., Feng,L. and Cheng,K.-D.
+  TITLE     Molecualr cloning and sequencing of taxoid 2-alpha-hydroxylase
+            genomic DNA involved in taxol biosynthesis in Taxus chinensis
+  JOURNAL   Unpublished
+REFERENCE   2  (residues 1 to 495)
+  AUTHORS   Wang,W., Feng,L. and Cheng,K.-D.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (24-OCT-2004) Key Laboratory of Biosynthesis of Natural
+            Products, Institute of Materia Medica, 1 Xian Nong Tan Street,
+            Beijing 10050, China
+COMMENT     Method: conceptual translation.
+FEATURES             Location/Qualifiers
+     source          1..495
+                     /organism="Taxus wallichiana var. chinensis"
+                     /variety="chinensis"
+                     /db_xref="taxon:29808"
+     Protein         1..495
+                     /product="taxoid 2-alpha-hydroxylase"
+     Region          21..467
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..495
+                     /coded_by="join(AY789508.1:1..991,AY789508.1:1078..1265,
+                     AY789508.1:1351..1659)"
+ORIGIN      
+        1 mdamdltvak fkeftqlqss ailltavsgi ivivilllrs krrsslklpp gklglplige
+       61 slsfqwalrs ntleqfvdkr vkkygnvfkt sllgqptvvl cgaagnrlil snqekllsrt
+      121 vsdrvakltg dnsisvivgd shriiraava gflgpaglqi higemsahir nhinqvwkgk
+      181 devnvlslar elvfatsasl flnindreeq hqlhktpeti lagyfsvpin fpgfafrkal
+      241 egnskrrkhf svllekrrrd lslglasrnq dllsvlltfk ddkgnpltde ddldnisali
+      301 dgsyestssq mavllkllsa hpqcyekvvq eqleiashkk egeeitwkdv kamrytwqvm
+      361 qetlrmfapv fgprgkaitd ihydgytipk gwqlswatys thqndtyfne pdkfmpsrfd
+      421 eeggrlapyt fvpfgggrrt clgwefakte illfvhhfvk tfsaytpidp hesirgrplp
+      481 pvpangfpik lisrs
+//
+
+LOCUS       AAQ56240                 499 aa            linear   PLN 13-MAY-2005
+DEFINITION  taxadiene 5-alpha hydroxylase [Taxus cuspidata].
+ACCESSION   AAQ56240
+VERSION     AAQ56240.2
+DBSOURCE    accession AY289209.2
+KEYWORDS    .
+SOURCE      Taxus cuspidata
+  ORGANISM  Taxus cuspidata
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 499)
+  AUTHORS   Jennewein,S., Long,R.M., Williams,R.M. and Croteau,R.
+  TITLE     Cytochrome p450 taxadiene 5alpha-hydroxylase, a mechanistically
+            unusual monooxygenase catalyzing the first oxygenation step of
+            taxol biosynthesis
+  JOURNAL   Chem. Biol. 11 (3), 379-387 (2004)
+   PUBMED   15123267
+REFERENCE   2  (residues 1 to 499)
+  AUTHORS   Jennewein,S.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (02-MAY-2003) Institute of Biological Chemistry,
+            Washington State University, Pullman, WA 99164, USA
+REFERENCE   3  (residues 1 to 499)
+  AUTHORS   Jennewein,S.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (13-MAY-2005) Institute of Biological Chemistry,
+            Washington State University, Pullman, WA 99164, USA
+  REMARK    Sequence update by submitter
+COMMENT     On May 13, 2005 this sequence version replaced gi:34014969.
+            Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..499
+                     /organism="Taxus cuspidata"
+                     /db_xref="taxon:99806"
+     Protein         1..499
+                     /product="taxadiene 5-alpha hydroxylase"
+                     /name="cytochrome P450 dependent monooxygenase"
+     Region          43..484
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..499
+                     /coded_by="AY289209.2:40..1539"
+ORIGIN      
+        1 mdalykstva kfnevtqldc stesfsials aiagilllll lfrskrhssl klppgklgip
+       61 figesfiflr alrsnsleqf fdervkkfgl vfktslighp tvvlcgpagn rlilsneekl
+      121 vqmswpaqfm klmgensvat rrgedhivmr salagffgpg alqsyigkmn teiqshinek
+      181 wkgkdevnvl plvrelvfni sailffniyd kqeqdrlhkl letilvgsfa lpidlpgfgf
+      241 hralqgrakl nkimlslikk rkedlqsgsa tatqdllsvl ltfrddkgtp ltndeildnf
+      301 ssllhasydt ttspmalifk llssnpecyq kvvqeqleil snkeegeeit wkdlkamkyt
+      361 wqvaqetlrm fppvfgtfrk aitdiqydgy tipkgwkllw ttysthpkdl yfnepekfmp
+      421 srfdqegkhv apytflpfgg gqrscvgwef skmeillfvh hfvktfssyt pvdpdekisg
+      481 dplpplpskg fsiklfprp
+//
+
+LOCUS       AAL23619                 485 aa            linear   PLN 28-NOV-2001
+DEFINITION  taxane 13-alpha-hydroxylase [Taxus cuspidata].
+ACCESSION   AAL23619
+VERSION     AAL23619.1
+DBSOURCE    accession AY056019.1
+KEYWORDS    .
+SOURCE      Taxus cuspidata
+  ORGANISM  Taxus cuspidata
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 485)
+  AUTHORS   Jennewein,S., Rithner,C.D., Williams,R.M. and Croteau,R.B.
+  TITLE     Taxol biosynthesis: Taxane 13alpha -hydroxylase is a cytochrome
+            P450-dependent monooxygenase
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 98 (24), 13595-13600 (2001)
+   PUBMED   11707604
+REFERENCE   2  (residues 1 to 485)
+  AUTHORS   Jennewein,S.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (12-SEP-2001) Institute of Biological Chemistry,
+            Washington State University, Clark Hall, Pullman, WA 99164, USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..485
+                     /organism="Taxus cuspidata"
+                     /db_xref="taxon:99806"
+     Protein         1..485
+                     /product="taxane 13-alpha-hydroxylase"
+                     /name="cytochrome P450-dependent monooxygenase"
+     Region          13..485
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..485
+                     /coded_by="AY056019.1:1..1458"
+ORIGIN      
+        1 mdalkqlevs psilfvtlav magiilffrs krhssvklpp gnlgfplvge tlqfvrslgs
+       61 stpqqfieer mskfgdvfkt siighptvvl cgpagnrlvl snenklvqms wpssmmklig
+      121 edclggktge qhrivraalt rflgpqalqn hfakmssgiq rhinekwkgk deatvlplvk
+      181 dlvfsvasrl ffgiteehlq eqlhnllevi lvgsfsvpln ipgfsyhkai qaratladim
+      241 thliekrrne lragtasenq dllsvlltft dergnsladk eildnfsmll hgsydstnsp
+      301 ltmlikvlas hpesyekvaq eqfgilstkm egeeiawkdl kemkyswqvv qetlrmyppi
+      361 fgtfrkaitd ihyngytipk gwkllwttys tqtkeeyfkd adqfkpsrfe eegkhvtpyt
+      421 ylpfgggmrv cpgwefakme tllflhhfvk afsglkaidp neklsgkplp plpvnglpik
+      481 lysrs
+//
+
+LOCUS       AAO66199                 509 aa            linear   PLN 04-MAY-2003
+DEFINITION  taxane 14b-hydroxylase [Taxus cuspidata].
+ACCESSION   AAO66199
+VERSION     AAO66199.1
+DBSOURCE    accession AY188177.1
+KEYWORDS    .
+SOURCE      Taxus cuspidata
+  ORGANISM  Taxus cuspidata
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 509)
+  AUTHORS   Jennewein,S., Rithner,C.D., Williams,R.M. and Croteau,R.
+  TITLE     Taxoid metabolism: Taxoid 14beta-hydroxylase is a cytochrome
+            P450-dependent monooxygenase
+  JOURNAL   Arch. Biochem. Biophys. 413 (2), 262-270 (2003)
+   PUBMED   12729625
+REFERENCE   2  (residues 1 to 509)
+  AUTHORS   Jennewein,S. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (25-NOV-2002) Institute of Biological Chemistry,
+            Washington State University, Pullman, WA 99164-6340, USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..509
+                     /organism="Taxus cuspidata"
+                     /db_xref="taxon:99806"
+     Protein         1..509
+                     /product="taxane 14b-hydroxylase"
+                     /name="cytochrome P450 dependent monooxygenase"
+     Region          21..461
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..509
+                     /coded_by="AY188177.1:1..1530"
+ORIGIN      
+        1 mdvfyplkst vakfnecfpa ilfivlsava givlplllfl rskrrssvgl ppgklgypfi
+       61 gesllflkal rsntveqfld ervknfgnvf ktslighptv vlcgpagnrl ilaneeklvq
+      121 mswpkssmkl mgeksitakr geghmiirsa lqgffspgal qkyigqmskt ienhinekwk
+      181 gndqvsvval vgdlvfdisa clffninekh ererlfelle iiavgvlavp vdlpgfayhr
+      241 alqarsklna ilsgliekrk mdlssglats nqdllsvflt fkddrgnpcs deeildnfsg
+      301 llhgsydttv samacvfkll ssnpecyekv vqeqlgilsn klegdeitwk dvksmkytwq
+      361 vvqetlrlyp sifgsfrqai tdihyngyii pkgwkllwtp ytthpkemyf sepekflpsr
+      421 fdqegklvap ytflpfgggq rscpgwefsk meillsvhhf vktfstftpv dpaeiiards
+      481 lcplpsngfs vklfprsysl htgnqvkki
+//
+
+LOCUS       AAQ75553                 500 aa            linear   PLN 20-APR-2005
+DEFINITION  taxoid 7-beta-hydroxylase [Taxus cuspidata].
+ACCESSION   AAQ75553
+VERSION     AAQ75553.1
+DBSOURCE    accession AY307951.1
+KEYWORDS    .
+SOURCE      Taxus cuspidata
+  ORGANISM  Taxus cuspidata
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 500)
+  AUTHORS   Chau,M., Jennewein,S., Walker,K. and Croteau,R.
+  TITLE     Taxol biosynthesis: Molecular cloning and characterization of a
+            cytochrome P450 taxoid 7 beta-hydroxylase
+  JOURNAL   Chem. Biol. 11 (5), 663-672 (2004)
+   PUBMED   15157877
+REFERENCE   2  (residues 1 to 500)
+  AUTHORS   Chau,M., Jennewein,S., Walker,K. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-MAY-2003) Institute of Biological Chemistry,
+            Washington State University, PO Box 646340, Pullman, WA 99164-6340,
+            USA
+FEATURES             Location/Qualifiers
+     source          1..500
+                     /organism="Taxus cuspidata"
+                     /db_xref="taxon:99806"
+     Protein         1..500
+                     /product="taxoid 7-beta-hydroxylase"
+     Region          28..499
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..500
+                     /coded_by="AY307951.1:27..1529"
+ORIGIN      
+        1 mdalslvnst vakfnevtql qaspailsta ltaiagiivl lvitskrrss lklppgklgl
+       61 pfigetlefv kalrsdtlrq fveeregkfg rvfktsllgk ptvilcgpag nrlvlsneek
+      121 llhvswsaqi arilglnsva vkrgddhrvl rvalagflgs aglqlyigkm salirnhine
+      181 kwkgkdevnv lslvrdlvmd nsailffniy dkerkqqlhe ilkiilashf giplnipgfl
+      241 yrkalkgslk rkkilsalle krkdelrsrl assnqdllsv llsfrdergk plsdeavldn
+      301 cfamldasyd tttsqmtlil kmlssnpecf ekvvqeqlei asnkkegeei tmkdikamky
+      361 twqvlqeslr mlspvfgtlr ktmndinhdg ytipkgwqvv wttysthqkd iyfkqpdkfm
+      421 psrfeeedgh ldaytfvpfg ggrrtcpgwe yakveillfl hhfvkafsgy tptdpheric
+      481 gypvplvpvk gfpikliars
+//
+
+LOCUS       AF318211_1               497 aa            linear   PLN 15-FEB-2001
+DEFINITION  5-alpha-taxadienol-10-beta-hydroxylase [Taxus cuspidata].
+ACCESSION   AAK00946
+VERSION     AAK00946.1
+DBSOURCE    accession AF318211.1
+KEYWORDS    .
+SOURCE      Taxus cuspidata
+  ORGANISM  Taxus cuspidata
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 497)
+  AUTHORS   Schoendorf,A., Rithner,C.D., Williams,R.M. and Croteau,R.B.
+  TITLE     Molecular cloning of a cytochrome P450 taxane 10 beta-hydroxylase
+            cDNA from Taxus and functional expression in yeast
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 98 (4), 1501-1506 (2001)
+   PUBMED   11171980
+REFERENCE   2  (residues 1 to 497)
+  AUTHORS   Schoendorf,A. and Croteau,R.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (30-OCT-2000) Institute of Biological Chemistry,
+            Washington State University, Pullman, WA 99164, USA
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..497
+                     /organism="Taxus cuspidata"
+                     /db_xref="taxon:99806"
+     Protein         1..497
+                     /product="5-alpha-taxadienol-10-beta-hydroxylase"
+                     /name="cytochrome P450-like protein"
+     Region          50..482
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..497
+                     /coded_by="AF318211.1:1..1494"
+ORIGIN      
+        1 mdsfiflrsi gtkfgqless pailsltlap ilaiillllf rynhrssvkl ppgklgfpli
+       61 getiqllrtl rsetpqkffd drlkkfgpvy mtslighptv vlcgpagnkl vlsnedklve
+      121 megpksfmkl igedsivakr gedhrilrta larflgaqal qnylgrmsse ighhfnekwk
+      181 gkdevkvlpl vrglifsias tlffdvndgh qqkqlhhlle tilvgslsvp ldfpgtryrk
+      241 glqarlklde ilsslikrrr rdlrsgiasd dqdllsvllt frdekgnslt dqgildnfsa
+      301 mfhasydttv apmalifkll ysnpeyhekv fqeqleiign kkegeeiswk dlksmkytwq
+      361 avqeslrmyp pvfgifrkai tdihydgyti pkgwrvlcsp ytthlreeyf pepeefrpsr
+      421 fedegrhvtp ytyvpfgggl rtcpgwefsk ieillfvhhf vknfssyipv dpnekvlsdp
+      481 lpplpangfs iklfprs
+//
+
+LOCUS       AAX20147                 485 aa            linear   PLN 08-MAR-2005
+DEFINITION  taxane 13-alpha-hydroxylase [Taxus x media].
+ACCESSION   AAX20147
+VERSION     AAX20147.1
+DBSOURCE    accession AY866412.1
+KEYWORDS    .
+SOURCE      Taxus x media
+  ORGANISM  Taxus x media
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Pinidae; Cupressales; Taxaceae; Taxus.
+REFERENCE   1  (residues 1 to 485)
+  AUTHORS   Kai,G., Miao,Z. and Tang,K.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (27-DEC-2004) Fudan-SJTU-Nottingham Plant Biotechnology
+            R&D Center, 1954 Huashan Road, Shanghai Jiaotong University,
+            Shanghai 200030, China
+COMMENT     Method: conceptual translation supplied by author.
+FEATURES             Location/Qualifiers
+     source          1..485
+                     /organism="Taxus x media"
+                     /db_xref="taxon:85957"
+     Protein         1..485
+                     /product="taxane 13-alpha-hydroxylase"
+     Region          13..485
+                     /region_name="p450"
+                     /note="Cytochrome P450; cl12078"
+                     /db_xref="CDD:299894"
+     CDS             1..485
+                     /coded_by="AY866412.1:87..1544"
+ORIGIN      
+        1 mdalkqlevs psilfvtlav magiilffrs krhssvklpp gnlgfplvge tlqfvrslgs
+       61 stpqqfieer mskfgdvfkt siighptval cgpagnrlvl snenklvqms wpssmmklig
+      121 edclggktge qhrivraalt rflgpqalqn hfakmssgiq rhinekwkgk deatvlplvk
+      181 dlvfsvasrl ffgiteehlq eqlhnllevi lvgsfsvpln ipgfsyhkai qaratladim
+      241 tsliekrrne lragtasenq dllsvlltft dergnsladk eildnfsmll hgsydstnsp
+      301 ltmlikvlas hpesyekvaq eqfgilstkm egeeiawkdl kemkyswqvv qetlrmyppi
+      361 fgtfrkaitd ihyngytipk gwkllwttys tqtkeeyfkd adqfkpsrfe eegkhvtpyt
+      421 ylpfgggmrv cpgwefakme tllflhhfvk afsglkaidp neklsgkplp plpvnglpik
+      481 lysrs
+//
+

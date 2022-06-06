@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=repeatmasker
+#SBATCH --partition=all
+#SBATCH --ntasks=12
+#SBATCH --mem=300G
+
+#Descrtiption: mask sequences based on https://gist.github.com/darencard/bb1001ac1532dd4225b030cf0cd61ce2
+
+export PATH=$PATH:/gsc/btl/linuxbrew/bin
+
+fasta=_RePlaCe_
+Nam=_RePlaCeNam_
+
+#spruce specific repeats library
+spruce_rep=/projects/spruceup/scratch/pglauca/WS77111/annotation/repeat-elements/WS77111-combined-repeatLib-plusRepBase22.08.fa
+mkdir -p $Nam
+RepeatMasker -pa 12 -e ncbi -lib $spruce_rep -dir $Nam $fasta
+
+

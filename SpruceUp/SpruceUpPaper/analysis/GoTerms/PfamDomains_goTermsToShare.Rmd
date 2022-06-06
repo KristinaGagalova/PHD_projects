@@ -1,0 +1,175 @@
+---
+title: "GO-termsTest"
+output:
+     github_document: default
+     html_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "./", output_format = "all") })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Test go terms mapped to GO slim - Based on Pfam domains
+```{r load_Pfam}
+q903 <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceUpPaper/data/GoTerms/MapToPfam/Pfam/my_Slimgo_terms_plantQ903.counts", header=FALSE)
+ws <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceUpPaper/data/GoTerms/MapToPfam/Pfam/my_Slimgo_terms_plantWS77111.counts", header=FALSE)
+pg29 <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/Pfam/PG29/my_Slimgo_terms_plant.counts", header=FALSE)
+
+#######################################################
+########Q903 vs WS77111
+
+##bind the 2 classes
+q903_wsSlimAll = merge(q903,ws,by="V2")
+q903_wsSlimAll = q903_wsSlimAll[,c(1,2,5,3,4)]
+colnames(q903_wsSlimAll) = c("Go_term","Q903","WS77111","Domain","Go_name")
+dim(q903_wsSlimAll)
+
+#############All domains together - Q903 vs WS77111
+colSums_q903_wsSlimAll = unname(apply(q903_wsSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_wsSlimAll)
+p1 =colSums_q903_wsSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_wsSlimAllSubs = subset(q903_wsSlimAll,Q903 > 5 & WS77111 > 5)
+dim(q903_wsSlimAllSubs)
+
+prob_slim = c()
+for (i in 1:nrow(q903_wsSlimAllSubs)){
+  #print(i)
+  obs = q903_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim[i] = chisq.test(obs, p=p1)$p.value
+}
+
+#sum(p.adjust(prob_slim, method = "BH", n = length(prob_slim)) < 0.05)
+#sum(p.adjust(prob_slim, method = "BH", n = length(prob_slim)) < 0.001)
+#q903_wsSlimAllSubs$prob_slim = prob_slim
+
+q903_wsSlimAllSubs$prob_slimBH = p.adjust(prob_slim, method = "bonferroni", n = length(prob_slim))
+subset(q903_wsSlimAllSubs,q903_wsSlimAllSubs$prob_slimBH < 0.05)
+subset(q903_wsSlimAllSubs,q903_wsSlimAllSubs$prob_slimBH < 0.001)
+
+#######################################################
+########PG - Q903
+
+##bind the 2 classes
+q903_pgSlimAll = merge(q903,pg29,by="V2")
+q903_pgSlimAll = q903_pgSlimAll[,c(1,2,5,3,4)]
+colnames(q903_pgSlimAll) = c("Go_term","Q903","PG29","Domain","Go_name")
+dim(q903_pgSlimAll)
+
+#############All domains together - Q903 vs PG29
+colSums_q903_pgSlimAll = unname(apply(q903_pgSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_pgSlimAll)
+p1 =colSums_q903_pgSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_pgSlimAllSubs = subset(q903_pgSlimAll,Q903 > 5 & PG29 > 5)
+dim(q903_pgSlimAllSubs)
+
+prob_slim = c()
+for (i in 1:nrow(q903_pgSlimAllSubs)){
+  #print(i)
+  obs = q903_pgSlimAllSubs[i,c("Q903","PG29")]
+  #print(obs)
+  prob_slim[i] = chisq.test(obs, p=p1)$p.value
+}
+
+sum(p.adjust(prob_slim, method = "bonferroni", n = length(prob_slim)) < 0.05)
+sum(p.adjust(prob_slim, method = "bonferroni", n = length(prob_slim)) < 0.001)
+q903_pgSlimAllSubs$prob_slim = prob_slim
+
+q903_pgSlimAllSubs$prob_slimBH = p.adjust(prob_slim, method = "bonferroni", n = length(prob_slim))
+subset(q903_pgSlimAllSubs,prob_slimBH < 0.05) 
+subset(q903_pgSlimAllSubs,prob_slimBH < 0.001)
+
+
+#######################################################
+########WS - PG
+
+##bind the 2 classes
+ws_pgSlimAll = merge(ws,pg29,by="V2")
+ws_pgSlimAll = ws_pgSlimAll[,c(1,2,5,3,4)]
+colnames(ws_pgSlimAll) = c("Go_term","WS77111","PG29","Domain","Go_name")
+dim(ws_pgSlimAll)
+
+#############All domains together - WS vs PG29
+colSums_ws_pgSlimAll = unname(apply(ws_pgSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_ws_pgSlimAll)
+p1 =colSums_ws_pgSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+ws_pgSlimAllSubs = subset(ws_pgSlimAll,WS77111 > 5 & PG29 > 5)
+dim(ws_pgSlimAllSubs)
+
+prob_slim = c()
+for (i in 1:nrow(ws_pgSlimAllSubs)){
+  #print(ws_pgSlimAllSubs[i,c("WS77111","PG29")])
+  obs = ws_pgSlimAllSubs[i,c("WS77111","PG29")]
+  print(chisq.test(obs, p=p1))
+  #print(obs)
+  prob_slim[i] = chisq.test(obs, p=p1)$p.value
+}
+
+sum(p.adjust(prob_slim, method = "bonferroni", n = length(prob_slim)) < 0.05)
+sum(p.adjust(prob_slim, method = "bonferroni", n = length(prob_slim)) < 0.001)
+ws_pgSlimAllSubs$prob_slim = prob_slim
+
+ws_pgSlimAllSubs$prob_slimBH = p.adjust(prob_slim, method = "bonferroni", n = length(prob_slim))
+subset(ws_pgSlimAllSubs,prob_slimBH < 0.05)
+subset(ws_pgSlimAllSubs,prob_slimBH < 0.001)
+```
+
+
+
+## Test go terms mapped to GO slim - Based on BLAST with id > 50%, eval 1e-10 and aa align > 100
+```{r load_BLASTth}
+q903_50id <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceUpPaper/data/GoTerms/MapToPfam/BLAST/my_Slimgo_terms_plant.Q903IdLen.counts", header=FALSE)
+ws_50id <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceUpPaper/data/GoTerms/MapToPfam/BLAST/my_Slimgo_terms_plant.WS77111IdLen.counts", header=FALSE)
+
+##bind the 2 classes
+q903_50id_wsSlimAll = merge(q903_50id,ws_50id,by="V2")
+q903_50id_wsSlimAll = q903_50id_wsSlimAll[,c(1,2,5,3,4)]
+colnames(q903_50id_wsSlimAll) = c("Go_term","Q903","WS77111","Domain","Go_name")
+dim(q903_50id_wsSlimAll)
+
+#############All domains together
+colSums_q903_50id_wsSlimAll = unname(apply(q903_50id_wsSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_50id_wsSlimAll)
+p1 =colSums_q903_50id_wsSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_50id_wsSlimAllSubs = subset(q903_50id_wsSlimAll,q903_50id_wsSlimAll$Q903 > 5 & q903_50id_wsSlimAll$WS77111 > 5)
+dim(q903_50id_wsSlimAllSubs)
+
+prob_slim50id = c()
+for (i in 1:nrow(q903_50id_wsSlimAllSubs)){
+  #print(i)
+  obs = q903_50id_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim50id[i] = chisq.test(obs, p=p1)$p.value
+}
+
+sum(p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id)) < 0.05)
+sum(p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id)) < 0.001)
+q903_50id_wsSlimAllSubs$prob_slim50id = prob_slim50id
+q903_50id_wsSlimAllSubs$prob_slim50BH = p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id))
+subset(q903_50id_wsSlimAllSubs,q903_50id_wsSlimAllSubs$prob_slim50BH < 0.05) 
+subset(q903_50id_wsSlimAllSubs,q903_50id_wsSlimAllSubs$prob_slim50BH < 0.001)
+
+q903_50id_wsSlimAllSubs$prob_slimBon = p.adjust(prob_slim50id, method = "bonferroni", n = length(prob_slim50id))
+subset(q903_50id_wsSlimAllSubs,q903_50id_wsSlimAllSubs$prob_slimBon < 0.05)
+subset(q903_50id_wsSlimAllSubs,q903_50id_wsSlimAllSubs$prob_slimBon < 0.001)
+```

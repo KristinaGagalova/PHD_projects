@@ -1,0 +1,43 @@
+#!/bin/bash
+set -eu -o pipefail
+
+#################################        
+######Kristina Gagalova##########
+#################################   
+########24 Mar 2017##############
+#################################
+
+#Calculate top percent most frequent repeats
+
+HIST=dsk35_sort
+KMER_FILE=dsk_35.txt
+
+#sort descending; since the tmp files are too large create tmp dir in current dir
+awk '{print $2}' $KMER_FILE | sort -nr -T /projects/spruceup/pglauca/WS77111/assemblies/kollector/trial_kristina/RepeatFilter/DSK/HiseqWS77111/res-k35/sort_tmp > $HIST
+#sum all the freq values
+awk 'BEGIN {s = 0;} {s += $1} END{print s}' dsk35_sort > dsk35_sum
+
+#-----------------------------------------------------------------------------------
+#calc 10%
+TOT=$(cat dsk35_sum)
+#top 10% threshold
+VAL=$(echo $TOT*0.1 | bc)
+THRESHOLD=$(awk -v VAL="$VAL" 'BEGIN {s = 0;} {s += $1; if (s >= VAL) {print $1; exit; }}' $HIST)
+echo $THRESHOLD
+awk -v TH="$THRESHOLD" '$2 > TH {print ">" $2 "\n" $1}' $KMER_FILE > dsk_35tenperc.fa
+
+#-----------------------------------------------------------------------------------
+#calc 5%
+#top five percent threshold
+VAL=$(echo $TOT*0.05 | bc)
+THRESHOLD=$(awk -v VAL="$VAL" 'BEGIN {s = 0;} {s += $1; if (s >= VAL) {print $1; exit; }}' $HIST)
+echo $THRESHOLD
+bioawk -c fastx -v TH="$THRESHOLD" '$name > TH {print ">"$name"\n"$seq}' dsk_35tenperc.fa > dsk_35fiveperc.fa
+
+#index files
+samtools faidx dsk_35tenperc.fa
+samtools faidx dsk_35fiveperc.fa
+
+#create filter
+biobloommaker -p dsk_35tenperc -k 35 dsk_35tenperc.fa
+biobloommaker -p dsk_35fiveperc -k 35 dsk_35fiveperc.fa

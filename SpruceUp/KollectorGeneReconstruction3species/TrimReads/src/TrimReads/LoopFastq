@@ -1,0 +1,8 @@
+#!/bin/bash
+
+fastq_list=/extscratch/spruceup/interior_spruce/PG29/data/reads/Fastq/list_fastq.in
+
+while read fastq
+do
+qsub ./TrimSeqs.sh $fastq 
+done < $fastq_list 

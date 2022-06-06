@@ -1,0 +1,1567 @@
+kollector.sh -j12 -r0.7 -s0.5 -k32 -K25 -n50000000 -otrial_kollector -a2G /extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R1_001.fastq.gz\ /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R1_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R2_001.fastq.gz\ /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R2_001.fastq.gz 2>&1 | tee trial_kollector.log
+-----------------------------------------
+Recruiting a maximum of 50000000 k-mers
+-----------------------------------------
+/extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R1_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R1_001.fastq.gz
+/extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R2_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R2_001.fastq.gz
+make[1]: Entering directory `/extscratch/btl/kgagalova/trial_kollector'
+biobloommaker -i -k 25 -p trial_kollector -f 0.001 -t 12 -n 50000000 -r 0.7   /extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta <(zcat /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R1_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R1_001.fastq.gz) <(zcat /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R2_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R2_001.fastq.gz)
+Building Bloom filter in progessive mode. Score threshold = 0.7
+Allocating 721249088 bits of space for filter and will output filter this size
+Currently Reading Read Number: 10000000
+Currently Reading Read Number: 20000000
+Currently Reading Read Number: 30000000
+Currently Reading Read Number: 40000000
+Currently Reading Read Number: 50000000
+Currently Reading Read Number: 60000000
+Currently Reading Read Number: 70000000
+Currently Reading Read Number: 80000000
+Storing filter. Filter is 90156136 bytes.
+Filter Creation Complete.
+biobloomcategorizer -t 12 -d trial_kollector -f trial_kollector.bf -s 0.5 -e -i <(zcat /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R1_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R1_001.fastq.gz) <(zcat /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R2_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R2_001.fastq.gz) >> trial_kollector.recruited_pe.fastq	
+Min score threshold: 0.5
+Starting to Load Filters.
+Loaded Filter: trial_kollector
+Filter Loading Complete.
+Filtering Start
+Currently Reading Read Number: 10000000
+Currently Reading Read Number: 20000000
+Currently Reading Read Number: 30000000
+Currently Reading Read Number: 40000000
+Currently Reading Read Number: 50000000
+Currently Reading Read Number: 60000000
+Currently Reading Read Number: 70000000
+Currently Reading Read Number: 80000000
+Currently Reading Read Number: 90000000
+Total Reads:94935192
+Writing file: _summary.tsv
+filter_id	hits	misses	shared	rate_hit	rate_miss	rate_shared
+trial_kollector	10384	94924808	0	0.00010938	0.999891	0
+multiMatch	0	94935192	0	0	1	0
+noMatch	94924808	10384	0	0.999891	0.00010938	0
+
+make[1]: Leaving directory `/extscratch/btl/kgagalova/trial_kollector'
+=> kollector.sh: 1803.66 kollector-recruit.mk name=trial_kollector seed=/extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta pe1=/extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R1_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R1_001.fastq.gz pe2=/extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_ATCACG_L001_R2_001.fastq.gz /extscratch/spruce_assembly/PG/PG77111/genome/data/gsc/PET/IX2298-1..1_lane1_CGATGT_L001_R2_001.fastq.gz s=0.5 r=0.7 n=50000000 j=12 k=25
+-----------------------------------------
+Running ABySS assembly...
+-----------------------------------------
+make[1]: Entering directory `/extscratch/btl/kgagalova/trial_kollector/trial_kollector.abyss'
+abyss-bloom-dbg -k32 -q3 -v -b2G -H4 -j12 --kc=3  ../trial_kollector.recruited_pe.fastq  > trial_kollector-1.fa
+Reading `../trial_kollector.recruited_pe.fastq'...
+Loaded 10000 reads into Bloom filter
+Loaded 19544 reads from `../trial_kollector.recruited_pe.fastq` into Bloom filter
+Bloom filter FPR: 5.45e-13%
+Trimming branches 32 k-mers or shorter
+Extended 233 of 1000 reads (23.3%), assembled 99107 bp so far
+Extended 467 of 2000 reads (23.4%), assembled 141797 bp so far
+Extended 736 of 3000 reads (24.5%), assembled 177439 bp so far
+Extended 937 of 4000 reads (23.4%), assembled 201460 bp so far
+Extended 1119 of 5000 reads (22.4%), assembled 221623 bp so far
+Extended 1327 of 6000 reads (22.1%), assembled 242184 bp so far
+Extended 1523 of 7000 reads (21.8%), assembled 253573 bp so far
+Extended 1695 of 8000 reads (21.2%), assembled 267606 bp so far
+Extended 1844 of 9000 reads (20.5%), assembled 277068 bp so far
+Extended 1999 of 10000 reads (20%), assembled 287365 bp so far
+Extended 2144 of 11000 reads (19.5%), assembled 294997 bp so far
+Extended 2261 of 12000 reads (18.8%), assembled 301682 bp so far
+Extended 2420 of 13000 reads (18.6%), assembled 310130 bp so far
+Extended 2561 of 14000 reads (18.3%), assembled 315816 bp so far
+Extended 2713 of 15000 reads (18.1%), assembled 321584 bp so far
+Extended 2884 of 16000 reads (18%), assembled 326453 bp so far
+Extended 3036 of 17000 reads (17.9%), assembled 330021 bp so far
+Extended 3171 of 18000 reads (17.6%), assembled 334170 bp so far
+Extended 3262 of 19000 reads (17.2%), assembled 336654 bp so far
+Extended 3336 of 19544 reads (17.1%), assembled 338192 bp so far
+Assembly complete
+AdjList -v   -k32 -m50 --dot trial_kollector-1.fa >trial_kollector-1.dot
+Reading `trial_kollector-1.fa'...
+Finding overlaps of exactly k-1 bp...
+V=10418 E=12630 E/V=1.21
+Degree: ▁█▃
+        01234
+0: 14% 1: 56% 2-4: 30% 5+: 0% max: 4
+abyss-filtergraph -v --dot   -k32 -g trial_kollector-2.dot1 trial_kollector-1.dot trial_kollector-1.fa >trial_kollector-1.path
+Loading graph from file: trial_kollector-1.dot
+Graph stats before:
+V=10418 E=12630 E/V=1.21
+Degree: ▁█▃
+        01234
+0: 14% 1: 56% 2-4: 30% 5+: 0% max: 4
+Removing shim contigs from the graph...
+Pass 1: Checking 5174 contigs.
+Pass 2: Checking 365 contigs.
+Pass 3: Checking 1 contigs.
+Shim removal stats:
+Removed: 2173 Too Complex: 708 Tails: 957 Too Long: 1370 Self Adjacent: 0 Parallel Edges: 0
+Reading `trial_kollector-1.fa'...
+Edge removal stats:
+Removed: 0
+Graph stats after:
+V=6072 E=8284 E/V=1.36
+Degree: ▄█▅▁
+        01234
+0: 23% 1: 39% 2-4: 35% 5+: 2.2% max: 14
+MergeContigs -v  -k32 -g trial_kollector-2.dot -o trial_kollector-2.fa trial_kollector-1.fa trial_kollector-2.dot1 trial_kollector-1.path
+Reading `trial_kollector-2.dot1'...
+Read 6072 vertices. Using 1.04 MB of memory.
+Reading `trial_kollector-1.fa'...
+Read 3036 sequences. Using 1.72 MB of memory.
+Reading `trial_kollector-1.path'...
+Read 0 paths. Using 1.72 MB of memory.
+Writing `trial_kollector-2.dot'...
+V=6072 E=8284 E/V=1.36
+Degree: ▄█▅▁
+        01234
+0: 23% 1: 39% 2-4: 35% 5+: 2.2% max: 14
+PopBubbles -v --dot -j12 -k32  -p0.9  -g trial_kollector-3.dot trial_kollector-2.fa trial_kollector-2.dot >trial_kollector-2.path
+Reading `trial_kollector-2.dot'...
+V=6072 E=8284 E/V=1.36
+Degree: ▄█▅▁
+        01234
+0: 23% 1: 39% 2-4: 35% 5+: 2.2% max: 14
+Reading `trial_kollector-2.fa'...
+Bubbles: 107 Popped: 69 Scaffolds: 0 Complex: 23 Too long: 0 Too many: 14 Dissimilar: 1
+V=5472 E=7534 E/V=1.38
+Degree: ▆█▅▁
+        01234
+0: 26% 1: 35% 2-4: 36% 5+: 2.4% max: 14
+MergeContigs -v  -k32 -o trial_kollector-3.fa trial_kollector-2.fa trial_kollector-2.dot trial_kollector-2.path
+Reading `trial_kollector-2.dot'...
+Read 6072 vertices. Using 1.04 MB of memory.
+Reading `trial_kollector-2.fa'...
+Read 3036 sequences. Using 1.72 MB of memory.
+Reading `trial_kollector-2.path'...
+Read 185 paths. Using 1.72 MB of memory.
+The minimum coverage of single-end contigs is inf.
+The minimum coverage of merged contigs is inf.
+n	n:200	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	355	136	203	270	351	477	385	1109	123505	trial_kollector-3.fa
+awk '!/^>/ {x[">" $1]=1; next} {getline s} $1 in x {print $0 "\n" s}' \
+		trial_kollector-2.path trial_kollector-1.fa >trial_kollector-indel.fa
+ln -sf trial_kollector-3.fa trial_kollector-unitigs.fa
+abyss-map -v  -j12 -l40    ../trial_kollector.recruited_pe.fastq trial_kollector-3.fa \
+		|abyss-fixmate -v  -l40  -h pet-3.hist \
+		|sort -snk3 -k4 \
+		|DistanceEst -v  -j12 -k32 -l40 -s1000 -n10   -o pet-3.dist pet-3.hist
+Reading `trial_kollector-3.fa'...
+Reading from standard input...
+Using 496 kB of memory and 181 B/sequence.
+Reading `trial_kollector-3.fa'...
+Building the suffix array...
+Building the Burrows-Wheeler transform...
+Building the character occurrence table...
+Read 387 kB in 2736 contigs.
+Using 3.9 MB of memory and 10.1 B/bp.
+Read 81 alignments. Hash load: 5 / 8 = 0.625 using 365 kB.
+Mapped 12921 of 20768 reads (62.2%)
+Mapped 12330 of 20768 reads uniquely (59.4%)
+Read 20768 alignments
+Mateless       0
+Unaligned   3139  30.2%
+Singleton   1569  15.1%
+FR          2690  25.9%
+RF             0
+FF             0
+Different   2986  28.8%
+Total      10384
+FR Stats mean: 383.3 median: 383 sd: 34.85 n: 2649 min: 209 max: 497 ignored: 41
+                           __▁▂▁▂▃▄▄▅▅█▇▇▇██▇█▇█▆▅▄▄▃▃▃▁▂▂___
+Mate orientation FR: 2690 (100%) RF: 0 (0%)
+The library pet-3.hist is oriented forward-reverse (FR).
+Stats mean: 383.3 median: 383 sd: 34.85 n: 2649 min: 209 max: 497
+                           __▁▂▁▂▃▄▄▅▅█▇▇▇██▇█▇█▆▅▄▄▃▃▃▁▂▂___
+Minimum and maximum distance are set to -31 and 497 bp.
+Duplicate rate of spanning fragments: 0/0 (nan%)
+abyss-todot -v --dist -e trial_kollector-3.fa pet-3.dist >trial_kollector-3.dist
+Reading `trial_kollector-3.fa'...
+V=5472 E=0 E/V=0
+Degree:  █
+        01234
+0: 1e+02% 1: 0% 2-4: 0% 5+: 0% max: 0
+Reading `pet-3.dist'...
+V=5472 E=0 E/V=0
+Degree:  █
+        01234
+0: 1e+02% 1: 0% 2-4: 0% 5+: 0% max: 0
+Overlap -v --dot   -k32 -g trial_kollector-4.dot -o trial_kollector-4.fa trial_kollector-3.fa trial_kollector-3.dot trial_kollector-3.dist
+Overlap: 0
+Scaffold: 0
+No overlap: 0
+Insignificant (<5bp): 0
+Homopolymer: 0
+Motif: 0
+Ambiguous: 0
+SimpleGraph -v   -j12 -k32 -o trial_kollector-4.path1 trial_kollector-4.dot trial_kollector-3.dist
+Reading `trial_kollector-4.dot'...
+V=5472 E=7534 E/V=1.38
+Degree: ▆█▅▁
+        01234
+0: 26% 1: 35% 2-4: 36% 5+: 2.4% max: 14
+Reading `trial_kollector-3.dist'...
+
+Total paths attempted: 0
+Unique path: 0
+No possible paths: 0
+No valid paths: 0
+Repetitive: 0
+Multiple valid paths: 0
+Too many solutions: 0
+Too complex: 0
+
+The minimum number of pairs in a distance estimate is 4294967295.
+abyss-index -v --fai trial_kollector-3.fa
+Reading `trial_kollector-3.fa'...
+Read 2736 contigs.
+Writing `trial_kollector-3.fa.fai'...
+abyss-index -v --fai trial_kollector-4.fa
+Reading `trial_kollector-4.fa'...
+Read 0 contigs.
+Writing `trial_kollector-4.fa.fai'...
+cat trial_kollector-3.fa.fai trial_kollector-4.fa.fai \
+		|MergePaths -v  -j12 -k32  -o trial_kollector-4.path2 - trial_kollector-4.path1
+Reading `-'...
+Reading `trial_kollector-4.path1'...
+Added 0 missing edges.
+Removed 0 transitive edges of 0 edges leaving 0 edges.
+Removed 0 small overlap edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+
+Merging paths
+Removing redundant contigs
+PathOverlap --assemble -v  -k32  trial_kollector-4.dot trial_kollector-4.path2 >trial_kollector-4.path3
+Reading `trial_kollector-4.dot'...
+Reading `trial_kollector-4.path2'...
+cat trial_kollector-3.fa trial_kollector-4.fa \
+		|PathConsensus -v --dot -k32  -p0.9  -o trial_kollector-5.path -s trial_kollector-5.fa -g trial_kollector-5.dot - trial_kollector-4.dot trial_kollector-4.path3
+Reading `trial_kollector-4.dot'...
+Reading `-'...
+Reading `trial_kollector-4.path3'...
+Read 0 paths
+Ambiguous paths: 0
+Merged:          0
+No paths:        0
+Too many paths:  0
+Too complex:     0
+Dissimilar:      0
+cat trial_kollector-3.fa trial_kollector-4.fa trial_kollector-5.fa |MergeContigs -v  -k32 -o trial_kollector-6.fa - trial_kollector-5.dot trial_kollector-5.path
+Reading `trial_kollector-5.dot'...
+Read 5472 vertices. Using 905 kB of memory.
+Reading `-'...
+Read 2736 sequences. Using 1.59 MB of memory.
+Reading `trial_kollector-5.path'...
+Read 0 paths. Using 1.59 MB of memory.
+ln -sf trial_kollector-6.fa trial_kollector-contigs.fa
+PathOverlap --overlap -v  -k32 --dot trial_kollector-5.dot trial_kollector-5.path >trial_kollector-6.dot
+Reading `trial_kollector-5.dot'...
+Reading `trial_kollector-5.path'...
+ln -sf trial_kollector-6.dot trial_kollector-contigs.dot
+abyss-map -v  -j12 -l40    ../trial_kollector.recruited_pe.fastq trial_kollector-6.fa \
+		|abyss-fixmate -v  -l40  -h pet-6.hist \
+		|sort -snk3 -k4 \
+		|DistanceEst --dot --mean -v  -j12 -k32 -l40 -s1000 -n10   -o pet-6.dist.dot pet-6.hist
+Reading from standard input...
+Reading `trial_kollector-6.fa'...
+Using 496 kB of memory and 181 B/sequence.
+Reading `trial_kollector-6.fa'...
+Building the suffix array...
+Building the Burrows-Wheeler transform...
+Building the character occurrence table...
+Read 387 kB in 2736 contigs.
+Using 3.9 MB of memory and 10.1 B/bp.
+Read 41 alignments. Hash load: 5 / 8 = 0.625 using 365 kB.
+Mapped 12921 of 20768 reads (62.2%)
+Mapped 12330 of 20768 reads uniquely (59.4%)
+Read 20768 alignments
+Mateless       0
+Unaligned   3139  30.2%
+Singleton   1569  15.1%
+FR          2690  25.9%
+RF             0
+FF             0
+Different   2986  28.8%
+Total      10384
+FR Stats mean: 383.3 median: 383 sd: 34.85 n: 2649 min: 209 max: 497 ignored: 41
+                           __▁▂▁▂▃▄▄▅▅█▇▇▇██▇█▇█▆▅▄▄▃▃▃▁▂▂___
+Mate orientation FR: 2690 (100%) RF: 0 (0%)
+The library pet-6.hist is oriented forward-reverse (FR).
+Stats mean: 383.3 median: 383 sd: 34.85 n: 2649 min: 209 max: 497
+                           __▁▂▁▂▃▄▄▅▅█▇▇▇██▇█▇█▆▅▄▄▃▃▃▁▂▂___
+Minimum and maximum distance are set to -31 and 497 bp.
+Duplicate rate of spanning fragments: 0/0 (nan%)
+abyss-scaffold -v   -k32 -s1000-10000 -n10 -g trial_kollector-6.path.dot  trial_kollector-6.dot pet-6.dist.dot >trial_kollector-6.path
+Reading `trial_kollector-6.dot'...
+V=5472 E=7534 E/V=1.38
+Degree: ▆█▅▁
+        01234
+0: 26% 1: 35% 2-4: 36% 5+: 2.4% max: 14
+Reading `pet-6.dist.dot'...
+V=5472 E=7534 E/V=1.38
+Degree: ▆█▅▁
+        01234
+0: 26% 1: 35% 2-4: 36% 5+: 2.4% max: 14
+Added 0 complementary edges.
+V=5472 E=7534 E/V=1.38
+Degree: ▆█▅▁
+        01234
+0: 26% 1: 35% 2-4: 36% 5+: 2.4% max: 14
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=1000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=2000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=5000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=10000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=1000
+Best scaffold N50 is 1109 at s=1000.
+PathConsensus -v --dot -k32  -p0.9  -s trial_kollector-7.fa -g trial_kollector-7.dot -o trial_kollector-7.path trial_kollector-6.fa trial_kollector-6.dot trial_kollector-6.path
+Reading `trial_kollector-6.dot'...
+Reading `trial_kollector-6.fa'...
+Reading `trial_kollector-6.path'...
+Read 0 paths
+Ambiguous paths: 0
+Merged:          0
+No paths:        0
+Too many paths:  0
+Too complex:     0
+Dissimilar:      0
+cat trial_kollector-6.fa trial_kollector-7.fa \
+		|MergeContigs -v  -k32 -o trial_kollector-8.fa - trial_kollector-7.dot trial_kollector-7.path
+Reading `trial_kollector-7.dot'...
+Read 5472 vertices. Using 905 kB of memory.
+Reading `-'...
+Read 2736 sequences. Using 1.59 MB of memory.
+Reading `trial_kollector-7.path'...
+Read 0 paths. Using 1.59 MB of memory.
+ln -sf trial_kollector-8.fa trial_kollector-scaffolds.fa
+PathOverlap --overlap -v  -k32 --dot trial_kollector-7.dot trial_kollector-7.path >trial_kollector-8.dot
+Reading `trial_kollector-7.dot'...
+Reading `trial_kollector-7.path'...
+ln -sf trial_kollector-8.dot trial_kollector-scaffolds.dot
+bwa index trial_kollector-8.fa
+[bwa_index] Pack FASTA... 0.01 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 0.07 seconds elapse.
+[bwa_index] Update BWT... 0.00 sec
+[bwa_index] Pack forward-only FASTA... 0.01 sec
+[bwa_index] Construct SA from BWT and Occ... 0.03 sec
+[main] Version: 0.7.15-r1140
+[main] CMD: bwa index trial_kollector-8.fa
+[main] Real time: 0.430 sec; CPU: 0.131 sec
+bwa mem -a -t12 -S -P -k40 trial_kollector-8.fa /extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta \
+		|gzip >longlib-8.sam.gz
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 500 sequences (655261 bp)...
+[M::mem_process_seqs] Processed 500 reads in 0.689 CPU sec, 0.094 real sec
+[main] Version: 0.7.15-r1140
+[main] CMD: bwa mem -a -t12 -S -P -k40 trial_kollector-8.fa /extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta
+[main] Real time: 0.280 sec; CPU: 0.706 sec
+abyss-longseqdist -k32  longlib-8.sam.gz \
+		|grep -v "l=" >longlib-8.dist.dot
+abyss-scaffold -v   -k32 -s1000-10000 -n1 -g trial_kollector-8.path.dot  trial_kollector-8.dot longlib-8.dist.dot >trial_kollector-8.path
+Reading `trial_kollector-8.dot'...
+V=5472 E=7534 E/V=1.38
+Degree: ▆█▅▁
+        01234
+0: 26% 1: 35% 2-4: 36% 5+: 2.4% max: 14
+Reading `longlib-8.dist.dot'...
+V=5472 E=8428 E/V=1.54
+Degree: ▅█▅▁
+        01234
+0: 23% 1: 36% 2-4: 37% 5+: 4.1% max: 19
+Added 0 complementary edges.
+V=5472 E=8428 E/V=1.54
+Degree: ▅█▅▁
+        01234
+0: 23% 1: 36% 2-4: 37% 5+: 4.1% max: 19
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=1000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=2000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=5000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=10000
+
+Removed 5472 vertices.
+Removed 0 edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 cyclic edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Added 0 edges to ambiguous vertices.
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Cleared 0 ambiguous vertices.
+Removed 0 ambiguous vertices.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 transitive edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 tips.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 vertices in bubbles.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Removed 0 weak edges.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+Assembled 0 contigs in 0 scaffolds.
+V=0 E=0 E/V=nan
+Degree: 
+        01234
+0: nan% 1: nan% 2-4: nan% 5+: nan% max: 0
+n	n:1000	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	1	1	1109	1109	1109	1109	1109	1109	1109	s=1000
+Best scaffold N50 is 1109 at s=1000.
+PathConsensus -v --dot -k32  -p0.9  -s trial_kollector-9.fa -g trial_kollector-9.dot -o trial_kollector-9.path trial_kollector-8.fa trial_kollector-8.dot trial_kollector-8.path
+Reading `trial_kollector-8.dot'...
+Reading `trial_kollector-8.fa'...
+Reading `trial_kollector-8.path'...
+Read 0 paths
+Ambiguous paths: 0
+Merged:          0
+No paths:        0
+Too many paths:  0
+Too complex:     0
+Dissimilar:      0
+cat trial_kollector-8.fa trial_kollector-9.fa \
+		|MergeContigs -v  -k32 -o trial_kollector-10.fa - trial_kollector-9.dot trial_kollector-9.path
+Reading `trial_kollector-9.dot'...
+Read 5472 vertices. Using 905 kB of memory.
+Reading `-'...
+Read 2736 sequences. Using 1.59 MB of memory.
+Reading `trial_kollector-9.path'...
+Read 0 paths. Using 1.59 MB of memory.
+ln -sf trial_kollector-10.fa trial_kollector-long-scaffs.fa
+PathOverlap --overlap -v  -k32 --dot trial_kollector-9.dot trial_kollector-9.path >trial_kollector-10.dot
+Reading `trial_kollector-9.dot'...
+Reading `trial_kollector-9.path'...
+ln -sf trial_kollector-10.dot trial_kollector-long-scaffs.dot
+abyss-fac   trial_kollector-unitigs.fa trial_kollector-contigs.fa trial_kollector-scaffolds.fa trial_kollector-long-scaffs.fa |tee trial_kollector-stats.tab
+n	n:500	L50	min	N80	N50	N20	E-size	max	sum	name
+2736	31	13	500	524	597	763	645	1109	19076	trial_kollector-unitigs.fa
+2736	31	13	500	524	597	763	645	1109	19076	trial_kollector-contigs.fa
+2736	31	13	500	524	597	763	645	1109	19076	trial_kollector-scaffolds.fa
+2736	31	13	500	524	597	763	645	1109	19076	trial_kollector-long-scaffs.fa
+ln -sf trial_kollector-stats.tab trial_kollector-stats
+tr '\t' , <trial_kollector-stats.tab >trial_kollector-stats.csv
+abyss-tabtomd trial_kollector-stats.tab >trial_kollector-stats.md
+make[1]: Leaving directory `/extscratch/btl/kgagalova/trial_kollector/trial_kollector.abyss'
+=> kollector.sh: 30.88 abyss-pe -C trial_kollector.abyss v=-v k=32 name=trial_kollector np=12 lib=pet pet=../trial_kollector.recruited_pe.fastq long=longlib longlib=/extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta B=2G H=4 kc=3
+-----------------------------------------
+Extracting successfully assembled targets from ABySS contigs...
+-----------------------------------------
+-k flag not specified, so building with default 15-mers
+Sorting chromosomes in chrom order.  To turn off or sort other ways, use the -s flag.
+Creating files in directory trial_kollector.abyss/trial_kollector.gmap
+Running "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/fa_coords"     -o "trial_kollector.abyss/trial_kollector.gmap.coords" -f "trial_kollector.abyss/trial_kollector.gmap.sources"
+Opening file trial_kollector.abyss/trial_kollector-10.fa
+  Processed short contigs (<1000000 nt): ...................................................................................................More than 100 short contigs.  Will stop printing.
+
+============================================================
+Contig mapping information has been written to file trial_kollector.abyss/trial_kollector.gmap.coords.
+You should look at this file, and edit it if necessary
+If everything is okay, you should proceed by running
+    make gmapdb
+============================================================
+Running "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmap_process"  -c "trial_kollector.abyss/trial_kollector.gmap.coords" -f "trial_kollector.abyss/trial_kollector.gmap.sources" | "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex"  -d trial_kollector.gmap -D "trial_kollector.abyss/trial_kollector.gmap" -A 
+Reading coordinates from file trial_kollector.abyss/trial_kollector.gmap.coords
+Logging contig 0 at 0:1..42 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 1 at 1:1..41 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 3 at 3:1..42 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 5 at 5:1..40 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 6 at 6:1..32 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 8 at 8:1..81 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 9 at 9:1..51 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 10 at 10:1..63 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 14 at 14:1..57 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 15 at 15:1..51 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 17 at 17:1..115 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 18 at 18:1..48 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 19 at 19:1..63 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 20 at 20:1..48 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 22 at 22:1..52 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 23 at 23:1..41 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 24 at 24:1..46 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 26 at 26:1..41 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 31 at 31:1..63 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 32 at 32:1..49 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 34 at 34:1..64 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 35 at 35:1..49 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 41 at 41:1..278 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 44 at 44:1..36 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 46 at 46:1..48 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 49 at 49:1..36 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 53 at 53:1..41 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 54 at 54:1..63 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 55 at 55:1..39 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 56 at 56:1..49 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 58 at 58:1..61 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 62 at 62:1..34 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 66 at 66:1..48 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 68 at 68:1..609 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 70 at 70:1..63 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 71 at 71:1..49 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 72 at 72:1..63 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 75 at 75:1..37 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 78 at 78:1..36 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 82 at 82:1..40 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 85 at 85:1..49 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 89 at 89:1..1109 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 90 at 90:1..53 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 94 at 94:1..32 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 95 at 95:1..32 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 97 at 97:1..33 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 98 at 98:1..32 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 99 at 99:1..32 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 104 at 104:1..34 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+Logging contig 105 at 105:1..32 in genome trial_kollector.gmap
+ => primary (linear) chromosome
+More than 50 contigs.  Will stop printing messages
+Total genomic length = 248994 bp
+Have a total of 2736 chromosomes
+Writing chromosome file trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.chromosome
+Chromosome 1 has universal coordinates 1..41
+Chromosome 3 has universal coordinates 42..83
+Chromosome 5 has universal coordinates 84..123
+Chromosome 6 has universal coordinates 124..155
+Chromosome 8 has universal coordinates 156..236
+Chromosome 9 has universal coordinates 237..287
+Chromosome 10 has universal coordinates 288..350
+Chromosome 14 has universal coordinates 351..407
+Chromosome 15 has universal coordinates 408..458
+Chromosome 17 has universal coordinates 459..573
+Chromosome 18 has universal coordinates 574..621
+Chromosome 19 has universal coordinates 622..684
+Chromosome 20 has universal coordinates 685..732
+Chromosome 22 has universal coordinates 733..784
+Chromosome 23 has universal coordinates 785..825
+Chromosome 24 has universal coordinates 826..871
+Chromosome 26 has universal coordinates 872..912
+Chromosome 31 has universal coordinates 913..975
+Chromosome 32 has universal coordinates 976..1024
+Chromosome 34 has universal coordinates 1025..1088
+Chromosome 35 has universal coordinates 1089..1137
+Chromosome 41 has universal coordinates 1138..1415
+Chromosome 44 has universal coordinates 1416..1451
+Chromosome 46 has universal coordinates 1452..1499
+Chromosome 49 has universal coordinates 1500..1535
+Chromosome 53 has universal coordinates 1536..1576
+Chromosome 54 has universal coordinates 1577..1639
+Chromosome 55 has universal coordinates 1640..1678
+Chromosome 56 has universal coordinates 1679..1727
+Chromosome 58 has universal coordinates 1728..1788
+Chromosome 62 has universal coordinates 1789..1822
+Chromosome 66 has universal coordinates 1823..1870
+Chromosome 68 has universal coordinates 1871..2479
+Chromosome 70 has universal coordinates 2480..2542
+Chromosome 71 has universal coordinates 2543..2591
+Chromosome 72 has universal coordinates 2592..2654
+Chromosome 75 has universal coordinates 2655..2691
+Chromosome 78 has universal coordinates 2692..2727
+Chromosome 82 has universal coordinates 2728..2767
+Chromosome 85 has universal coordinates 2768..2816
+Chromosome 89 has universal coordinates 2817..3925
+Chromosome 90 has universal coordinates 3926..3978
+Chromosome 94 has universal coordinates 3979..4010
+Chromosome 95 has universal coordinates 4011..4042
+Chromosome 97 has universal coordinates 4043..4075
+Chromosome 98 has universal coordinates 4076..4107
+Chromosome 99 has universal coordinates 4108..4139
+Chromosome 104 has universal coordinates 4140..4173
+Chromosome 105 has universal coordinates 4174..4205
+Chromosome 107 has universal coordinates 4206..4238
+More than 50 contigs.  Will stop printing messages
+Writing chromosome IIT file trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.chromosome.iit
+Writing IIT file header information...coordinates require 4 bytes each...done
+Processing null division/chromosome...sorting...writing...done (2736 intervals)
+Writing IIT file footer information...done
+Writing IIT file header information...coordinates require 4 bytes each...done
+Processing null division/chromosome...sorting...writing...done (2736 intervals)
+Writing IIT file footer information...done
+No alternate scaffolds observed
+Running "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmap_process"  -c "trial_kollector.abyss/trial_kollector.gmap.coords" -f "trial_kollector.abyss/trial_kollector.gmap.sources" | "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex"  -d trial_kollector.gmap -F "trial_kollector.abyss/trial_kollector.gmap" -D "trial_kollector.abyss/trial_kollector.gmap" -G
+Genome length is 248994 nt
+Trying to allocate 23346*4 bytes of memory...succeeded.  Building genome in memory.
+Reading coordinates from file trial_kollector.abyss/trial_kollector.gmap.coords
+Writing contig 0 to universal coordinates 248953..248994
+Writing contig 1 to universal coordinates 1..41
+Writing contig 3 to universal coordinates 42..83
+Writing contig 5 to universal coordinates 84..123
+Writing contig 6 to universal coordinates 124..155
+Writing contig 8 to universal coordinates 156..236
+Writing contig 9 to universal coordinates 237..287
+Writing contig 10 to universal coordinates 288..350
+Writing contig 14 to universal coordinates 351..407
+Writing contig 15 to universal coordinates 408..458
+Writing contig 17 to universal coordinates 459..573
+Writing contig 18 to universal coordinates 574..621
+Writing contig 19 to universal coordinates 622..684
+Writing contig 20 to universal coordinates 685..732
+Writing contig 22 to universal coordinates 733..784
+Writing contig 23 to universal coordinates 785..825
+Writing contig 24 to universal coordinates 826..871
+Writing contig 26 to universal coordinates 872..912
+Writing contig 31 to universal coordinates 913..975
+Writing contig 32 to universal coordinates 976..1024
+Writing contig 34 to universal coordinates 1025..1088
+Writing contig 35 to universal coordinates 1089..1137
+Writing contig 41 to universal coordinates 1138..1415
+Writing contig 44 to universal coordinates 1416..1451
+Writing contig 46 to universal coordinates 1452..1499
+Writing contig 49 to universal coordinates 1500..1535
+Writing contig 53 to universal coordinates 1536..1576
+Writing contig 54 to universal coordinates 1577..1639
+Writing contig 55 to universal coordinates 1640..1678
+Writing contig 56 to universal coordinates 1679..1727
+Writing contig 58 to universal coordinates 1728..1788
+Writing contig 62 to universal coordinates 1789..1822
+Writing contig 66 to universal coordinates 1823..1870
+Writing contig 68 to universal coordinates 1871..2479
+Writing contig 70 to universal coordinates 2480..2542
+Writing contig 71 to universal coordinates 2543..2591
+Writing contig 72 to universal coordinates 2592..2654
+Writing contig 75 to universal coordinates 2655..2691
+Writing contig 78 to universal coordinates 2692..2727
+Writing contig 82 to universal coordinates 2728..2767
+Writing contig 85 to universal coordinates 2768..2816
+Writing contig 89 to universal coordinates 2817..3925
+Writing contig 90 to universal coordinates 3926..3978
+Writing contig 94 to universal coordinates 3979..4010
+Writing contig 95 to universal coordinates 4011..4042
+Writing contig 97 to universal coordinates 4043..4075
+Writing contig 98 to universal coordinates 4076..4107
+Writing contig 99 to universal coordinates 4108..4139
+Writing contig 104 to universal coordinates 4140..4173
+More than 50 contigs.  Will stop printing messages
+A total of 0 non-ACGTNX characters were seen in the genome.
+Running cat "trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.genomecomp" | "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex" -d trial_kollector.gmap -U > "trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.genomebits128"
+Running cat "trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.genomecomp" | "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex" -k 15 -q 3  -d trial_kollector.gmap -F "trial_kollector.abyss/trial_kollector.gmap" -D "trial_kollector.abyss/trial_kollector.gmap" -N
+Counting positions in genome trial_kollector.gmap (15 bp every 3 bp), position 0
+Number of offsets: 71160 => pages file not required
+Running "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex" -k 15 -q 3  -d trial_kollector.gmap -F "trial_kollector.abyss/trial_kollector.gmap" -D "trial_kollector.abyss/trial_kollector.gmap" -O  "trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.genomecomp"
+Offset compression types: bitpack64
+Allocating 16777216*1 bytes for packsizes
+Allocating 16777216*8 bytes for bitpacks
+Indexing offsets of oligomers in genome trial_kollector.gmap (15 bp every 3 bp), position 0
+Writing 1073741825 offsets compressed via bitpack64...done
+Running "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex" -k 15 -q 3  -d trial_kollector.gmap -F "trial_kollector.abyss/trial_kollector.gmap" -D "trial_kollector.abyss/trial_kollector.gmap" -P "trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.genomecomp"
+Looking for index files in directory trial_kollector.abyss/trial_kollector.gmap
+  Pointers file is trial_kollector.gmap.ref153offsets64meta
+  Offsets file is trial_kollector.gmap.ref153offsets64strm
+  Positions file is trial_kollector.gmap.ref153positions
+Expanding offsetsstrm into counters...done
+Allocating 951520 bytes for counterstrm
+Trying to allocate 71160*4 bytes of memory for positions...succeeded.  Building positions in memory.
+Indexing positions of oligomers in genome trial_kollector.gmap (15 bp every 3 bp), position 0
+Writing 71160 genomic positions to file trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.ref153positions ...
+done
+Running "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex" -d trial_kollector.gmap -F "trial_kollector.abyss/trial_kollector.gmap" -D "trial_kollector.abyss/trial_kollector.gmap" -S
+Genome length is 248994
+Building suffix array
+SACA_K called with n = 248995, K = 5, level 0
+SACA_K called with n = 70439, K = 0, level 1
+SACA_K called with n = 22320, K = 0, level 2
+SACA_K called with n = 7382, K = 0, level 3
+SACA_K called with n = 2410, K = 0, level 4
+For indexsize 12, occupied 184966/16777216
+Optimal indexsize = 12
+Running "/clusterapp/clusterhome/kgagalova/.linuxbrew/Cellar/gmap-gsnap/2017-01-14/bin/gmapindex" -d trial_kollector.gmap -F "trial_kollector.abyss/trial_kollector.gmap" -D "trial_kollector.abyss/trial_kollector.gmap" -L
+Building LCP array
+Writing temporary file for rank...done
+Writing temporary file for permuted sarray...done
+Byte-coding: 248963 values < 255, 32 exceptions >= 255 (0.0%)
+Building DC array
+Building child array
+Byte-coding: 248338 values < 255, 657 exceptions >= 255 (0.3%)
+Writing file trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.salcpchilddcdone
+Found 32 exceptions
+GMAP version 2017-01-14 called with args: gmap.sse42 -D trial_kollector.abyss -d trial_kollector.gmap -f samse -O -B 4 -t 12 /extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta
+Checking compiler assumptions for SSE2: 6B8B4567 327B23C6 xor=59F066A1
+Checking compiler assumptions for SSE4.1: -103 -58 max=198 => compiler zero extends
+Checking compiler options for SSE4.2: 6B8B4567 __builtin_clz=1 __builtin_ctz=0 _mm_popcnt_u32=17 __builtin_popcount=17 
+Finished checking compiler assumptions
+Allocating memory for compressed genome (oligos)...Attached new memory for trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.genomecomp...done (93,384 bytes, 0.00 sec)
+Allocating memory for compressed genome (bits)...Attached new memory for trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.genomebits128...done (93,408 bytes, 0.00 sec)
+Looking for index files in directory trial_kollector.abyss/trial_kollector.gmap
+  Pointers file is trial_kollector.gmap.ref153offsets64meta
+  Offsets file is trial_kollector.gmap.ref153offsets64strm
+  Positions file is trial_kollector.gmap.ref153positions
+Offsets compression type: bitpack64
+Allocating memory for ref offset pointers, kmer 15, interval 3...Attached new memory for trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.ref153offsets64meta...done (134,217,744 bytes, 0.09 sec)
+Allocating memory for ref offsets, kmer 15, interval 3...Attached new memory for trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.ref153offsets64strm...done (951,520 bytes, 0.00 sec)
+Allocating memory for ref positions, kmer 15, interval 3...Attached new memory for trial_kollector.abyss/trial_kollector.gmap/trial_kollector.gmap.ref153positions...done (284,640 bytes, 0.00 sec)
+Starting alignment
+No paths found for GQ03210_I22.1
+No paths found for GQ03107_A10.1
+No paths found for GQ03217_I16.1
+No paths found for GQ04104_H13.1
+No paths found for GQ03112_F13.1
+No paths found for GQ02011_C07.1
+No paths found for GQ03711_A03.1
+No paths found for GQ03417_B05.1
+No paths found for GQ03011_D11.2
+No paths found for GQ03608_I02.1
+No paths found for GQ03212_C22.1
+No paths found for GQ03223_N10.1
+No paths found for GQ03707_L07.1
+No paths found for GQ03311_K12.1
+No paths found for GQ02826_H24.1
+No paths found for GQ02824_O24.1
+No paths found for GQ03204_E03.1
+No paths found for GQ03303_A18.1
+No paths found for GQ03229_N15.1
+No paths found for GQ03806_M07.1
+No paths found for GQ02815_D18.1
+No paths found for GQ03211_A11.3
+No paths found for GQ03303_I14.1
+No paths found for GQ02820_I17.1
+No paths found for GQ04113_M21.2
+No paths found for GQ03202_G10.1
+No paths found for GQ03313_I16.1
+No paths found for GQ03701_M12.1
+No paths found for GQ0206_F08.2
+No paths found for GQ03116_O23.1
+No paths found for GQ03230_G10.1
+No paths found for GQ03607_L08.4
+No paths found for GQ03005_C08.3
+No paths found for GQ02016_M18.1
+No paths found for GQ03915_D23.1
+No paths found for GQ0133_D21.1
+No paths found for GQ03316_I18.1
+No paths found for GQ03230_C18.1
+No paths found for GQ03222_P17.1
+No paths found for GQ03615_B14.1
+No paths found for GQ03718_P22.2
+No paths found for GQ03311_N13.1
+No paths found for GQ03211_B22.1
+No paths found for GQ03322_P21.4
+No paths found for GQ03516_E10.1
+No paths found for GQ02808_A01.4
+No paths found for GQ03708_D02.1
+No paths found for GQ03518_E05.2
+No paths found for GQ03239_G03.1
+No paths found for GQ03104_C18.1
+No paths found for WS00748_F20.1
+No paths found for WS0346_N12.1
+No paths found for GQ02816_M14.1
+No paths found for GQ03238_C13.1
+No paths found for GQ03213_J06.1
+No paths found for GQ03610_P23.1
+No paths found for GQ03124_A07.1
+No paths found for GQ03001_A22.1
+No paths found for GQ0208_N02.1
+No paths found for GQ0177_G13.2
+No paths found for GQ03113_G04.1
+No paths found for GQ03120_P16.1
+No paths found for GQ03208_M19.1
+No paths found for GQ02809_K17.1
+No paths found for GQ03010_J15.1
+No paths found for GQ03917_C17.2
+No paths found for GQ03003_J05.1
+No paths found for GQ02806_N23.1
+No paths found for GQ03236_F08.1
+No paths found for GQ0204_E01.1
+No paths found for GQ0198_A17.1
+No paths found for GQ03704_J19.1
+No paths found for GQ0134_K05.1
+No paths found for GQ03503_K02.1
+No paths found for GQ03713_O19.1
+No paths found for GQ02510_E13.1
+No paths found for GQ02813_E14.1
+No paths found for GQ02757_D12.1
+No paths found for GQ02905_H09.2
+No paths found for GQ03125_B14.1
+No paths found for GQ03320_C19.1
+No paths found for GQ0256_H05.1
+No paths found for GQ03234_E15.2
+No paths found for GQ03211_B12.1
+No paths found for GQ03209_J17.1
+No paths found for GQ03901_H06.1
+No paths found for GQ03509_B06.1
+No paths found for GQ03224_P23.1
+No paths found for GQ04006_K13.1
+No paths found for GQ03417_C12.1
+No paths found for GQ03508_L01.1
+No paths found for GQ03206_B04.1
+No paths found for GQ03918_N05.1
+No paths found for GQ02828_P16.2
+No paths found for GQ02908_L17.1
+No paths found for GQ02812_G01.3
+No paths found for GQ03402_C01.1
+No paths found for GQ03916_K17.3
+No paths found for GQ02807_A19.1
+No paths found for WS02624_D21.1
+No paths found for GQ03806_G13.1
+No paths found for GQ03705_K12.1
+No paths found for GQ02803_N01.1
+No paths found for GQ03613_J04.1
+No paths found for GQ03417_G17.1
+No paths found for GQ03519_P19.1
+No paths found for GQ03125_G02.1
+No paths found for GQ03205_N11.1
+No paths found for GQ03111_B16.1
+No paths found for GQ03316_P03.1
+No paths found for WS02624_I01.1
+No paths found for GQ04002_H12.1
+No paths found for GQ03121_K21.1
+No paths found for GQ02816_L02.1
+No paths found for WS0084_F07.1
+No paths found for GQ03006_D16.1
+No paths found for GQ02822_M05.1
+No paths found for GQ03706_G11.1
+No paths found for GQ04109_B10.1
+No paths found for GQ03203_P08.1
+No paths found for GQ0202_P11.1
+No paths found for GQ03611_L19.1
+No paths found for GQ03217_I24.1
+No paths found for GQ03603_F13.1
+No paths found for GQ03116_J12.1
+No paths found for WS03216_B14.1
+No paths found for GQ0204_G11.1
+No paths found for GQ04007_M02.1
+No paths found for GQ03316_E02.1
+No paths found for GQ03806_E10.1
+No paths found for GQ03232_P07.1
+No paths found for GQ03504_E02.1
+No paths found for GQ03518_I02.1
+No paths found for GQ03232_I15.1
+No paths found for GQ03311_N20.1
+No paths found for GQ03237_K24.3
+No paths found for GQ03315_E04.1
+No paths found for GQ02804_J14.1
+No paths found for GQ04008_B19.2
+No paths found for GQ02803_P16.1
+No paths found for GQ03716_O16.1
+No paths found for GQ03807_E23.1
+No paths found for GQ0252_P22.1
+No paths found for GQ02904_E03.1
+No paths found for GQ027103_B09.2
+No paths found for GQ03903_J09.1
+No paths found for GQ0201_H20.1
+No paths found for GQ04113_H14.1
+No paths found for GQ02782_G07.2
+No paths found for GQ03103_E24.1
+No paths found for GQ04009_C04.1
+No paths found for GQ03715_I05.1
+No paths found for GQ0224_P21.1
+No paths found for GQ04003_A04.1
+No paths found for GQ03216_M13.1
+No paths found for GQ04003_D03.1
+No paths found for GQ0195_K18.1
+No paths found for GQ04001_L08.2
+No paths found for GQ03815_O09.1
+No paths found for GQ04012_L02.1
+No paths found for GQ03206_E11.1
+No paths found for GQ0207_D21.1
+No paths found for GQ02821_K22.1
+No paths found for GQ03314_N16.1
+No paths found for GQ03716_L01.2
+No paths found for GQ03309_B23.3
+No paths found for GQ04004_M05.1
+No paths found for GQ04106_L12.1
+No paths found for GQ03716_P07.2
+No paths found for GQ03105_O10.1
+No paths found for GQ03010_E07.1
+No paths found for GQ03401_E15.1
+No paths found for GQ02829_A20.1
+No paths found for WS00738_B11.1
+No paths found for GQ0072_K21.1
+No paths found for GQ03704_N18.1
+No paths found for GQ03814_B13.1
+No paths found for GQ03326_B19.1
+No paths found for GQ03215_F10.1
+No paths found for GQ0166_G19.1
+No paths found for WS0087_G17.1
+No paths found for GQ02806_L11.1
+No paths found for GQ0178_F22.2
+No paths found for GQ04009_J10.1
+No paths found for GQ03701_C19.2
+No paths found for GQ03816_N20.1
+No paths found for GQ03115_O19.2
+No paths found for GQ03902_P10.1
+No paths found for GQ03008_M06.1
+No paths found for GQ0209_H16.1
+No paths found for GQ03813_K20.1
+No paths found for GQ03205_N17.1
+No paths found for GQ03514_E12.1
+No paths found for GQ03304_M15.2
+No paths found for GQ0203_G09.1
+No paths found for GQ03217_H19.1
+No paths found for WS0072_M14.1
+No paths found for GQ03715_G20.1
+No paths found for GQ03219_J14.1
+No paths found for GQ0208_I20.1
+No paths found for GQ04102_O05.1
+No paths found for GQ03404_J09.4
+No paths found for GQ03206_O12.1
+No paths found for GQ02821_P23.1
+No paths found for GQ02904_O19.1
+No paths found for GQ03235_H07.1
+No paths found for GQ03210_D14.1
+No paths found for GQ03418_C23.1
+No paths found for GQ03214_B15.1
+No paths found for WS00827_I14.1
+No paths found for GQ03208_D06.1
+No paths found for GQ04111_C09.1
+No paths found for GQ00411_L08.1
+No paths found for GQ03235_O15.1
+No paths found for GQ02820_D24.2
+No paths found for GQ03203_H01.1
+No paths found for GQ02902_J24.1
+No paths found for GQ03103_O13.1
+No paths found for GQ03316_G03.1
+No paths found for GQ03108_K14.1
+No paths found for GQ02818_J21.1
+No paths found for GQ03709_J01.1
+No paths found for GQ03201_C04.1
+No paths found for GQ02907_D24.2
+No paths found for GQ04009_J08.1
+No paths found for GQ03203_O17.2
+No paths found for GQ0026_I20.1
+No paths found for GQ03303_I18.1
+No paths found for GQ03718_C10.1
+No paths found for GQ03703_A16.1
+No paths found for GQ04004_K20.1
+No paths found for GQ02818_N22.1
+No paths found for WS0013_P08.1
+No paths found for GQ0207_B16.1
+No paths found for GQ03211_N12.1
+No paths found for GQ02803_J23.1
+No paths found for GQ03119_J08.1
+No paths found for GQ04007_D12.2
+No paths found for GQ03213_G18.3
+No paths found for GQ03212_N16.1
+No paths found for GQ03214_J23.2
+No paths found for GQ03205_O14.1
+No paths found for GQ02828_B08.2
+No paths found for GQ03406_A01.1
+No paths found for GQ03206_C05.1
+No paths found for GQ0047_E13.1
+No paths found for GQ03718_F06.1
+No paths found for GQ03902_G06.1
+No paths found for GQ03707_F06.1
+No paths found for GQ03308_H16.1
+No paths found for WS00824_A15.1
+No paths found for GQ02821_P14.1
+No paths found for GQ03706_B12.1
+No paths found for GQ04004_C11.1
+No paths found for WS03215_E14.1
+No paths found for GQ04013_N06.2
+No paths found for GQ03713_C17.2
+No paths found for GQ03713_L21.1
+No paths found for GQ04012_L19.1
+No paths found for GQ03609_G03.1
+No paths found for GQ0047_P24.1
+No paths found for GQ03318_B16.1
+No paths found for GQ02813_J22.1
+No paths found for GQ03119_I06.1
+No paths found for WS03213_A17.1
+No paths found for GQ03704_K22.4
+No paths found for GQ04007_I18.2
+No paths found for GQ03812_D04.4
+No paths found for GQ03217_L15.1
+No paths found for GQ02809_L21.1
+No paths found for GQ03309_O21.1
+No paths found for GQ03104_M11.1
+No paths found for GQ0134_O15.1
+No paths found for GQ03602_N16.1
+No paths found for GQ01306_E22.1
+No paths found for GQ03514_D16.1
+No paths found for GQ0041_H19.1
+No paths found for GQ03207_D05.2
+No paths found for GQ03311_C09.2
+No paths found for GQ03902_M16.1
+No paths found for GQ03216_D08.1
+No paths found for GQ03913_M07.1
+No paths found for GQ04009_A19.1
+No paths found for GQ03301_E18.1
+No paths found for GQ02809_G13.2
+No paths found for GQ02907_K23.1
+No paths found for GQ03316_J22.1
+No paths found for WS0313_K20.1
+No paths found for GQ03237_L12.1
+No paths found for GQ03003_B08.1
+No paths found for GQ04003_K16.1
+No paths found for GQ02818_J19.1
+No paths found for WS00750_K21.1
+No paths found for GQ03206_N13.1
+No paths found for GQ03606_F19.1
+No paths found for GQ03912_E12.2
+No paths found for GQ04012_B21.4
+No paths found for WS00111_B03.1
+No paths found for GQ04013_J17.1
+No paths found for GQ04105_F02.1
+No paths found for GQ03918_F22.1
+No paths found for GQ04013_H12.1
+No paths found for GQ0167_O13.1
+No paths found for GQ03307_E08.1
+No paths found for GQ03222_H18.1
+No paths found for GQ03819_N22.1
+No paths found for GQ03819_H18.4
+No paths found for GQ0163_A18.1
+No paths found for GQ03813_G21.1
+No paths found for GQ04105_K06.1
+No paths found for GQ03717_O13.1
+No paths found for GQ02818_K13.1
+No paths found for GQ02805_C03.1
+No paths found for GQ03117_I19.1
+No paths found for GQ0203_N12.1
+No paths found for GQ04109_I11.2
+No paths found for GQ00410_F05.1
+No paths found for GQ0167_A12.1
+No paths found for GQ03112_B18.1
+No paths found for GQ02829_K20.2
+No paths found for GQ03810_C17.1
+No paths found for GQ03115_E04.1
+No paths found for GQ03224_J03.1
+No paths found for GQ02906_C02.4
+No paths found for GQ03917_K18.1
+No paths found for GQ0165_E09.1
+No paths found for GQ02812_E05.1
+No paths found for GQ04109_E07.2
+No paths found for GQ03219_A03.1
+No paths found for GQ0205_M07.1
+No paths found for GQ04005_C10.2
+No paths found for GQ0174_E09.1
+No paths found for GQ02904_G11.2
+No paths found for GQ02512_F20.1
+No paths found for GQ03101_E23.1
+No paths found for GQ04006_L14.1
+No paths found for GQ03507_H11.1
+No paths found for GQ03214_L18.1
+No paths found for WS00742_G10.1
+No paths found for GQ04103_E07.1
+No paths found for GQ04113_O10.1
+No paths found for GQ03805_O04.1
+No paths found for GQ01309_L23.3
+No paths found for GQ02807_B05.1
+No paths found for GQ03225_E20.2
+No paths found for GQ03225_C06.1
+No paths found for GQ02805_N20.1
+No paths found for GQ03322_G11.1
+No paths found for GQ02803_O16.1
+No paths found for GQ04011_P05.1
+No paths found for GQ02825_F01.1
+Processed 500 queries in 0.60 seconds (833.33 queries/sec)
+Removed existing memory for shmid 2424836
+Removed existing memory for shmid 2392067
+Removed existing memory for shmid 2359298
+Removed existing memory for shmid 2293760
+Removed existing memory for shmid 2326529
+=> kollector.sh: 74.26 kollector-extract.sh trial_kollector trial_kollector.abyss/trial_kollector-10.fa /extscratch/btl/kgagalova/trial_kollector/seed_500/cdhit-output-4_1.fasta trial_kollector.abyss 12
+echo 'Testing Sitka Kollector completed.'
+Testing Sitka Kollector completed.

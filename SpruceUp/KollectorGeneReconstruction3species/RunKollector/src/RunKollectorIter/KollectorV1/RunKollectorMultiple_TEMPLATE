@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#$ -S /bin/bash
+#$ -N KollectorMultiple
+#$ -q all.q,mpi.q
+#$ -pe ncpus 12
+#$ -l mem_token=3.8G,mem_free=3.8G,h_vmem=3.8G
+#$ -R y
+#$ -j y
+
+#add here the paths to software
+export PATH=/home/kgagalova/.linuxbrew/bin:$PATH
+export PATH=/usr/mpi/gcc/openmpi-1.4.1/bin:$PATH
+export PATH=/home/shammond/src/abyss-2.0.1-build/k256/bin:$PATH
+export PATH=/home/kgagalova/src/kollector_develop:$PATH
+export PATH=/home/kgagalova/bin/biobloom_develop2/bin:$PATH
+
+seed=_RePlAcE_
+pet1=/extscratch/btl/kgagalova/EasterRun/ReadsRun/hiseq_1.in
+miseq1=/extscratch/btl/kgagalova/EasterRun/ReadsRun/miseq_1.in
+
+p=/extscratch/btl/kgagalova/EasterRun/RepFilters/dsk25_100fp.bf
+
+k=116
+o=kollector_multiple
+mk=25000000
+a=30G
+r=0.95
+s=0.8
+j=12
+d=0.05
+
+./kollector_multiple.sh -k$k -o$o -a$a -p$p -n$mk -r$r -s$s -j$j -d$d $seed $pet1 $miseq1
+

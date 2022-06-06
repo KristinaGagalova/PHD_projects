@@ -1,0 +1,106 @@
+---
+title: "Check GCAT peptides translation and more"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the dataset and preprocess
+
+```{r load_data}
+library(ggplot2)
+library(dplyr)
+
+lenPept <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceResourcesComp/data/GCATpeptidesORF/AllPeptidesGCAT.len", header=FALSE)
+lenPept$V1 = as.character(lenPept$V1)
+
+lenPept$start = as.numeric(sapply(strsplit(sapply(strsplit(lenPept$V1,"_"), "[[", 2),":"),"[[",2))
+lenPept$stop = as.numeric(sapply(strsplit(sapply(strsplit(lenPept$V1,"_"), "[[", 2),":"),"[[",3))
+
+#enter strand
+strand = ifelse(lenPept$start < lenPept$stop, "+", "-")
+
+lenPept$strand = strand
+lenPept[lenPept$strand == "-", c("start", "stop")] <- lenPept[lenPept$strand == "-", c("stop", "start")]
+
+lenPept$ratioLen = (lenPept$V3 / lenPept$V2)
+
+#enter three and five prime regions len
+lenPept$fivePrime = lenPept$start
+lenPept$threePrime = (lenPept$V2 - lenPept$stop)
+
+colnames(lenPept)[c(1:3)] = c("name","FLcDNA","pept")
+```
+
+### Plot the distributions
+
+```{r hist_len}
+#simple plot of the distributions
+
+ggplot(lenPept, aes(FLcDNA)) +
+  geom_histogram()
+summary(lenPept$FLcDNA)
+
+ggplot(lenPept, aes(pept)) +
+  geom_histogram()
+summary(lenPept$pept)
+
+ggplot(lenPept, aes(ratioLen)) +
+  geom_histogram()
+summary(lenPept$ratioLen)
+
+#FLcDNA 
+ggplot(lenPept, aes(fivePrime)) +
+  geom_histogram()
+summary(lenPept$fivePrime)
+
+ggplot(lenPept, aes(threePrime)) +
+  geom_histogram()
+summary(lenPept$threePrime)
+```
+
+### BLASTp results
+
+I have blasted the ORFfinder peptides to the Swiss prot data base, excluding bacteria, viruses and archea. Below the results for coverage and identity. 
+
+```{r swissprotAlignments}
+library(dplyr)
+
+blastp <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceResourcesComp/data/GCATpeptidesORF/gcat_complete.allvsall.tsv", header=FALSE)
+blastpTop = blastp %>% group_by(V1,V2) %>% slice(which.max(V13))
+
+hist(table(blastpTop$V1))
+summary(as.numeric(unname(table(blastpTop$V1))))
+```
+```{r coverageBlastP}
+blastpTopUniq = blastpTop %>% group_by(V1) %>% slice(which.max(V13))
+
+ggplot(blastpTopUniq, aes(x=V13, y=V3)) +
+  geom_point() + 
+  xlab("Total cov") +
+  ylab("Identity") +
+  geom_density2d(colour="yellow")
+```
+```{r checkAlignments}
+#total aligned
+length(unique(blastpTopUniq$V1))
+
+#GCAT with more than 50% coverage
+nrow(subset(blastpTopUniq,blastpTopUniq$V13 > 50))
+
+#GCAT with more than 75% coverage
+nrow(subset(blastpTopUniq,blastpTopUniq$V13 > 75))
+
+#GCAT with more than 80% coverage
+nrow(subset(blastpTopUniq,blastpTopUniq$V13 > 80))
+
+#GCAT with more than 90% coverage
+nrow(subset(blastpTopUniq,blastpTopUniq$V13 > 90))
+
+#GCAT with more than 95% coverage
+nrow(subset(blastpTopUniq,blastpTopUniq$V13 > 95))
+```
+

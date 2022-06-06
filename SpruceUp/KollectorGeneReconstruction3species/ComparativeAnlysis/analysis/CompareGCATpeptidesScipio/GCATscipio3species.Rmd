@@ -1,0 +1,127 @@
+---
+title: "Comparative analysis GCAT"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the dataset
+
+For all the species together
+```{r load_data}
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+library(plyr)
+
+
+dataPath=c("/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/PG29/Scipio2/PeptidesGCAT/ParsedYaml", "/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/Q903/Scipio2/PeptidesGCAT/ParsedYaml","/projects/spruceup_scratch/dev/KollectorAlignments/cdhit-output4AllTargets/WS77111/Scipio2/PeptidesGCAT/ParsedYaml")
+
+allFiles <- list.files( path = dataPath, pattern = ".out", full.names = TRUE )
+
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = T, sep="\t" )
+  d
+  } );
+
+allGCAT <- bind_rows( l );
+
+dim(allGCAT)
+
+allGCAT$species = sapply(strsplit(allGCAT$bin,"_"), "[[", 2)
+table(sapply(strsplit(allGCAT$bin,"_"), "[[", 2))
+```
+
+## General plots
+
+Significant scores
+```{r plots_scipio_general}
+#extract the general info, not inron/exon spec
+allGCATgen = allGCAT[,c(1:12,27)]
+allGCATgen = allGCATgen[!duplicated(allGCATgen), ]
+dim(allGCATgen)
+#plot the score per species
+cdat <- ddply(allGCATgen, "species", summarise, rating.med=median(score))
+cdat
+
+ggplot(allGCAT, aes(x=score, fill=species)) + geom_density(alpha=.3) +
+    geom_vline(data=cdat, aes(xintercept=rating.med,  colour=species),
+               linetype="dashed", size=1)
+
+ggplot(allGCAT, aes(x=score, fill=species))  + geom_histogram(alpha=.5, bins = 100) +
+    geom_vline(data=cdat, aes(xintercept=rating.med,  colour=species),
+               linetype="dashed", size=1)
+
+#plot the peptide length vs contig length
+ggplot(allGCATgen, aes(x=prot_len, y=contig_len)) +
+  #geom_point() 
+  geom_point(aes(shape=score > 0.9,colour = score > 0.9), size=2) + scale_shape_manual(values=c(3, 16, 17))+
+  scale_color_manual(values=c('#999999','#E69F00', '#56B4E9')) + facet_wrap( ~ species ) + theme_bw()
+
+#status aligments
+allGCATgenScore = subset(allGCATgen, allGCATgen$score >= 0.9)
+status = allGCATgenScore$status
+status[status == "auto"] = "complete"
+status_d = as.data.frame(cbind(status,allGCATgenScore$species))
+table(status)
+status_d = as.matrix(table(status_d))
+
+barplot(status_d, ylab="Frequency", xlab="Species", main="Scipio summary alignments", col=c("turquoise4", "turquoise2", "turquoise" ), beside=TRUE, width=.3)
+legend(x=2.3,y=4000, title="Status alignments", legend=c("complete","incomplete","partial"), fill =c("turquoise4", "turquoise2", "turquoise" ), box.lty=0)
+
+#get the ones with incomplete
+reason = allGCATgenScore$reason[which(status == "incomplete")]
+reason_d = as.data.frame(cbind(reason,allGCATgenScore$species[which(status == "incomplete")]))
+#table(reason_d)
+reason_d = as.data.frame(as.matrix(table(reason_d)))
+reason_dWide= reshape(reason_d, idvar = "reason", timevar = "V2", direction = "wide")
+colnames(reason_dWide) = gsub("Freq.","",colnames(reason_dWide))
+reason_dWide$sum = apply(reason_dWide[,2:ncol(reason_dWide)],1,sum)
+reason_dWide = reason_dWide[order(reason_dWide$sum, decreasing=T),] 
+topReasons = as.character(reason_dWide[1:10,1])
+reason_dTop = subset(reason_dWide, reason_dWide$reason %in% topReasons)
+rownames(reason_dTop) = reason_dTop$reason
+reason_dTop$reason = NULL
+reason_dTop = as.matrix(reason_dTop)
+
+reason_dTop
+barplot(reason_dTop[,c(1:3)], ylab="", xlab="Species", main="Scipio status incomplete", col = colors()[1:10], beside=TRUE, width=.3)
+legend(x=8, y=1100, title=" ", legend=rownames(reason_dTop), fill = colors()[1:10], box.lty=0)
+
+#see length upstream downstream
+seq_upDown = as.data.frame(cbind(sapply(as.character(allGCATgenScore$seq_upstream),nchar, type = "chars"),sapply(as.character(allGCATgenScore$seq_downstream),nchar, type = "chars"),allGCATgenScore$species))
+colnames(seq_upDown) = c("seq_up","seq_down","species")
+rownames(seq_upDown) = NULL
+seq_upDownMelt = melt(seq_upDown,  id.vars = "species")
+seq_upDownMelt$variable= as.factor(seq_upDownMelt$variable)
+seq_upDownMelt$value =  as.numeric(seq_upDownMelt$value)
+
+ggplot(seq_upDownMelt, aes(x=value, fill=species)) + geom_density(alpha=.3) + facet_wrap( ~ variable )
+ggplot(seq_upDownMelt, aes(x=value, fill=species)) + geom_histogram(alpha=.3, bins = 40) + facet_wrap( ~ variable )
+```
+
+## Get the number of reconstructed targets in the 3 species
+```{r plots_scipio_introns_gen}
+overlap =reshape(as.data.frame(table(allGCATgenScore[,c("target","species")])),idvar = "target", timevar="species" , direction = "wide" )
+head(overlap)
+overlap1 = overlap[,c(2:4)]
+dim(overlap1)
+length(which(apply(overlap1 == 0, 1, sum) == 0))
+
+#check only for the complete or incomplete/mismatches
+allGCATgenScoreStatusOK = subset(allGCATgenScore, allGCATgenScore$status == "auto" | allGCATgenScore$reason == "mismatches")
+overlapGood =reshape(as.data.frame(table(allGCATgenScoreStatusOK[,c("target","species")])),idvar = "target", timevar="species" , direction = "wide" )
+head(overlapGood)
+overlapGood1 = overlapGood[,c(2:4)]
+dim(overlapGood1)
+length(which(apply(overlapGood1 == 0, 1, sum) == 0))
+
+#plot again the length for contigs vs peptides for the selected targets
+ggplot(allGCATgenScoreStatusOK, aes(x=prot_len, y=contig_len)) +
+  geom_point(aes(shape=score >= 0.9,colour = score >= 0.9), size=2) + scale_shape_manual(values=c(3, 16, 17))+
+  scale_color_manual(values=c('#999999','#E69F00', '#56B4E9')) + facet_wrap( ~ species ) + theme_bw()
+```

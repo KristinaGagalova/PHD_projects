@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH -p all
+#SBATCH -n 24
+#SBATCH --mem=300G
+#SBATCH --job-name=RM
+#SBATCH -o %x.%j.log
+#SBATCH -N 1-1
+
+# numbers cluster /tmp is 200G SSD
+export TMPDIR=/tmp
+
+./run-repeatmasker $1

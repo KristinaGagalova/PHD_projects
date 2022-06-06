@@ -1,0 +1,166 @@
+---
+title: "Comparison of Coverage across 3 aligners - per gene only coding regions"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## BBT
+```{r load_dataBBTarabidopsis}
+PerBaseCovBBT <- read.table(gzfile("/projects/btl_scratch/kgagalova/PipelineCNV/ProofOfConcept/GenomeAnnotationsMasked/A.thaliana/BBmap/GCA_000001735.2_TAIR10.1exonsForR.bed.gz"), header=FALSE)
+
+head(PerBaseCovBBT)
+colNams = c("contig","exon","pos_exon","cov","gene","trans")
+colnames(PerBaseCovBBT) = colNams
+
+PerBaseCovBBT$exon = as.factor(PerBaseCovBBT$exon)
+PerBaseCovBBT$gene = as.factor(PerBaseCovBBT$gene)
+```
+
+Plot coverage per gene
+```{r calculate_stats_genesBBT}
+library(plyr)
+library(ggplot2)
+
+r2BBT = ddply(PerBaseCovBBT,~gene,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r2BBT = r2BBT[with(r2BBT, order(len)),]
+r2BBT$pos = 1:nrow(r2BBT)
+
+#######Plot
+pd <- position_dodge(0.1)
+ggplot(r2BBT, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2BBT,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean gene cov") + xlab("Individual genes (sorted len)")
+ggplot(r2BBT, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2BBT,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median gene cov") + xlab("Individual genes (sorted len)")
+
+summary(r2BBT$mean)
+```
+
+
+## Minimap2
+
+```{r load_dataMinimaparabidopsis}
+PerBaseCovMnmp <- read.table(gzfile("/projects/btl_scratch/kgagalova/PipelineCNV/ProofOfConcept/GenomeAnnotationsMasked/A.thaliana/Minimap2/GCA_000001735.2_TAIR10.1exonsForR.bed.gz"), header=FALSE)
+
+head(PerBaseCovMnmp)
+colNams = c("contig","exon","pos_exon","cov","gene","trans")
+colnames(PerBaseCovMnmp) = colNams
+
+PerBaseCovMnmp$exon = as.factor(PerBaseCovMnmp$exon)
+PerBaseCovMnmp$gene = as.factor(PerBaseCovMnmp$gene)
+```
+
+Plot coverage per gene
+
+```{r calculate_stats_genesMnmp}
+r2Mnmp = ddply(PerBaseCovMnmp,~gene,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r2Mnmp = r2Mnmp[with(r2Mnmp, order(len)),]
+r2Mnmp$pos = 1:nrow(r2Mnmp)
+
+#######Plot
+pd <- position_dodge(0.1)
+ggplot(r2Mnmp, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2Mnmp,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean gene cov") + xlab("Individual genes (sorted len)")
+ggplot(r2Mnmp, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2Mnmp,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median gene cov") + xlab("Individual genes (sorted len)")
+
+summary(r2Mnmp$mean)
+```
+
+## BWA
+
+```{r load_dataBWAarabidopsis}
+PerBaseCovBwa <- read.table(gzfile("/projects/btl_scratch/kgagalova/PipelineCNV/ProofOfConcept/GenomeAnnotationsMasked/A.thaliana/BWA/GCA_000001735.2_TAIR10.1exonsForR.bed.gz"), header=FALSE)
+
+head(PerBaseCovBwa)
+colNams = c("contig","exon","pos_exon","cov","gene","trans")
+colnames(PerBaseCovBwa) = colNams
+
+PerBaseCovBwa$exon = as.factor(PerBaseCovBwa$exon)
+PerBaseCovBwa$gene = as.factor(PerBaseCovBwa$gene)
+```
+
+Plot coverage per gene
+
+```{r calculate_stats_genesBwa}
+r2Bwa = ddply(PerBaseCovBwa,~gene,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r2Bwa = r2Bwa[with(r2Bwa, order(len)),]
+r2Bwa$pos = 1:nrow(r2Bwa)
+
+#######Plot
+pd <- position_dodge(0.1)
+ggplot(r2Bwa, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2Bwa,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean gene cov") + xlab("Individual genes (sorted len)")
+ggplot(r2Bwa, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2Bwa,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median gene cov") + xlab("Individual genes (sorted len)")
+
+summary(r2Bwa$mean)
+```
+## BWA -a option
+
+```{r load_dataBwaaarabidopsis}
+PerBaseCovBwaa <- read.table(gzfile("/projects/btl_scratch/kgagalova/PipelineCNV/ProofOfConcept/GenomeAnnotationsMasked/A.thaliana/BWAa/GCA_000001735.2_TAIR10.1exonsForRBwaa.bed.gz"), header=FALSE)
+
+head(PerBaseCovBwaa)
+colNams = c("contig","exon","pos_exon","cov","gene","trans")
+colnames(PerBaseCovBwaa) = colNams
+
+PerBaseCovBwaa$exon = as.factor(PerBaseCovBwaa$exon)
+PerBaseCovBwaa$gene = as.factor(PerBaseCovBwaa$gene)
+```
+
+Plot coverage per gene
+
+```{r calculate_stats_genesBwaa}
+r2Bwaa = ddply(PerBaseCovBwaa,~gene,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r2Bwaa = r2Bwaa[with(r2Bwaa, order(len)),]
+r2Bwaa$pos = 1:nrow(r2Bwaa)
+
+#######Plot
+pd <- position_dodge(0.1)
+ggplot(r2Bwaa, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2Bwaa,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean gene cov") + xlab("Individual genes (sorted len)")
+ggplot(r2Bwaa, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2Bwaa,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median gene cov") + xlab("Individual genes (sorted len)")
+
+summary(r2Bwaa$mean)
+```
+
+
+## MrsFast - single end reads
+
+```{r load_datamrFastarabidopsis}
+PerBaseCovMrF <- read.table(gzfile("/projects/btl_scratch/kgagalova/PipelineCNV/ProofOfConcept/GenomeAnnotationsMasked/A.thaliana/mrFastSi/GCA_000001735.2_TAIR10.1exonsForR.bed.gz"), header=FALSE)
+
+head(PerBaseCovMrF)
+colNams = c("contig","exon","pos_exon","cov","gene","trans")
+colnames(PerBaseCovMrF) = colNams
+
+PerBaseCovMrF$exon = as.factor(PerBaseCovMrF$exon)
+PerBaseCovMrF$gene = as.factor(PerBaseCovMrF$gene)
+```
+
+Plot coverage per gene
+
+```{r calculate_stats_genesmrFast}
+r2MrF = ddply(PerBaseCovMrF,~gene,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r2MrF = r2MrF[with(r2MrF, order(len)),]
+r2MrF$pos = 1:nrow(r2MrF)
+
+#######Plot
+pd <- position_dodge(0.1)
+ggplot(r2MrF, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2MrF,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean gene cov") + xlab("Individual genes (sorted len)")
+ggplot(r2MrF, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2MrF,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median gene cov") + xlab("Individual genes (sorted len)")
+
+summary(r2MrF$mean)
+```
+
+```{r save_worksp}
+save.image("/projects/btl_scratch/kgagalova/PipelineCNV/ProofOfConcept/GenomeAnnotationsMasked/A.thaliana/RenvAnalysis/CompareBBTminimapBWA.RData")
+```
+

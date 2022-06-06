@@ -1,0 +1,248 @@
+---
+title: "GO-termsTest"
+output:
+     github_document: default
+     html_document: default
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "output", output_format = "all") })
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Test go terms mapped to GO slim - Based on Pfam domains
+```{r load_Pfam}
+q903 <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceUpPaper/data/GoTerms/MapToPfam/Pfam/my_Slimgo_terms_plantQ903.counts", header=FALSE)
+ws <- read.delim("/projects/btl/kgagalova/PHD_projects2/SpruceUp/SpruceUpPaper/data/GoTerms/MapToPfam/Pfam/my_Slimgo_terms_plantWS77111.counts", header=FALSE)
+
+##bind the 2 classes
+q903_wsSlimAll = merge(q903,ws,by="V2")
+q903_wsSlimAll = q903_wsSlimAll[,c(1,2,5,3,4)]
+colnames(q903_wsSlimAll) = c("Go_term","Q903","WS77111","Domain","Go_name")
+dim(q903_wsSlimAll)
+
+#############All domains together
+colSums_q903_wsSlimAll = unname(apply(q903_wsSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_wsSlimAll)
+p1 =colSums_q903_wsSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_wsSlimAllSubs = subset(q903_wsSlimAll,q903_wsSlimAll$Q903 > 5 & q903_wsSlimAll$WS77111 > 5)
+dim(q903_wsSlimAllSubs)
+
+prob_slim = c()
+for (i in 1:nrow(q903_wsSlimAllSubs)){
+  #print(i)
+  obs = q903_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim[i] = chisq.test(obs, p=p1)$p.value
+}
+
+sum(p.adjust(prob_slim, method = "BH", n = length(prob_slim)) < 0.05)
+sum(p.adjust(prob_slim, method = "BH", n = length(prob_slim)) < 0.001)
+q903_wsSlimAllSubs$prob_slim = prob_slim
+
+q903_wsSlimAllSubs$prob_slimBH = p.adjust(prob_slim, method = "BH", n = length(prob_slim))
+
+subset(q903_wsSlimAllSubs,q903_wsSlimAllSubs$prob_slimBH < 0.05) 
+subset(q903_wsSlimAllSubs,q903_wsSlimAllSubs$prob_slimBH < 0.001)
+```
+
+## Test go terms mapped to GO slim - Based on BLAST and coverage 50% from subject and eval 1e-5
+```{r load_BLAST50}
+q903_50 <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/Q903/ThresholdCovIdentity2/my_Slimgo_terms_plant.Q903cov50.counts", header=FALSE)
+ws_50 <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/WS77111/ThresholdCovIdentity2/my_Slimgo_terms_plant.WS77111cov50.counts", header=FALSE)
+
+##bind the 2 classes
+q903_50_wsSlimAll = merge(q903_50,ws_50,by="V2")
+q903_50_wsSlimAll = q903_50_wsSlimAll[,c(1,2,5,3,4)]
+colnames(q903_50_wsSlimAll) = c("Go_term","Q903","WS77111","Domain","Go_name")
+dim(q903_50_wsSlimAll)
+
+#############All domains together
+colSums_q903_50_wsSlimAll = unname(apply(q903_50_wsSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_50_wsSlimAll)
+p1 =colSums_q903_50_wsSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_50_wsSlimAllSubs = subset(q903_50_wsSlimAll,q903_50_wsSlimAll$Q903 > 5 & q903_50_wsSlimAll$WS77111 > 5)
+dim(q903_50_wsSlimAllSubs)
+
+prob_slim50 = c()
+for (i in 1:nrow(q903_50_wsSlimAllSubs)){
+  #print(i)
+  obs = q903_50_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim50[i] = chisq.test(obs, p=p1)$p.value
+}
+
+sum(p.adjust(prob_slim50, method = "BH", n = length(prob_slim50)) < 0.05)
+sum(p.adjust(prob_slim50, method = "BH", n = length(prob_slim50)) < 0.001)
+q903_50_wsSlimAllSubs$prob_slim50 = prob_slim50
+
+q903_50_wsSlimAllSubs$prob_slim50BH = p.adjust(prob_slim50, method = "BH", n = length(prob_slim50))
+
+subset(q903_50_wsSlimAllSubs,q903_50_wsSlimAllSubs$prob_slim50BH < 0.05) 
+subset(q903_50_wsSlimAllSubs,q903_50_wsSlimAllSubs$prob_slim50BH < 0.001)
+
+q903_50_wsSlimAllSubs$prob_slim50Bon = p.adjust(prob_slim50, method = "bonferroni", n = length(prob_slim50))
+subset(q903_50_wsSlimAllSubs,q903_50_wsSlimAllSubs$prob_slim50Bon < 0.05)
+subset(q903_50_wsSlimAllSubs,q903_50_wsSlimAllSubs$prob_slim50Bon < 0.001)
+```
+
+## Test go terms mapped to GO slim - Based on BLAST and coverage 95% from subject eval 1e-5
+```{r load_BLAST95}
+q903_95 <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/Q903/ThresholdCovIdentity3/my_Slimgo_terms_plant.Q903cov95.counts", header=FALSE)
+ws_95 <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/WS77111/ThresholdCovIdentity3/my_Slimgo_terms_plant.WS77111cov95.counts", header=FALSE)
+
+##bind the 2 classes
+q903_95_wsSlimAll = merge(q903_95,ws_95,by="V2")
+q903_95_wsSlimAll = q903_95_wsSlimAll[,c(1,2,5,3,4)]
+colnames(q903_95_wsSlimAll) = c("Go_term","Q903","WS77111","Domain","Go_name")
+dim(q903_95_wsSlimAll)
+
+#############All domains together
+colSums_q903_95_wsSlimAll = unname(apply(q903_95_wsSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_95_wsSlimAll)
+p1 =colSums_q903_95_wsSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_95_wsSlimAllSubs = subset(q903_95_wsSlimAll,q903_95_wsSlimAll$Q903 > 5 & q903_95_wsSlimAll$WS77111 > 5)
+dim(q903_95_wsSlimAllSubs)
+
+prob_slim95 = c()
+for (i in 1:nrow(q903_95_wsSlimAllSubs)){
+  #print(i)
+  obs = q903_95_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim95[i] = chisq.test(obs, p=p1)$p.value
+}
+
+sum(p.adjust(prob_slim95, method = "BH", n = length(prob_slim95)) < 0.05)
+sum(p.adjust(prob_slim95, method = "BH", n = length(prob_slim95)) < 0.001)
+q903_95_wsSlimAllSubs$prob_slim95 = prob_slim95
+
+q903_95_wsSlimAllSubs$prob_slim95BH = p.adjust(prob_slim95, method = "BH", n = length(prob_slim95))
+
+subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95BH < 0.05) 
+subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95BH < 0.001)
+
+
+q903_95_wsSlimAllSubs$prob_slim95Bon = p.adjust(prob_slim95, method = "bonferroni", n = length(prob_slim95))
+subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95Bon < 0.05)
+subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95Bon < 0.001)
+```
+
+## Test go terms mapped to GO slim - Based on BLAST with id > 50%, cov subjet > 50% and eval 1e-10
+```{r load_BLASTth}
+q903_50id <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/Q903/ThresholdCovIdentity4/my_Slimgo_terms_plant.Q903IdLen.counts", header=FALSE)
+ws_50id <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/WS77111/ThresholdCovIdentity4/my_Slimgo_terms_plant.WS77111IdLen.counts", header=FALSE)
+
+##bind the 2 classes
+q903_50id_wsSlimAll = merge(q903_50id,ws_50id,by="V2")
+q903_50id_wsSlimAll = q903_50id_wsSlimAll[,c(1,2,5,3,4)]
+colnames(q903_50id_wsSlimAll) = c("Go_term","Q903","WS77111","Domain","Go_name")
+dim(q903_50id_wsSlimAll)
+
+#############All domains together
+colSums_q903_50id_wsSlimAll = unname(apply(q903_50id_wsSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_50id_wsSlimAll)
+p1 =colSums_q903_50id_wsSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_50id_wsSlimAllSubs = subset(q903_50id_wsSlimAll,q903_50id_wsSlimAll$Q903 > 5 & q903_50id_wsSlimAll$WS77111 > 5)
+dim(q903_50id_wsSlimAllSubs)
+
+prob_slim50id = c()
+for (i in 1:nrow(q903_50id_wsSlimAllSubs)){
+  #print(i)
+  obs = q903_50id_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim50id[i] = chisq.test(obs, p=p1)$p.value
+}
+
+sum(p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id)) < 0.05)
+sum(p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id)) < 0.001)
+
+sum(p.adjust(prob_slim50id, method = "bonferroni", n = length(prob_slim50id)) < 0.05)
+sum(p.adjust(prob_slim50id, method = "bonferroni", n = length(prob_slim50id)) < 0.001)
+
+
+#q903_95_wsSlimAllSubs$prob_slim95 = prob_slim50id
+#q903_95_wsSlimAllSubs$prob_slim95BH = p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id))
+#subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95BH < 0.05) 
+#subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95BH < 0.001)
+
+q903_50id_wsSlimAllSubs$prob_slimBon = p.adjust(prob_slim50id, method = "bonferroni", n = length(prob_slim50id))
+subset(q903_50id_wsSlimAllSubs,q903_50id_wsSlimAllSubs$prob_slimBon < 0.05)
+subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95Bon < 0.001)
+```
+
+## Test go terms mapped to GO slim - Based on BLAST with id > 50%, eval 1e-10 and aa align > 100
+```{r load_BLAST_id50_eval_aa}
+q903_50id <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/Q903/ThresholdCovIdentity5/my_Slimgo_terms_plant.Q903IdLen.counts", header=FALSE)
+ws_50id <- read.delim("/projects/spruceup_scratch/dev/SprucePaper2018/GoTermsAnalysis/MapToGOslim/BLAST/WS77111/ThresholdCovIdentity5/my_Slimgo_terms_plant.WS77111IdLen.counts", header=FALSE)
+
+##bind the 2 classes
+q903_50id_wsSlimAll = merge(q903_50id,ws_50id,by="V2")
+q903_50id_wsSlimAll = q903_50id_wsSlimAll[,c(1,2,5,3,4)]
+colnames(q903_50id_wsSlimAll) = c("Go_term","Q903","WS77111","Domain","Go_name")
+dim(q903_50id_wsSlimAll)
+
+#############All domains together
+colSums_q903_50id_wsSlimAll = unname(apply(q903_50id_wsSlimAll[,c(2,3)],2,sum))
+GrandTotal = sum(colSums_q903_50id_wsSlimAll)
+p1 =colSums_q903_50id_wsSlimAll / GrandTotal
+
+p1
+
+#filter for low counts
+q903_50id_wsSlimAllSubs = subset(q903_50id_wsSlimAll,q903_50id_wsSlimAll$Q903 > 5 & q903_50id_wsSlimAll$WS77111 > 5)
+dim(q903_50id_wsSlimAllSubs)
+
+prob_slim50id = c()
+for (i in 1:nrow(q903_50id_wsSlimAllSubs)){
+  #print(i)
+  obs = q903_50id_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim50id[i] = chisq.test(obs, p=p1)$p.value
+}
+
+prob_slim50idMC = c()
+for (i in 1:nrow(q903_50id_wsSlimAllSubs)){
+  print(i)
+  obs = q903_50id_wsSlimAllSubs[i,c("Q903","WS77111")]
+  #print(obs)
+  prob_slim50idMC[i] = chisq.test(obs, p=p1,simulate.p.value=T,B=5000)$p.value
+}
+
+sum(p.adjust(prob_slim50idMC, method = "BH", n = length(prob_slim50idMC)) < 0.05)
+sum(p.adjust(prob_slim50idMC, method = "BH", n = length(prob_slim50idMC)) < 0.001)
+
+
+sum(p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id)) < 0.05)
+sum(p.adjust(prob_slim50id, method = "BH", n = length(prob_slim50id)) < 0.001)
+
+sum(p.adjust(prob_slim50id, method = "bonferroni", n = length(prob_slim50id)) < 0.05)
+sum(p.adjust(prob_slim50id, method = "bonferroni", n = length(prob_slim50id)) < 0.001)
+
+#q903_95_wsSlimAllSubs$prob_slim95 = prob_slim95
+#q903_95_wsSlimAllSubs$prob_slim95BH = p.adjust(prob_slim95, method = "BH", n = length(prob_slim95))
+#subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95BH < 0.05) 
+#subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95BH < 0.001)
+
+q903_50id_wsSlimAllSubs$prob_slimBon = p.adjust(prob_slim50id, method = "bonferroni", n = length(prob_slim50id))
+subset(q903_50id_wsSlimAllSubs,q903_50id_wsSlimAllSubs$prob_slimBon < 0.05)
+subset(q903_95_wsSlimAllSubs,q903_95_wsSlimAllSubs$prob_slim95Bon < 0.001)
+```

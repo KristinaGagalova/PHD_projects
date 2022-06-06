@@ -1,0 +1,51 @@
+#!/bin/bash
+
+##########################################
+#########Kristina Gagalova################
+##########################################
+###########19 May 2017####################
+##########################################
+
+
+#------------------------------------------------------------
+# Usage
+#------------------------------------------------------------
+
+PROGRAM=$(basename $0)
+read -r -d '' USAGE <<HEREDOC
+Usage: $PROGRAM <list_param> <inputfile> 
+
+Description:
+
+Run several iterations of cdhit with decreasing threshold. Applied to nucleotide sequences.
+
+cd-hit-est should be in your path.
+
+
+HEREDOC
+
+# we expect 2 file arguments
+if [ $# -lt 2  ]; then
+    echo "Error: number of file args must be  2" >&2
+	echo "$USAGE" >&2
+	exit 1
+fi
+
+list_param=$1; shift;
+inputfile=$1; shift;
+
+runs=$(wc -l $list_param | awk '{print $1}')
+
+for i in $(seq 1 $runs)
+do
+echo "Running iteration "$i  
+c=$(head $list_param -n$i | tail -n1 | cut -d" " -f1)
+n=$(head $list_param -n$i | tail -n1 | cut -d" " -f2)
+if [ "$i" = 1 ]
+then
+cd-hit-est -T 0 -M 1000000 -c $c -r 0 -n $n -i $inputfile -o output_$i.fa > log$i
+else
+cd-hit-est -T 0 -M 1000000 -c $c -r 0 -n $n -i $tmp_file -o output_$i.fa > log$i
+fi
+tmp_file=output_$i.fa
+done

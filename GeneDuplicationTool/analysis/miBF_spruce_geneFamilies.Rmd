@@ -1,0 +1,47 @@
+---
+title: "miBF gene family"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the matches
+
+```{r loadETL}
+library(ggplot2)
+
+dataHits <- read.delim("/projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/miBF/WS77111geneFamilies/all_summaryHits.tsv", header=FALSE)
+
+rownames(dataHits) = dataHits[,1]
+dataHits = dataHits[,2:ncol(dataHits)]
+
+#dataHits<- sapply(sapply(dataHits, as.character),as.numeric)
+#dataHits
+
+dataHits$median = apply(dataHits,1,median)
+dataHits$mad = apply(dataHits,1,mad)
+
+summary(dataHits$mad)
+summary(dataHits$median)
+
+ggplot(dataHits, aes(x=row.names(dataHits), y=median)) + geom_point() + 
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+ggplot(dataHits, aes(x=median, y=mad)) + geom_point() #+ 
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+
+######remove zero values
+dataHitsNoZero = subset(dataHits, dataHits$median > 0 )
+dim(dataHits)
+dim(dataHitsNoZero)
+
+summary(dataHits$median)
+summary(dataHitsNoZero$median)
+```

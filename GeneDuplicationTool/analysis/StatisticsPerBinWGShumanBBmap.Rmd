@@ -1,0 +1,60 @@
+---
+title: "SHuman sample - WGS genes coverage with BBmap"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load datasets
+
+```{r load_data}
+PerBaseCovGenes <- read.table(gzfile("//projects/btl/kgagalova/PHD_projects2/GeneDuplicationTool/data/GenomeAnnotation/SelectedGenesAllGenenome/H.sapiens/BBmap/Homo_sapiens.GRCh38.90.genesFlanking_NA12878_s175forR.bed.gz"), header=FALSE)
+
+head(PerBaseCovGenes)
+colNams = c("contig","exon","pos_exon","cov","trans","gene")
+colnames(PerBaseCovGenes) = colNams
+
+PerBaseCovGenes$exon = as.factor(PerBaseCovGenes$exon)
+PerBaseCovGenes$gene = as.factor(PerBaseCovGenes$gene)
+
+#statistics per gene
+length(unique(PerBaseCovGenes$trans))
+length(unique(PerBaseCovGenes$gene))
+```
+
+
+## Including Plots
+```{r calculate_stats_genes}
+
+library(plyr)
+library(ggplot2)
+
+r1 = ddply(PerBaseCovGenes,~trans,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r1<-r1[with(r1, order(len)),]
+r1$pos = 1:nrow(r1)
+
+r2 = ddply(PerBaseCovGenes,~gene,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r2 = r2[with(r2, order(len)),]
+r2$pos = 1:nrow(r2)
+
+r1exons = ddply(PerBaseCovGenes, gene~exon,summarize,mean=mean(cov),sd=sd(cov),len=length(cov),med=median(cov))
+r1exons<-r1exons[with(r1exons, order(len)),]
+r1exons$pos = 1:nrow(r1exons)
+
+#######Plot
+pd <- position_dodge(0.1)
+ggplot(r2, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean gene cov") + xlab("Individual genes (sorted len)")
+ggplot(r2, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Individual gene (sorted len)")
+ggplot(r2,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median gene cov") + xlab("Individual genes (sorted len)")
+
+ggplot(r1, aes(pos,mean)) + geom_point() + ylab("Mean gene cov") + xlab("Indivisual gene (sorted len)")
+ggplot(r1,aes(pos,mean)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Mean transcripts cov") + xlab("Individual transcript (sorted len)")
+ggplot(r1, aes(pos,med)) + geom_point() + ylab("Median gene cov") + xlab("Indivisual gene (sorted len)")
+ggplot(r1,aes(pos,med)) + geom_point() + scale_y_continuous(limits = c(0, 150)) + ylab("Median transcripts cov") + xlab("Individual transcript (sorted len)")
+
+
+```

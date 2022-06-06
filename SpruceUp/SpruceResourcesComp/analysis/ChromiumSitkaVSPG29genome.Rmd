@@ -1,0 +1,182 @@
+---
+title: "Coverage Chromium reads on PG29v4 assembly"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## PG29v4 genome assembly
+
+### Abyss-fac stats for 3 genome assemblies - spruce
+
+|n  |n:500	|L50	|min	|N80	|N50	|N20	|E-size	|max	|sum	|name	|
+|:-------:|:-------:|:-----:|:---:|:---:|:-----:|:-----:|:-----:|:-------:|:-------:|:-------------:|
+|58.51e6	|4319783	|165773	|500	|3094	|19935	|120393	|69093	|1347868	|22.42e9	|ws77111sealed1.fa|
+|70.17e6	|4178533	|121847	|500	|2836	|34405	|120444	|70925	|1446508	|20.78e9	|PG29_V3.fa	|
+|**67.25e6**|**3057935**|**103840**|**500**|**5241**|**43530**|**133860**|**79575**|**1448480**|**20.65e9**|**PG29_V4.fa**|
+
+## Sitka Chromium reads aligned against PG29v4
+
+- Estimated coverage: 50X
+- 5 libraries
+
+Default BWA alignment - performed by Rene and Lauren. 
+
+## Genome coverage estmate
+
+Reference [here](http://bedtools.readthedocs.io/en/latest/content/tools/genomecov.html)
+
+```
+bedtools genomecov -ibam SpruceAlignment.bam -bga > SpruceAlignment.txt
+```
+
+Output is in BEDGRAPH format (example below)
+
+```
+#contig   start stop  reads
+chr1  0       554304  0
+chr1  554304  554309  5
+chr1  554309  554313  6
+chr1  554313  554314  1
+chr1  554314  554315  0
+chr1  554315  554316  6
+chr1  554316  554317  5
+chr1  554317  554318  1
+chr1  554318  554319  2
+chr1  554319  554321  6
+```
+
+The average coverage per contig is calculated as ```((stop - start) * reads ) / length_contig```
+
+## Plot mean coverage
+
+```{r data_load}
+library(reshape)
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+library(plyr)
+
+dataPath="/projects/btl/kgagalova/CoverageQ903"
+allFiles <- list.files( path = dataPath, pattern = "Coord.txt", full.names = TRUE )
+
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = F );
+  d$fileName <- fn;
+  d
+  } );
+
+d <- bind_rows( l );
+dim(d)
+
+sampl = c("E00132-1_2-SI-GA-E","E00455-A64450","E00455-A64451","E00455-A64452","E00455-A64453","E00457-A64450","E00457-A64451","E00457-A64452","E00457-A64453","E00458-SI-GA-E3","E00459-E00132")
+d$sample = as.factor(rep(sampl,each=3058927))
+
+d$lib = as.factor(rep(c("HYN5VCCXX:4","H352FALXX:1","H33W3ALXX:4","HYNCTCCXX:8","H33YVALXX:3"),c(3058927,3058927*4,3058927*4,3058927,3058927)))
+
+nams=c("contig","len","meanCov","file","sample","lib")
+colnames(d) = nams
+
+head(d)
+
+#check how many are zero's
+d_zero = subset(d,d$meanCov==0)
+table(d_zero$sample)
+```
+
+## Plot the mean coverage per sample, highligh library
+
+```{r boxplot}
+d_cov = subset(d,d$meanCov!=0)[,c("contig","len","meanCov","sample","lib")]
+ddply(d_cov, .(sample), summarize, "mean"= mean(meanCov), "median" = median(meanCov), "sd" = sd(meanCov), "mad" = mad(meanCov))
+write.table(d_cov,"/projects/btl/kgagalova/CoverageQ903/fill_table.txt",quote=F,row.names=F)
+#ggplot(d, aes(x=sample, y=meanCov, fill=lib)) +
+#  geom_boxplot()
+#ggplot(d, aes(x=sample, y=meanCov, fill=lib)) +
+#  geom_boxplot() +
+#  ylim(0, 20)
+```
+
+## Upload files  in long	format and sorted
+
+```{r}
+allFilesLong <- list.files( path = dataPath, pattern = "CoordSort.txt", full.names = TRUE )
+l2 <- lapply( allFilesLong, function( fn ){
+  d <- read.table( fn, header = F );
+  d
+  } );
+d2 <- bind_cols( l2 );
+dim(d2)
+ToKeep = c(1,2,3,6,9,12,15,18,21,24,27,30,33)
+d2_cov = d2[,ToKeep]
+colnames(d2_cov) = c("contig","len", sampl)
+head(d2_cov)
+#sum average coverage: cumlative coverage for all the libraries/samples
+d2_cov$total = apply(d2_cov[,c(3:13)],1,sum)
+```
+
+## Boxplot for cumulative coverage - all libraries/samples
+
+```{r boxplot_all}
+#number of contigs with 0 coverage after cumulative
+sum(d2_cov$total == 0)
+
+####Plot average coverage cumulative - range 0-20
+ggplot(d2_cov, aes(x=1, y=total)) +
+  geom_boxplot() +
+  ylim(0, 20) +
+  xlab("") +
+  ylab("Sum coverage all samples") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_text(face='bold',size=16,vjust=1),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(face='bold',size=14,color='black'))
+####Plot average coverage cumulative
+ggplot(d2_cov, aes(x=1, y=total)) +
+  geom_boxplot() + 
+  xlab("") +
+  ylab("Sum coverage all samples") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_text(face='bold',size=16,vjust=1),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(face='bold',size=14,color='black'))
+
+#########################################################################
+###PLOT only for the contigs that are >= 1000
+d2_cov1000 = subset(d2_cov,d2_cov$len >=1000)
+
+####Plot average coverage cumulative - range 0-20
+ggplot(d2_cov1000, aes(x=1, y=total)) +
+  geom_boxplot() +
+  ylim(0, 20) +
+  xlab("") +
+  ylab("Sum coverage all samples - >=1000 nt") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_text(face='bold',size=16,vjust=1),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(face='bold',size=14,color='black'))
+
+####Plot average coverage cumulative
+ggplot(d2_cov1000, aes(x=1, y=total)) +
+  geom_boxplot() + 
+  xlab("") +
+  ylab("Sum coverage all samples - >=1000 nt") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_text(face='bold',size=16,vjust=1),
+        axis.text.x = element_blank(),
+        axis.text.y = element_text(face='bold',size=14,color='black'))
+```
+
+## Summary stats sum all coverage 
+
+```{r stats}
+#all contigs
+summary(d2_cov$total)
+
+#contigs >=100
+summary(d2_cov1000$total)
+```

@@ -1,0 +1,158 @@
+---
+title: "DE analysis - Weevil experiments in H898 and Q903, Bias corrected"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+# H898
+## Import counts
+The option tximport imports the salmon results in R, can also optionally aggregate the counts for genes. If this has been done before, as in our case, use ```txOut = FALSE``` when calling import function.
+
+```{r load_dataBias}
+library("tximport")
+library("readr")
+library("tximportData")
+
+samplesH898 <- read.table("/projects/btl/kgagalova/PHD_projects2/SpruceUp/DifferentialExpression/data/Weevil/samplesH898.txt", header = FALSE)
+tx2gene <- read.table("/projects/spruceup_scratch/dev/SprucePaper2018/H898vsQ903sitka/GetDiffTrans/Cdhit/CdhitOnStarting/PostProcessing/SelectCDSonly/Chopstitch/Complete/geneMapTop5_nonNorm.tsv",header = F)
+
+dir="/projects/spruceup_scratch/dev/SprucePaper2018/H898vsQ903sitka/DE/Salmon/Weevil2/H898/quants/all_samples"
+allFiles <- list.files( path = dir, pattern = "quant.genesOnly", full.names = TRUE )
+names(allFiles) = samplesH898$V1
+
+txi.salmon <- tximport(allFiles, type = "salmon",tx2gene = NULL, txOut=TRUE)
+head(txi.salmon$counts)
+```
+
+## DE analysis
+
+Check this reference for more details:
+```https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html```
+```https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#theory-behind-deseq2```
+
+```{r DE_bias}
+library("DESeq2")
+library("ashr")
+
+sampleTable <- data.frame(condition = samplesH898$V2)
+rownames(sampleTable) <- colnames(txi.salmon$counts)
+ddsTxiH898 <- DESeqDataSetFromTximport(txi.salmon,
+                                   colData = sampleTable,
+                                   design = ~ condition)
+ddsH898 <- DESeq(ddsTxiH898)
+resH898 <- results(ddsH898)
+
+resultsNames(ddsH898)
+
+mcols(resH898)$description
+#check order condistions, Control should be the base
+ddsH898$condition
+resH898
+resLFCH898 <- lfcShrink(ddsH898, coef="condition_Gallery_vs_Control", type="apeglm")
+resLFCH898
+
+#order by p-values
+resOrderedH898 <- resH898[order(resH898$pvalue),]
+summary(resH898)
+sum(resH898$padj < 0.1, na.rm=TRUE)
+
+#show the differentially expressed
+res05H898 <- results(ddsH898, alpha=0.05)
+summary(res05H898)
+sum(res05H898$padj < 0.05, na.rm=TRUE)
+
+#plots
+plotMA(res05H898, ylim=c(-2,2))
+plotMA(resLFCH898, ylim=c(-2,2))
+
+# because we are interested in treated vs untreated, we set 'coef=2'
+resNormH898 <- lfcShrink(ddsH898, coef=2, type="normal")
+resAshH898 <- lfcShrink(ddsH898, coef=2, type="ashr")
+
+xlim <- c(1,1e5); 
+ylim <- c(-3,3)
+plotMA(resLFCH898, xlim=xlim, ylim=ylim, main="apeglm")
+plotMA(resNormH898, xlim=xlim, ylim=ylim, main="normal")
+plotMA(resAshH898, xlim=xlim, ylim=ylim, main="ashr")
+
+#plot counts
+plotCounts(ddsH898, gene=which.min(resH898$padj), intgroup="condition")
+
+setwd("/projects/btl/kgagalova/PHD_projects2/SpruceUp/DifferentialExpression/data/Weevil")
+write.csv(as.data.frame(resOrderedH898), file="H898_controlVSgallery_bias.csv")
+
+##########Check values with foldchange 1.5 and p-value 0.05
+#lfcThreshold is 1.5 fold change
+#resH898log2_1.5 <- results(ddsH898,altHypothesis="greaterAbs",lfcThreshold=0.58,alpha=0.05)
+#summary(resH898log2_1.5)
+#write.csv(as.data.frame(resOrderedH898), file="H898_controlVSgalleryLog15.csv")
+```
+
+# Q903
+## Import counts
+
+```{r load_dataQ903bias}
+samplesQ903 <- read.table("/projects/btl/kgagalova/PHD_projects2/SpruceUp/DifferentialExpression/data/Weevil/samplesQ903.txt", header = FALSE)
+
+dir="/projects/spruceup_scratch/dev/SprucePaper2018/H898vsQ903sitka/DE/Salmon/Weevil2/Q903/quants/all_samples"
+
+allFiles <- list.files( path = dir, pattern = "quant.genesOnly", full.names = TRUE )
+names(allFiles) = samplesQ903$V1
+
+txi.salmon <- tximport(allFiles, type = "salmon",tx2gene = NULL, txOut=TRUE)
+head(txi.salmon$counts) 
+```
+```{r deseqQ903}
+
+sampleTable <- data.frame(condition = samplesQ903$V2)
+rownames(sampleTable) <- colnames(txi.salmon$counts)
+ddsTxiQ903 <- DESeqDataSetFromTximport(txi.salmon,
+                                   colData = sampleTable,
+                                   design = ~ condition)
+ddsQ903 <- DESeq(ddsTxiQ903)
+resQ903 <- results(ddsQ903)
+resultsNames(ddsQ903)
+#check order condistions, Control should be the base
+ddsQ903$condition
+resQ903
+resLFCQ903 <- lfcShrink(ddsQ903, coef="condition_Gallery_vs_Control", type="apeglm")
+resLFCQ903
+
+#order by p-values
+resOrderedQ903 <- resQ903[order(resQ903$pvalue),]
+summary(resQ903)
+sum(resQ903$padj < 0.1, na.rm=TRUE)
+
+#show the differentially expressed
+resQ903_05 <- results(ddsQ903, alpha=0.05)
+summary(resQ903_05)
+sum(resQ903_05$padj < 0.05, na.rm=TRUE)
+
+#plots
+plotMA(resQ903_05, ylim=c(-2,2))
+plotMA(resLFCQ903, ylim=c(-2,2))
+
+# because we are interested in treated vs untreated, we set 'coef=2'
+resNormQ903 <- lfcShrink(ddsQ903, coef=2, type="normal")
+resAshQ903 <- lfcShrink(ddsQ903, coef=2, type="ashr")
+
+xlim <- c(1,1e5); 
+ylim <- c(-3,3)
+plotMA(resLFCQ903, xlim=xlim, ylim=ylim, main="apeglm")
+plotMA(resNormQ903, xlim=xlim, ylim=ylim, main="normal")
+plotMA(resAshQ903, xlim=xlim, ylim=ylim, main="ashr")
+
+#plot counts
+plotCounts(ddsQ903, gene=which.min(resQ903$padj), intgroup="condition")
+
+setwd("/projects/btl/kgagalova/PHD_projects2/SpruceUp/DifferentialExpression/data/Weevil")
+write.csv(as.data.frame(resOrderedQ903), file="Q903_controlVSgallery_bias.csv")
+
+#resQ903log2_1.5 <- results(ddsQ903,altHypothesis="greaterAbs",lfcThreshold=0.58,alpha=0.05)
+#summary(resQ903log2_1.5)
+#write.csv(as.data.frame(resOrderedQ903), file="Q903_controlVSgalleryLog15.csv")
+```

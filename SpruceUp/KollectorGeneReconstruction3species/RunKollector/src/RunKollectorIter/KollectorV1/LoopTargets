@@ -1,0 +1,13 @@
+#!/bin/bash
+
+list_files=/extscratch/btl/kgagalova/EasterRun/seed_1000nospaces/list_fasta_1.in
+
+for fasta in `cat $list_files`
+do
+	nam=$(echo $fasta | rev | cut -d/ -f1 | rev | cut -f1 -d. )
+	mkdir -p $nam && cd $nam
+	cp -p ../RunKollectorMultiple_TEMPLATE RunKollectorMultiple_$nam && cp -p ../kollector_multiple.sh ./
+	sed -i -e "s#_RePlAcE_#${fasta}#g" RunKollectorMultiple_$nam
+	qsub RunKollectorMultiple_$nam
+	cd ..
+done

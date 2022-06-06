@@ -1,0 +1,207 @@
+---
+title: "Compare RNAseq gene expression"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='images/',
+                      echo=TRUE, warning=FALSE, message=FALSE)
+```
+
+## Load the data sets
+
+```{r loadData}
+library( dplyr )
+library( ggplot2 )
+library( tidyr )
+library( data.table )
+
+dataPath="/projects/spruceup_scratch/pglauca/WS77111/annotation/genome-annotation/Maker/TestGCATs/PG29transcriptome/Ranalysis"
+allFiles <- list.files( path = dataPath, pattern = ".sf", full.names = TRUE )
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = T );
+  d$fileName <- fn;
+  d
+  } );
+d <- bind_rows( l );
+dim(d)
+d$dataset = sapply(strsplit(sapply(strsplit(d$fileName,"/"),"[[",12),"_"),"[[",1)
+d$sample = gsub(".sf","",sapply(strsplit(sapply(strsplit(d$fileName,"/"),"[[",12),"\\."),"[[",2))
+
+colnames(d)[c(1:5)] = c("Name","Length","EffectiveLength","TPM","NumReads")
+```
+
+
+```{r plotCoveWS_GCAT}
+ggplot(d, aes(y=TPM,x=dataset)) +
+      geom_boxplot(outlier.size=NA) +
+      facet_grid(~ sample) + 
+      geom_jitter(position=position_jitter(width=0.1,height=0),
+        alpha=0.2,
+        size=3,
+        colour="darkblue") +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggplot(d, aes(y=TPM,x=dataset)) +
+      geom_boxplot(outlier.size=NA) +
+      facet_grid(~ sample) + 
+      coord_cartesian(ylim = c(0, 100)) + 
+      geom_jitter(position=position_jitter(width=0.1,height=0),
+        alpha=0.2,
+        size=3,
+        colour="darkblue") + 
+      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggplot(d, aes(y=TPM,x=dataset)) +
+      geom_boxplot(outlier.size=NA) +
+      facet_grid(~ sample) + 
+      coord_cartesian(ylim = c(0, 200)) +
+      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ 
+equalZero = subset(d,d$TPM == 0)
+
+#check how many are equal to zero in GCAT and annotation
+equalZeroAnn = subset(equalZero,equalZero$dataset == "Annotation" )
+equalZeroGCAT = subset(equalZero,equalZero$dataset == "GCAT" )
+
+#check how many transcripts are expressed with zero TPM in each tissue
+apply(table(equalZeroAnn[,c("Name","sample")]), 2, sum)
+apply(table(equalZeroGCAT[,c("Name","sample")]), 2, sum)
+
+#check how many transcript are expressed with zero TPM in all the tissues
+length(which(apply(table(equalZeroAnn[,c("Name","sample")]), 1, sum) == 6))
+length(which(apply(table(equalZeroGCAT[,c("Name","sample")]), 1, sum) == 6))
+
+#sum the number of reads
+readsPG29map = aggregate(d$NumReads, by=list(Sample=d$sample,dataset=d$dataset), FUN=sum)
+readsPG29map
+
+#normalize by number of reads
+readsPG29 = read.table("/projects/spruceup_scratch/pglauca/WS77111/annotation/genome-annotation/Maker/TestGCATs/PG29transcriptome/CountReads/all.reads.out",header=F)
+
+readsPG29sum = aggregate(readsPG29$V2, by=list(Sample=readsPG29$V3), FUN=sum)
+readsPG29sum
+
+reads2div = readsPG29sum[rep(seq_len(nrow(readsPG29sum)), each=2),]
+
+readsPG29map$perc = readsPG29map$x /reads2div$x
+readsPG29map
+```
+## Same analysis on FB3 425
+
+```{r cDNA Sitka}
+dataPath="/projects/spruceup_scratch/psitchensis/Q903/annotation/genome-annotation/Maker/TestcDNA/Q903transcriptome/Ranalysis"
+allFiles <- list.files( path = dataPath, pattern = ".sf", full.names = TRUE )
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = T );
+  d$fileName <- fn;
+  d
+  } );
+d <- bind_rows( l );
+dim(d)
+d$dataset = sapply(strsplit(sapply(strsplit(d$fileName,"/"),"[[",12),"\\."),"[[",1)
+d$sample = gsub("_quant","",sapply(strsplit(sapply(strsplit(d$fileName,"/"),"[[",12),"\\."),"[[",2))
+
+colnames(d)[c(1:5)] = c("Name","Length","EffectiveLength","TPM","NumReads")
+```
+
+```{r plotCoveQ903_cDNA}
+ggplot(d, aes(y=TPM,x=dataset)) +
+       geom_boxplot(outlier.size=NA) +
+       facet_grid(~ sample) + 
+       geom_jitter(position=position_jitter(width=0.1,height=0),
+                alpha=0.2,
+                size=3,
+                colour="darkblue") + 
+       theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ 
+ggplot(d, aes(y=TPM,x=dataset)) +
+       geom_boxplot(outlier.size=NA) +
+       facet_grid(~ sample) + 
+       coord_cartesian(ylim = c(0, 50)) +
+       geom_jitter(position=position_jitter(width=0.1,height=0),
+                alpha=0.2,
+                size=3,
+                colour="darkblue") +
+       theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ 
+ ggplot(d, aes(y=TPM,x=dataset)) +
+     geom_boxplot(outlier.size=NA) +
+       facet_grid(~ sample) + 
+       coord_cartesian(ylim = c(0, 100)) + 
+       theme(axis.text.x = element_text(angle = 90, hjust = 1))
+ 
+ 
+equalZero = subset(d,d$TPM == 0)
+ 
+#check how many are equal to zero in GCAT and annotation
+equalZeroAnn = subset(equalZero,equalZero$dataset == "AllTrans" )
+equalZerocDNA = subset(equalZero,equalZero$dataset == "cDNA" )
+
+#check how many transcripts are expressed with zero TPM in each tissue
+apply(table(equalZeroAnn[,c("Name","sample")]), 2, sum)
+apply(table(equalZerocDNA[,c("Name","sample")]), 2, sum)
+ 
+#check how many transcript are expressed with zero TPM in all the tissues
+length(which(apply(table(equalZeroAnn[,c("Name","sample")]), 1, sum) == 4))
+length(which(apply(table(equalZerocDNA[,c("Name","sample")]), 1, sum) == 4))
+
+readsQ903map = aggregate(d$NumReads, by=list(Sample=d$dataset,d$sample), FUN=sum)
+readsQ903map
+
+#normalize by number of reads
+readsQ903 = read.table("/projects/spruceup_scratch/psitchensis/Q903/annotation/genome-annotation/Maker/TestcDNA/Q903transcriptome/CountReads/all_reads.counts.txt",header=F)
+
+readsQ903sum = aggregate(readsQ903$V2, by=list(Sample=readsQ903$V3), FUN=sum)
+readsQ903sum
+
+reads2div = readsQ903sum[rep(seq_len(nrow(readsQ903sum)), each=2),]
+
+readsQ903map$perc = readsQ903map$x /reads2div$x
+readsQ903map
+```
+
+## Analysis of transcriptome assembly - PG29
+```{r transcriptomePG29}
+
+dataPath="/projects/spruceup_scratch/pglauca/WS77111/annotation/genome-annotation/Maker/TestGCATs/PG29transcriptome/AssembledTranscripts/Ranalysis"
+allFiles <- list.files( path = dataPath, pattern = ".sf", full.names = TRUE )
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = T );
+  d$fileName <- fn;
+  d
+  } );
+d <- bind_rows( l );
+dim(d)
+d$sample = gsub("_quant","",sapply(strsplit(sapply(strsplit(d$fileName,"/"),"[[",13),"\\."),"[[",1))
+
+colnames(d)[c(1:5)] = c("Name","Length","EffectiveLength","TPM","NumReads")
+
+readsPG29map = aggregate(d$NumReads, by=list(Sample=d$sample), FUN=sum)
+
+readsPG29map$perc = readsPG29map$x/readsPG29sum$x
+readsPG29map
+```
+
+## Analysis of transcriptome assembly - Q903
+```{r transcriptomeQ903}
+
+dataPath="/projects/spruceup_scratch/psitchensis/Q903/annotation/genome-annotation/Maker/TestcDNA/Q903transcriptome/AssembledTranscripts/Ranalysis"
+allFiles <- list.files( path = dataPath, pattern = ".sf", full.names = TRUE )
+l <- lapply( allFiles, function( fn ){
+  d <- read.table( fn, header = T );
+  d$fileName <- fn;
+  d
+  } );
+d <- bind_rows( l );
+dim(d)
+d$sample = gsub("_quant","",sapply(strsplit(sapply(strsplit(d$fileName,"/"),"[[",13),"\\."),"[[",1))
+
+colnames(d)[c(1:5)] = c("Name","Length","EffectiveLength","TPM","NumReads")
+
+readsQ903map = aggregate(d$NumReads, by=list(Sample=d$sample), FUN=sum)
+
+readsQ903map$perc = readsQ903map$x/readsQ903sum$x
+readsQ903map
+```
+
